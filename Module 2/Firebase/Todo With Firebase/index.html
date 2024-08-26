@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Todo App </title>
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.todo-container {
+    margin-top: 20px;
+}
+
+.todo-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.todo-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 8px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.todo-item .text {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.todo-input {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.todo-input input[type="text"] {
+    flex-grow: 1;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.todo-input button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    .todo-item {
+        font-size: 14px;
+    }
+    .todo-input {
+        flex-direction: column;
+    }
+    .todo-input input[type="text"] {
+        margin-bottom: 10px;
+    }
+}
+
+    </style>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Todo List</h1>
+        <div class="todo-container">
+            <ul class="todo-list" id="todo-list">
+                <!-- List items will be dynamically added here -->
+            </ul>
+            <div class="todo-input">
+                <input type="text" id="todo-input" placeholder="Add a new todo...">
+                <button id="add-btn">Add</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import { getFirestore , collection, addDoc , getDocs , doc, deleteDoc , updateDoc } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyCK5fdvS32p6OL2RALh87KR_vaUGtGK__o",
+    authDomain: "projects-32a95.firebaseapp.com",
+    projectId: "projects-32a95",
+    storageBucket: "projects-32a95.appspot.com",
+    messagingSenderId: "154680197732",
+    appId: "1:154680197732:web:c4435f7b55b3fa8ce85571",
+    measurementId: "G-MJR038BWNM"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  let btn = document.getElementById('add-btn')
+  if (btn) {
+    btn.addEventListener('click' , async ()=>{
+        UL.innerHTML = ''
+        let inp = document.getElementById('todo-input')
+        const docRef = await addDoc(collection(db, "project"), {
+            name : inp.value
+
+        });
+console.log("Document written with ID: ", docRef.id);
+fetchdata()
+    })
+  }
+
+let UL = document.getElementById('todo-list') 
+async function fetchdata() {
+    const q = (collection(db, "project"));
+
+const querySnapshot = await getDocs(q);
+querySnapshot.forEach((doc) => {
+  // doc.data() is never undefined for query doc snapshots
+//   console.log(doc.id, " => ", doc.data());
+    
+UL.innerHTML +=  `<li> ${doc.data().name} <button onclick="delItem('${
+      doc.id
+    }')">Delete</button> <button onclick="editItem('${
+      doc.id
+    }')"> Edit</button> </li>`
+});
+
+}
+fetchdata()
+
+async function delItem(e) {
+UL.innerHTML = ''
+    console.log(e);
+    await deleteDoc(doc(db, "project", e));
+    console.log('It has deleted');
+fetchdata()
+}
+
+async function editItem(e) {
+    UL.innerHTML = ''
+let prom = prompt('Enter Updated Value')
+    const washingtonRef = doc(db, "project", e);
+    console.log('It has Updated');
+
+// Set the "capital" field of the city 'DC'
+await updateDoc(washingtonRef, {
+  name: prom,
+});
+fetchdata()
+}
+
+window.delItem = delItem;
+window.editItem = editItem;
+    </script>
+</body>
+</html>

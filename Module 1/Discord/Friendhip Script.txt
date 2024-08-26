@@ -1,0 +1,75 @@
+You: Hey there! How's it going?
+New Friend: Hi! I'm good, thanks. How about you?
+You: I'm great, thanks! Just exploring Discord and looking to make
+new friends. What about you?
+## Hobbies and Interests
+Yu: So, what do you usually do for fun?
+New Friend: | love gaming and watching movies. What about you?
+You: That's awesome! I enjoy gaming too. What's your favorite game?
+New Friend: | love playing (game name]. What about you?
+You: Cool! I'm really into [your favorite game]. Have you played it?
+### Music
+You: Btw, what kind of music do you like?
+New Friend: | listen to a lot of [genre/band]. You?
+You: I love [your favorite genre/band]. Any favorite songs or albums?
+## Movies and TV Shows
+You: Seen any good movies or TV shows lately?
+New Friend: Yeah, I just watched [movie/show name]. It was amazing!
+Have you seen it?
+You: Not yet, but I've heard good things. I'll definitely check it out. Any
+recommendations?
+### Fun Facts and Preferences
+You: If you could travel anywhere in the world, where would you go?
+New Friend: I'd love to visit [place]. How about you?
+You: I'd love to visit [your dream destination]. It looks so beautiful!
+You: Btw, do you have any hidden talents or hobbies?
+New Friend: | can [talent/hobby]. What about you?
+You: That's awesome! I can [your talent/hobby].
+### Ending the Conversation
+You: It's been really fun chatting with you! Let's stay in touch and
+maybe we can game together sometime?
+New Friend: Definitely! That sounds great. Talk to you soon!
+You: Cool, take care!
+
+_________________________________________________________________________________________
+
+## Books and Reading
+You: Do you like reading? What's the best book you've read recently?
+New Friend: Yes, I love reading. I recently read (book title]. It was
+amazing! What about you?
+You: That sounds interesting! I recently read [your favorite book]. Have
+you read it?
+## Food and Cooking
+You: What's your favorite type of food or cuisine?
+New Friend: | love [cuisine/food]. How about you?
+You: I'm a big fan of [your favorite cuisine/food]. Do you like cooking?
+New Friend: Yes, I enjoy cooking. I recently made [dish]. What about
+you?
+## Sports and Activities
+You: Do you follow any sports or play any games?
+New Friend: Yes, I love watching/playing [sport]. What about you?
+You: | enjoy [sport/activity] too! Do you have a favorite team or
+player?
+## Travel Experiences
+You: Have you traveled anywhere interesting recently?
+New Friend: Yes, I recently visited [place]. It was amazing! What about
+you?
+You: That sounds great! | went to [place] recently, and it was a
+fantastic experience. Any travel tips?
+## Personal Goals and Ambitions
+You: What are some of your goals or dreams for the future?
+New Friend: I'd love to [goal/ambition]. How about you?
+You: That sounds exciting! I'm working towards [your goal/ambition].
+## Fun and Random Questions
+You: If you could have any superpower, what would it be and why?
+New Friend: I'd choose [superpower] because [reason]. What about
+you?
+You: I'd love to have [superpower] because [reason].
+You: If you could meet any historical figure, who would it be and why?
+New Friend: I'd love to meet [historical figure] because [reason]. What
+about you?
+You: I'd choose [historical figure] because [reason).
+## Ending on a Positive Note
+You: It's been awesome getting to know you! Let's chat more soon.
+New Friend: Definitely! It was great talking to you too.
+You: Great! Take care!
