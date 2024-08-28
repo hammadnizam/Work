@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <style>
+        /* Reset some default styles */
+        body,
+        h1,
+        h2,
+        p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #17203a;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        .review-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .review {
+            background: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            padding: 20px;
+            gap: 20px;
+        }
+
+        .review img {
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+        }
+
+        .review-content {
+            flex: 1;
+        }
+
+        .review-content h2 {
+            margin-bottom: 5px;
+        }
+
+        .rating {
+            font-size: 1.2em;
+            color: #ffcc00;
+        }
+
+        footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .review {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .review img {
+                margin-bottom: 10px;
+            }
+        }
+
+        .logo {
+            font-size: 3em;
+            color: #fff;
+            font-family: fantasy;
+
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="index.html">pDc</a></div>
+
+        <h1>Customer Reviews</h1>
+    </header>
+    <main>
+        <section class="review-container">
+            <article class="review">
+                <img src="https://via.placeholder.com/100" alt="Customer Photo">
+                <div class="review-content">
+                    <h2>Muhammad Hammad</h2>
+                    <p class="rating">★★★★☆</p>
+                    <p>As a front end Developer in Digi Tech Administration. I have a lote of Expereince in Web and App Development.</p>
+                </div>
+            </article>
+            <article class="review">
+                <img src="https://via.placeholder.com/100" alt="Customer Photo">
+                <div class="review-content">
+                    <h2>Jatoi</h2>
+                    <p class="rating">★★★★★</p>
+                    <p>As a Seals and Marketing head in Prime Deign Crew. And have a 11 years of Expereince in marketing. </p>
+                </div>
+            </article>
+            <!-- Add more reviews here -->
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Company</p>
+    </footer>
+</body>
+
+</html>

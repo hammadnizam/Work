@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            background-color: #f0f8ff;
+            padding: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            width: calc(100% / 3 - 30px);
+            max-width: 300px;
+        }
+
+        .card img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        .button {
+            background-color: #5cb85c;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        #serv {
+            background-color: #17203a;
+            color: white;
+            height: 60px;
+
+        }
+
+        .logo {
+            font-size: 3em;
+            color: #fff;
+            font-family: fantasy;
+
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <div class="logo"><a href="index.html">pDc</a></div>
+    </center>
+    <center>
+        <h1 id="serv">Services</h1>
+    </center>
+    <div class="container">
+        <div class="card">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/002/214/468/small/teamwork-web-design-and-development-free-vector.jpg"
+                alt="web development">
+            <h2>Web Development</h2>
+            <p>Beautiful, responsive Web designs tailored to your needs.</p>
+            <button id="get1" class="button">Sig up</button>
+        </div>
+        <div class="card">
+            <img src="https://static.vecteezy.com/system/resources/thumbnails/005/084/689/small/graphic-designer-learning-program-software-painting-on-computer-free-vector.jpg"
+                alt="Graphic Design">
+            <h2>Graphic Design</h2>
+            <p>Eye-catching Graphics to make your brand stand out. </p>
+            <button id="get2" class="button">Sign up</button>
+        </div>
+        <div class="card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTWeEL0bVHYHPr2UhSCtKCrKIrrWTzRWtfeQ&s"
+                alt="3D Animation">
+            <h2>3D Animation</h2>
+            <p>Stunning 3D animations crafted to captivate and engage your audience.</p>
+            <button id="get3" class="button">signup</button>
+        </div>
+    </div>
+    <script>
+        let get1 = document.getElementById('get1')
+        get1.addEventListener('click', () => {
+            location.href = 'signup.html'
+        })
+        let get2 = document.getElementById('get2')
+        get2.addEventListener('click', () => {
+            location.href = 'signup.html'
+        })
+        let get3 = document.getElementById('get3')
+        get3.addEventListener('click', () => {
+            location.href = 'signup.html'
+        })
+
+    </script>
+
+
+</body>
+
+</html>

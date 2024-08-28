@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Design Service</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+
+        header {
+            background: linear-gradient(135deg, #0073e6, #00c6ff);
+            color: white;
+            text-align: center;
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header .highlight {
+            color: #ffeb3b;
+        }
+
+        header .btn {
+            padding: 10px 20px;
+            background: #ffeb3b;
+            color: #0073e6;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: background 0.3s ease;
+        }
+
+        header .btn:hover {
+            background: #ffca28;
+        }
+
+        section {
+            padding: 60px 0;
+            background: white;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            color: #0073e6;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: #f4f4f4;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 25px;
+            top: 0;
+            bottom: 0;
+            width: 5px;
+            background: #0073e6;
+        }
+
+        .timeline-item {
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.5rem;
+            color: #0073e6;
+        }
+
+        .timeline-item p {
+            margin-top: 10px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -35px;
+            top: 10px;
+            width: 20px;
+            height: 20px;
+            background: #0073e6;
+            border-radius: 50%;
+        }
+
+        .portfolio-gallery {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .portfolio-gallery img {
+            width: 30%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-gallery img:hover {
+            transform: scale(1.05);
+        }
+
+        .testimonial-carousel {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .testimonial-item {
+            margin-bottom: 20px;
+        }
+
+        .testimonial-item p {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: #555;
+        }
+
+        .testimonial-item span {
+            display: block;
+            margin-top: 10px;
+            color: #0073e6;
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .pricing-cards .card {
+            width: 30%;
+            text-align: center;
+        }
+
+        .pricing-cards .price {
+            font-size: 2rem;
+            color: #0073e6;
+            margin-top: 15px;
+        }
+
+        .contact-link {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 1.1rem;
+        }
+
+        #cta {
+            background: #0073e6;
+            color: white;
+            text-align: center;
+        }
+
+        #cta .highlight {
+            color: #ffeb3b;
+        }
+
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        .fade-in {
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        .fade-in.delay-1s {
+            animation-delay: 1s;
+        }
+
+        .fade-in.delay-2s {
+            animation-delay: 2s;
+        }
+
+        .fade-in.delay-3s {
+            animation-delay: 3s;
+        }
+
+        .slide-in {
+            opacity: 0;
+            transform: translateX(-100%);
+            animation: slideIn 0.8s forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .portfolio-gallery img {
+                width: 100%;
+            }
+
+            .pricing-cards .card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 100%;
+                padding: 0 10px;
+            }
+        }
+
+        #readu {
+            background-color: #f9f9f9;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <div class="container">
+            <h1 class="fade-in">Welcome to <span class="highlight">[Prime Design Crew]</span></h1>
+            <p class="fade-in delay-1s">We specialize in crafting unique and memorable logos that reflect your brand’s
+                identity.</p>
+            <br>
+            <a href="#cta" class="btn primary fade-in delay-2s">Get Started</a>
+        </div>
+    </header>
+
+    <section id="why-choose-us">
+        <div class="container">
+            <h2 class="section-title slide-in">Why Choose Us?</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Creative Expertise</h3>
+                    <p>Our designers have years of experience in creating logos that resonate with target audiences.</p>
+                </div>
+                <div class="card">
+                    <h3>Custom Designs</h3>
+                    <p>Every logo we create is tailored to your brand’s specific needs.</p>
+                </div>
+                <div class="card">
+                    <h3>Unlimited Revisions</h3>
+                    <p>We work with you until you’re 100% satisfied with your logo.</p>
+                </div>
+                <div class="card">
+                    <h3>Fast Turnaround</h3>
+                    <p>Get your first draft within 48 hours.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="our-process">
+        <div class="container">
+            <h2 class="section-title slide-in">Our Process</h2>
+            <div class="timeline">
+                <div class="timeline-item fade-in">
+                    <h3>Consultation</h3>
+                    <p>We start by understanding your brand, goals, and vision.</p>
+                </div>
+                <div class="timeline-item fade-in delay-1s">
+                    <h3>Concept Development</h3>
+                    <p>Our designers brainstorm and create initial concepts.</p>
+                </div>
+                <div class="timeline-item fade-in delay-2s">
+                    <h3>Feedback & Revisions</h3>
+                    <p>We refine the selected concept based on your feedback.</p>
+                </div>
+                <div class="timeline-item fade-in delay-3s">
+                    <h3>Final Delivery</h3>
+                    <p>Once approved, we deliver the logo in all necessary formats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2 class="section-title slide-in">Our Work</h2>
+            <p>Take a look at some of the logos we’ve designed for our satisfied clients.</p>
+            <div class="portfolio-gallery fade-in">
+                <img src="https://www.crazytips.org/wp-content/uploads/2021/01/20210114_131452-min_64-min.jpg" alt="Logo 1">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyctPnCoCLiVzK4P1iQeV_nL2do3K-fASUww&s" alt="Logo 2">
+                <img src="https://5.imimg.com/data5/JL/MF/FW/GLADMIN-65872914/log-design-250x250.jpg" alt="Logo 3">
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="section-title slide-in">What Our Clients Say</h2>
+            <div class="testimonial-carousel fade-in">
+                <div class="testimonial-item">
+                    <p>“The logo they designed perfectly captures the essence of our brand. We couldn’t be happier!”</p>
+                    <span>- [Mr Hammad]</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing">
+        <div class="container">
+            <h2 class="section-title slide-in">Affordable Pricing</h2>
+            <div class="pricing-cards fade-in">
+                <div class="card">
+                    <h3>Basic Logo Design</h3>
+                    <p class="price">$XX</p>
+                </div>
+                <div class="card">
+                    <h3>Premium Logo Package</h3>
+                    <p class="price">$XX</p>
+                </div>
+                <div class="card">
+                    <h3>Complete Branding Package</h3>
+                    <p class="price">$XX</p>
+                </div>
+            </div>
+            <p class="contact-link fade-in delay-2s">Contact us for a custom quote!</p>
+        </div>
+    </section>
+
+    <section id="cta">
+        <div class="container">
+            <h2 id="readu" class="section-title fade-in">Ready to Get Started?</h2>
+            <p class="fade-in delay-1s">Contact us today to discuss your logo design project, or <a href="#"
+                    class="highlight">click here</a> to get a free consultation!</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get in Touch</h2>
+            <p>Email: <a href="mailto:youremail@example.com">primedesigncrew.com</a></p>
+            <p>Phone: [+1 (510) 954 0786]</p>
+            <p>Address: [2950 - E - texas - ST#81 BOSSIER CITY , LA - 71111]</p>
+            <p>Or use our <a href="brief.html" class="highlight">contact form</a></p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 [Prime Design Crew]. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const testimonials = document.querySelectorAll('.testimonial-item');
+            let currentTestimonial = 0;
+
+            function showTestimonial(index) {
+                testimonials.forEach((testimonial, i) => {
+                    testimonial.style.display = i === index ? 'block' : 'none';
+                });
+            }
+
+            function nextTestimonial() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }
+
+            setInterval(nextTestimonial, 5000);
+            showTestimonial(currentTestimonial);
+        });
+
+
+    </script>
+</body>
+
+</html>
