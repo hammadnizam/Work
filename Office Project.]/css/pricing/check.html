@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Design Crew</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f5f5f5;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        header {
+            background-color: #222;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            /* Centered horizontally */
+            padding: 0 1rem;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+        }
+
+        .progress-bar {
+            display: flex;
+            justify-content: center;
+            /* Center the steps horizontally */
+            align-items: center;
+            margin: 2rem 0;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+            margin: 0 1rem;
+            /* Added margin for spacing between steps */
+        }
+
+        .step-circle {
+            background-color: #007bff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            line-height: 60px;
+            color: #fff;
+            font-weight: bold;
+            margin: 0 auto;
+            transition: background-color 0.3s ease;
+        }
+
+        .step-circle.active {
+            background-color: #ff0042;
+        }
+
+        .step-line {
+            height: 2px;
+            background-color: #ccc;
+            width: 100%;
+            margin-top: 1.5rem;
+        }
+
+        .step-line.active {
+            background-color: #ff0042;
+        }
+
+        .content-area {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            /* Center the items horizontally */
+        }
+
+        .logo-special,
+        .form-area,
+        .need-assistance {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .logo-special:hover,
+        .form-area:hover,
+        .need-assistance:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-special h3,
+        .form-area h3,
+        .need-assistance h3 {
+            margin-top: 0;
+            font-size: 1.5rem;
+            font-weight: bold;
+            /* color: rgb(99, 96, 96); */
+        }
+
+        .logo-special ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .logo-special li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .logo-special li::before {
+            content: '✓';
+            color: #ff0042;
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2rem;
+        }
+
+        .logo-special .btn-live-chat {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .logo-special .btn-live-chat:hover {
+            background-color: #0056b3;
+        }
+
+        .form-area label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+        }
+
+        .form-area input[type="text"],
+        .form-area input[type="email"],
+        .form-area input[type="tel"],
+        .form-area input[type="file"] {
+            width: calc(100% - 1rem);
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-area button {
+            background-color: #17203a;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+
+        .form-area button:hover {
+            background-color: #0f1c2e;
+        }
+
+        .need-assistance .contact-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .need-assistance .contact-info i {
+            font-size: 2rem;
+            margin-right: 1rem;
+            color: #007bff;
+            transition: color 0.3s ease;
+        }
+
+        .need-assistance .contact-info i:hover {
+            color: #ff0042;
+        }
+
+        footer {
+            background-color: #222;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+            animation: fadeIn 2s ease-in;
+        }
+
+        .btn-chat {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-chat:hover {
+            background-color: #0056b3;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .content-area {
+                flex-direction: column;
+            }
+
+            .logo-special,
+            .form-area,
+            .need-assistance {
+                margin-bottom: 1rem;
+            }
+        }
+
+        .highlight {
+            color: #ff0042;
+        }
+
+        .highlight:hover {
+            color: #ff0042;
+        }
+
+        .form-area input[type="text"],
+        .form-area input[type="email"],
+        .form-area input[type="tel"],
+        .form-area input[type="date"],
+        .form-area input[type="number"],
+        .form-area input[type="file"] {
+            width: calc(100% - 2rem);
+
+            padding: 0.75rem;
+
+            margin-bottom: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+
+        }
+
+        #spa:hover {
+            color: #ff0042;
+        }
+        #des{
+            font-family:initial;
+            font-weight: 5;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Prime Design Crew</h1>
+    </header>
+
+    <div class="container">
+        <h2>Let's Get Started with Your Project</h2>
+        <center>
+            <p class="highlight">Please Provide the information requested below.</p>
+        </center>
+        <div class="progress-bar">
+            <div class="step">
+                <div class="step-circle">1</div>
+                <p>Order Now</p>
+                <div class="step-line"></div>
+            </div>
+            <div class="step">
+                <div class="step-circle ">2</div>
+                <p>Logo Brief</p>
+                <div class="step-line "></div>
+            </div>
+            <div class="step">
+                <div class="step-circle active">3</div>
+                <p>Payment</p>
+                <div class="step-line active"></div>
+            </div>
+        </div>
+
+        <div class="content-area">
+            <div class="logo-special">
+                <div class="form-area">
+                    <center>
+                        <h3>Payment Information</h3>
+                    </center>
+                    <div>
+                        <label for="description">Description <span class="highlight">*</span></label>
+                        <input type="text" id="description" placeholder="Enter Description" required>
+
+                        <label for="amount">Amount: (USD) <span class="highlight">*</span></label>
+                        <input type="number" id="amount" placeholder="Enter Amount" required>
+
+                        <label for="first-name">First Name <span class="highlight">*</span></label>
+                        <input type="text" id="first-name" placeholder="Enter your First Name" required>
+
+                        <label for="last-name">Last Name <span class="highlight">*</span></label>
+                        <input type="text" id="last-name" placeholder="Enter your last Name" required>
+
+                        <label for="country">Country <span class="highlight">*</span></label>
+                        <input type="text" id="country" placeholder="Enter your Country" required>
+
+                        <label for="zip-code">ZIP/Postal Code <span class="highlight">*</span></label>
+                        <input type="number" id="zip-code" placeholder="Enter ZIP/Postal Code" required>
+
+                        <label for="city">City <span class="highlight">*</span></label>
+                        <input type="text" id="city" placeholder="Enter your City" required>
+
+                        <label for="state">State/Province <span class="highlight">*</span></label>
+                        <input type="text" id="state" placeholder="Enter your State/Province" required>
+
+                        <label for="address">Address <span class="highlight">*</span></label>
+                        <input type="text" id="address" placeholder="Enter your Address" required>
+
+                        <label for="text">TelePhone <span class="highlight">*</span></label>
+                        <input type="number" id="telephone" placeholder="Enter your Telephone">
+
+                        <label for="text">Email <span class="highlight">*</span></label>
+                        <input type="text" id="email" placeholder="Enter your Email">
+                        <br><br>
+                        <hr>
+                        <img src="https://creativedesigncrew.com/assets/order/img/visa.png" alt="">
+                        <br><br>
+                        <label for="text">Card Name: <span class="highlight">*</span></label>
+                        <input type="text" id="" placeholder="Enter your Card Name">
+
+                        <label for="text">Card Number: <span class="highlight">*</span></label>
+                        <input type="number" id="" placeholder="Enter your Card Number">
+
+                        <label for="text">EXP Date: <span class="highlight">*</span></label>
+                        <input type="date" id="" placeholder="Enter your Exp Date">
+
+                        <label for="text">CVV <span class="highlight">*</span></label>
+                        <input type="text" id="" placeholder="Enter your Cvv">
+
+                        <h id="des">Statement Descriptor:</h>
+                        
+
+
+                        <button type="submit">SUBMIT</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="need-assistance">
+            <h3><span class="highlight">Need</span> Assistance?</h3>
+            <div class="contact-info">
+                <i class="fas fa-phone-alt"></i>
+                <p id="spa">Call us: +1 (510) 954 0786</p>
+
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-envelope"></i>
+                <p id="spa">Email: primedesigncrew@gmail.com</p>
+            </div>
+            <div class="contact-info">
+                <i class="fas fa-map-marker-alt"></i>
+                <p id="spa">Address: 123 Design Street, Suite 456, Creativetown, USA</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Prime Design Crew. All rights reserved.</p>
+    </footer>
+
+    <button class="btn-chat">Live Chat</button>
+</body>
+
+</html>
