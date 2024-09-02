@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -44,15 +45,16 @@
 
         .progress-bar {
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 2rem;
+            margin: 2rem 0;
+            position: relative;
         }
 
         .step {
             text-align: center;
-            flex: 1;
             position: relative;
+            margin: 0 1rem;
         }
 
         .step-circle {
@@ -73,14 +75,9 @@
 
         .step-line {
             height: 2px;
-            background-color: #007bff;
-            flex: 1;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
-            transition: background-color 0.3s ease;
+            background-color: #ccc;
+            width: 100%;
+            margin-top: 1.5rem;
         }
 
         .step-line.active {
@@ -91,6 +88,7 @@
             display: flex;
             gap: 1rem;
             flex-wrap: wrap;
+            justify-content: center;
         }
 
         .logo-special,
@@ -150,7 +148,7 @@
         }
 
         .logo-special .btn-live-chat:hover {
-            background-color: #0056b3;
+            background-color: #0f1c2e;
         }
 
         .form-area label {
@@ -230,6 +228,7 @@
             from {
                 opacity: 0;
             }
+
             to {
                 opacity: 1;
             }
@@ -254,48 +253,14 @@
         .highlight:hover {
             color: #ff0042;
         }
-        .progress-bar {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2rem 0;
-    position: relative; /* Added to handle step-line positioning */
-}
 
-/* Ensure the steps are centered properly */
-.step {
-    text-align: center;
-    position: relative;
-    margin: 0 1rem; /* Added margin for spacing between steps */
-}
+        spa {
+            color: #ff0042;
+        }
 
-/* Center the step-line with flex properties */
-.step-line {
-    height: 2px;
-    background-color: #007bff;
-    flex: 1;
-    position: absolute;
-    top: 50%;
-    left: 0;
-    transform: translateX(0);
-    z-index: -1;
-    transition: background-color 0.3s ease;
-}
-
-/* Center content-area within the container */
-.container {
-    max-width: 1200px;
-    margin: 2rem auto; /* Centered horizontally */
-    padding: 0 1rem;
-}
-
-/* Ensure the elements within content-area are centered */
-.content-area {
-    display: flex;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center; /* Center the items horizontally */
-}
+        #spa:hover {
+            color: #ff0042;
+        }
     </style>
 </head>
 
@@ -306,7 +271,11 @@
 
     <div class="container">
         <h2>Let's Get Started with Your Project</h2>
-
+        <center>
+            <spa>
+                <p>Please Provide the information requested below.</p>
+            </spa>
+        </center>
         <div class="progress-bar">
             <div class="step">
                 <div class="step-circle active">1</div>
@@ -321,68 +290,71 @@
             <div class="step">
                 <div class="step-circle">3</div>
                 <p>Payment</p>
+                <div class="step-line"></div>
+
             </div>
         </div>
 
         <div class="content-area">
             <div class="logo-special">
-                <h3>Special Offers</h3>
+                <h3>Corporate Website</h3>
+                <h4>$3999.00</h4>
                 <ul>
-                    <li>Custom Designs</li>
-                    <li>24/7 Support</li>
-                    <li>Money-back Guarantee</li>
+                    <li>Up to 15 Unique Pages Website</li>
+                    <li>Custom Made, Interactive & Dynamic <br> Design</li>
+                    <li>Customized WordPress or PH <br> Development</li>
+                    <li>Fully Mobile Responsive</li>
+                    <li>Interactive Sliding Banners <br>
+                        Up to 10 Custom Made Banner Designs</li>
+                    <li>100% Ownership Rights</li>
+                    <li>100% Money-back Guarantee</li>
                 </ul>
-                <a href="#" class="btn-live-chat">Live Chat</a>
+                <a href="#" class="btn-live-chat">Click here to Live Chat</a>
             </div>
 
             <div class="form-area">
-                <h3>Logo Brief</h3>
-                <form>
-                    <label for="nature">Nature of the Business <span class="highlight">*</span></label>
-                    <input type="text" id="nature" required>
+                <h3>Please Fill the Form</h3>
+                <label for="name">NAME <span class="highlight">*</span></label>
+                <input type="text" id="name" placeholder="Name" required>
 
-                    <label for="logo-name">Name Appearing on the Logo <span class="highlight">*</span></label>
-                    <input type="text" id="logo-name" required>
+                <label for="email">EMAIL ADDRESS <span class="highlight">*</span></label>
+                <input type="email" id="email" placeholder="Email Address" required>
 
-                    <label for="tagline">Any Tagline or Slogan? <span class="highlight">*</span></label>
-                    <input type="text" id="tagline" required>
+                <label for="phone">Password<span class="highlight">*</span></label>
+                <input type="tel" id="password" placeholder="Phone Number" required>
+                <button id="btnsubmit" type="submit">SUBMIT</button>
 
-                    <label for="ideas">Any Ideas About Your Logo or Open to Fresh Ideas? <span class="highlight">*</span></label>
-                    <input type="text" id="ideas" required>
-
-                    <label for="color">Any Color Preferences? <span class="highlight">*</span></label>
-                    <input type="text" id="color" required>
-
-                    <label for="file">Upload Your References if Any <span class="highlight">*</span></label>
-                    <input type="file" id="file" required>
-
-                    <button type="submit">Continue</button>
-                </form>
             </div>
 
             <div class="need-assistance">
-                <h3><span class="highlight">Need</span> Assistance?</h3>
+                <h3>
+                    <spa>Need</spa> Assistance?
+                </h3>
                 <div class="contact-info">
-                    <i class="fas fa-phone-alt"></i>
-                    <p>Toll Free:<br>+1 (510) 954 0786</p>
+                    <i class="fas fa-phone"></i>
+                    <p id="spa">+1 (555) 123-4567</p>
                 </div>
                 <div class="contact-info">
-                    <i class="fas fa-comments"></i>
-                    <p>Live Chat:<br>with our design expert</p>
+                    <i class="fas fa-envelope"></i>
+                    <p id="spa">support@primedesigncrew.com</p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p id="spa">123 Design Street, Creative City, CC 12345</p>
                 </div>
             </div>
         </div>
     </div>
 
     <footer>
-        <p>© 2024 Prime Design Crew All Rights Reserved.</p>
+        <p>&copy; 2024 Prime Design Crew. All rights reserved.</p>
     </footer>
 
-    <button class="btn-chat">Chat</button>
+    <button class="btn-chat">Live Chat</button>
 
     <script type="module">
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
-        import { getStorage, ref, uploadBytes, getDownloadURL } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-storage.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
         const firebaseConfig = {
             apiKey: "AIzaSyC6gGQehsr_e2VUn4DLIWxEF5QacDaTQIk",
@@ -395,10 +367,44 @@
         };
 
         const app = initializeApp(firebaseConfig);
-        const storage = getStorage(app);
+        const auth = getAuth(app)
 
-        // Add additional functionality for file uploads here
+        let btnsubmit = document.getElementById('btnsubmit')
+        if (btnsubmit) {
+            btnsubmit.addEventListener('click', () => {
+                let email = document.getElementById('email')
+                let password = document.getElementById('password')
+
+                createUserWithEmailAndPassword(auth, email.value, password.value)
+                    .then((userCredential) => {
+                        const user = userCredential.user;
+                        location.href = 'brief.html'
+                        console.log(user);
+                    })
+                    .catch((error) => {
+                        console.log(error);
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "The email must be a valid email address. The phone must be between 8 and 20 digits.",
+                        });
+
+                    });
+
+
+            })
+        }
+        else if (email.value !== user && password.value !== user) {
+            console.log('Error A rha HA');
+            Swal.fire({
+                icon: "error",
+                title: "Oops...",
+                text: "Something went wrong!",
+                footer: '<a href="#">Why do I have this issue?</a>'
+            });
+        }
     </script>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit-id.js" crossorigin="anonymous"></script>
 </body>
 
 </html>

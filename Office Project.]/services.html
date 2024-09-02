@@ -76,6 +76,23 @@
             font-family: fantasy;
 
         }
+
+        .btn-chat {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-chat:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
@@ -109,6 +126,9 @@
             <button id="get3" class="button">signup</button>
         </div>
     </div>
+
+    <button class="btn-chat">Live Chat</button>
+
     <script>
         let get1 = document.getElementById('get1')
         get1.addEventListener('click', () => {
