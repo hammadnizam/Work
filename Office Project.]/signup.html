@@ -4,133 +4,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Signup</title>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #162139;
-            color: #fff;
-            font-family: sans-serif;
+            color: #e0e0e0;
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
-            min-height: 100vh;
-            margin: 0;
+            height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
         }
 
         .container {
             display: flex;
-            gap: 30px;
-            background-color: white;
-            padding: 30px;
-            border-radius: 10px;
-        }
-
-        .form {
-            background-color: #162139;
-            padding: 30px;
-            border-radius: 10px;
-            width: 300px;
-        }
-
-        .form h1 {
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .form input[type="text"],
-        .form input[type="email"],
-        .form input[type="tel"],
-        .form input[type="password"],
-
-        .form textarea {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 15px;
-            border: none;
-            border-radius: 5px;
-            background-color: #212A40;
-            color: #fff;
-            resize: none;
-        }
-
-        .form button {
-            background-color: #59C208;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            width: 100%;
-        }
-
-        .image {
-            /* display: flex; */
-            flex-direction: column;
-            justify-content: center;
+            flex-direction: row;
             align-items: center;
-            position: relative;
-            width: 300px;
-        }
-
-        .image img {
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            /* Allow wrapping of items on smaller screens */
+            max-width: 1200px;
+            /* Limiting the maximum width */
             width: 100%;
-            border-radius: 10px;
         }
 
-        .image .contact-info {
-            position: absolute;
-            top: 74%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background-color: #C52959;
+        .form-container,
+        .contact-info,
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .form-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #00b050;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: #00b050;
+            background-color: #333;
+            outline: none;
+        }
+
+        textarea.form-input {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background-color: #00b050;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .form-button:hover {
+            background-color: #009d42;
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
             padding: 20px;
-            border-radius: 10px;
-            width: 200px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             text-align: center;
         }
 
-        .image .contact-info a {
-            color: #fff;
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #00b050;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #00b050;
             text-decoration: none;
-            margin: 10px 0;
+            font-weight: 600;
         }
 
-        .image .contact-info .icon {
-            display: inline-block;
-            margin-right: 10px;
+        .contact-info a:hover {
+            text-decoration: underline;
+            
         }
 
+        .image-container {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #00b050;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .container {
                 flex-direction: column;
+                align-items: center;
+                gap: 20px;
             }
 
-            .form,
-            .image {
+            .form-container,
+            .contact-info,
+            .image-container {
+                max-width: 90%;
+            }
+
+            .form-container h2 {
+                font-size: 20px;
+            }
+
+            .contact-info h3 {
+                font-size: 18px;
+            }
+
+            .form-input,
+            .form-button {
+                font-size: 14px;
+            }
+
+            .contact-info p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .form-container,
+            .contact-info,
+            .image-container {
                 width: 100%;
+                max-width: 100%;
             }
 
-            .image .contact-info {
-                width: 90%;
+            .form-container h2 {
+                font-size: 18px;
+            }
+
+            .contact-info h3 {
+                font-size: 16px;
+            }
+
+            .form-input,
+            .form-button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .contact-info p {
+                font-size: 12px;
+            }
+
+            .image-container {
+                height: 250px;
             }
         }
-
-        .logo {
-            font-size: 3em;
-            color: #fff;
-            font-family: fantasy;
-
-        }
-
-        #SUBMIT:hover {
-            background-color: #C52959;
-        }
-
-        #GOOGLE:hover {
-            background-color: #C52959;
-        }
-
 
         .btn-chat {
             background-color: #007bff;
@@ -148,42 +250,54 @@
         .btn-chat:hover {
             background-color: #0056b3;
         }
+
+        
     </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="logo"><a href="index.html">pDc</a></div>
-
-        <div class="form">
-            <h1>Don't Be Shy. Talk To Us.</h1>
-            <input type="text" placeholder="Enter Your Name" required>
-            <input id="email" type="email" placeholder="Enter Your Email" required>
-            <input id="password" type="password" placeholder="Enter Your Password" required>
-
-            <input type="tel" placeholder="Enter Phone Number" required>
-            <!-- <textarea placeholder="Enter Your Project Brief" required></textarea> -->
-            <button id="SUBMIT" type="submit">SUBMIT</button><br><br>
-            <button id="GOOGLE" type="submit">Continue With Google</button>
-
+        <div class="form-container">
+            <h2>Don't Be Shy. Talk To Us.</h2>
+            <form>
+                <div class="form-group">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" id="name" class="form-input" placeholder="..." required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="...@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone Number</label>
+                    <input type="tel" id="phone" class="form-input" placeholder="+1 (123) 456-7890" required>
+                </div>
+                <div class="form-group">
+                    <label for="project" class="form-label">Project Brief</label>
+                    <textarea id="project" class="form-input" placeholder="Describe your project here..."
+                        required></textarea>
+                </div>
+                <button type="submit" class="form-button" id="SUBMIT">Submit</button>
+                <button type="submit" class="form-button" id="GOOGLE">Continue with Google</button>
+            </form>
         </div>
-        <br>
-        <div class="image">
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p><i id="icons" class="fas fa-phone-alt"></i> +1 (510) 954 0786 (USA)</p>
+            <p><i id="icons" class="fas fa-envelope"></i> <a
+                    href="mailto:info@primedesigncrew.com">info@primedesigncrew.com</a>
+            </p>
+            <p><i id="icons" class="fas fa-comments"></i> <a href="#">Live Chat</a></p>
+        </div>
+        <div class="image-container">
             <img src="https://creativedesigncrew.com/assets/images/webp/footer-form-img.webp" alt="Woman on phone">
-            <div class="contact-info">
-                <a href="tel:+15109540786"><i class="icon">&#9742;</i>+1 (510) 954 0786 (USA)</a>
-                <br>
-                <a href="mailto:info@primedesigncrew.com"><i class="icon">&#9993;</i>info@primedesigncrew.com</a>
-                <!-- <a href="#" class="live-chat"><i class="icon">&#128172;</i>Live Chat</a> -->
-            </div>
         </div>
     </div>
 
     <button class="btn-chat">Live Chat</button>
-
     <script src="google.js" type="module"></script>
-    <script type="module">
-        // Import the functions you need from the SDKs you need
+
+    <!-- <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
         import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
@@ -197,7 +311,6 @@
             measurementId: "G-KFS5QEVZRQ"
         };
 
-        // Initialize Firebase
         const app = initializeApp(firebaseConfig);
         const auth = getAuth(app)
 
@@ -209,7 +322,6 @@
 
                 createUserWithEmailAndPassword(auth, email.value, password.value)
                     .then((userCredential) => {
-                        // Signed up 
                         const user = userCredential.user;
                         location.href = 'ourportfolio.html'
                         console.log(user);
@@ -220,10 +332,8 @@
                             icon: "error",
                             title: "Oops...",
                             text: "The email must be a valid email address. The phone must be between 8 and 20 digits.",
-                            //   footer: '<a href="#">Why do I have this issue?</a>'
                         });
 
-                        // ..
                     });
 
 
@@ -238,8 +348,7 @@
                 footer: '<a href="#">Why do I have this issue?</a>'
             });
         }
-    </script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+    </script> -->
 
 </body>
 

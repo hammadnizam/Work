@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>What We Charge</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         body {
@@ -189,6 +192,124 @@
         .btn-chat:hover {
             background-color: #0056b3;
         }
+
+        #body {
+            background-color: #1c1c1c;
+            color: #ddd;
+            font-family: Arial, sans-serif;
+        }
+
+        .custom-footer {
+            background-color: #282828;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .custom-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .custom-section {
+            flex: 1;
+            min-width: 200px;
+            margin-bottom: 20px;
+            padding: 0 15px;
+            text-align: left;
+        }
+
+        .custom-section h3 {
+            color: #ff9800;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        .custom-section p {
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+
+        .custom-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .custom-list-item {
+            margin-bottom: 10px;
+        }
+
+        .custom-link {
+            color: #ff9800;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .custom-link:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .social-icons-wrapper {
+            margin-top: 15px;
+        }
+
+        .social-icons-wrapper .social-icon-item {
+            display: inline-block;
+            margin: 0 8px;
+        }
+
+        .social-icons-wrapper .social-icon-link {
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: #ff9800;
+            color: #282828;
+            text-align: center;
+            line-height: 36px;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 18px;
+        }
+
+        .social-icons-wrapper .social-icon-link:hover {
+            background-color: #282828;
+            color: #ff9800;
+        }
+
+        .newsletter-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #444;
+            border-radius: 5px;
+            background-color: #333;
+            color: #ddd;
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+
+        .newsletter-button {
+            background-color: #ff9800;
+            color: #282828;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .newsletter-button:hover {
+            background-color: #282828;
+            color: #ff9800;
+        }
+
+        .footer-credits {
+            margin-top: 20px;
+            font-size: 14px;
+        }
     </style>
 </head>
 
@@ -219,6 +340,41 @@
     </a>
 
     <button class="btn-chat">Live Chat</button>
+
+    <div id="body">
+        <footer class="custom-footer">
+            <div class="custom-container">
+                <div class="custom-section">
+                    <h3>About Us</h3>
+                    <p>We are a company dedicated to providing exceptional service and high-quality products. Our goal
+                        is to exceed customer expectations with every interaction.</p>
+                    <ul class="custom-list social-icons-wrapper">
+                        <li class="social-icon-item"><a href="#" aria-label="Google" class="social-icon-link"><i
+                                    class="fab fa-google"></i></a></li>
+                        <li class="social-icon-item"><a href="#" aria-label="Twitter" class="social-icon-link"><i
+                                    class="fab fa-twitter"></i></a></li>
+                        <li class="social-icon-item"><a href="#" aria-label="Facebook" class="social-icon-link"><i
+                                    class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-icon-item"><a href="#" aria-label="PayPal" class="social-icon-link"><i
+                                    class="fab fa-paypal"></i></a></li>
+                    </ul>
+                </div>
+                <div class="custom-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: <a href="mailto:info@primedesigncrew.com" class="custom-link">info@primedesigncrew.com</a>
+                    </p>
+                    <p>Phone: +1 (510) 954-0786</p>
+                    <p>Address: 2950 E Texas St, Suite 81, Bossier City, LA 71111</p>
+                </div>
+                <div class="custom-section">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-button" id="subscribe">Subscribe</button>
+                </div>
+            </div>
+            <p class="footer-credits">&copy; 2024 Your Company. All rights reserved.</p>
+        </footer>
+    </div>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             const links = document.querySelectorAll('nav a');
@@ -929,6 +1085,10 @@ Mentions</li>
             loadContent('LOGO');
         })
 
+        let subscribe = document.getElementById('subscribe')
+        subscribe.addEventListener('click' , ()=>{
+            location.href = "signup.html"
+        })
 
     </script>
 </body>
