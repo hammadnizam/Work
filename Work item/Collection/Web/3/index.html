@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Dry Cleaner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Easy Dry Cleaner</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="search-bar">
+                <input type="text" id="search" placeholder="Search services...">
+            </div>
+        </nav>
+        <div class="hero">
+            <div class="hero-content">
+                <h1>Exceptional Dry Cleaning</h1>
+                <p>Where your clothes get the care they deserve.</p>
+                <a href="#services" class="btn btn-primary">Discover Our Services</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="services" class="section">
+        <div class="container">
+            <h2>Our Services</h2>
+            <p>Discover our range of services designed to meet all your dry cleaning needs.</p>
+            <div class="service-list">
+                <div class="service-card" data-name="Basic Cleaning">
+                    <img src="https://via.placeholder.com/300x200" alt="Basic Cleaning">
+                    <h3>Basic Cleaning</h3>
+                    <p>Standard cleaning for your everyday clothes.</p>
+                    <button class="btn btn-add" data-id="1" data-name="Basic Cleaning" data-price="15">$15 - Add to Cart</button>
+                </div>
+                <div class="service-card" data-name="Deluxe Cleaning">
+                    <img src="https://via.placeholder.com/300x200" alt="Deluxe Cleaning">
+                    <h3>Deluxe Cleaning</h3>
+                    <p>Premium care for delicate fabrics.</p>
+                    <button class="btn btn-add" data-id="2" data-name="Deluxe Cleaning" data-price="30">$30 - Add to Cart</button>
+                </div>
+                <div class="service-card" data-name="Press & Fold">
+                    <img src="https://via.placeholder.com/300x200" alt="Press & Fold">
+                    <h3>Press & Fold</h3>
+                    <p>Expert pressing and folding for a crisp look.</p>
+                    <button class="btn btn-add" data-id="3" data-name="Press & Fold" data-price="10">$10 - Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="section bg-light">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <p>"Outstanding service! My clothes are always perfectly cleaned."</p>
+                    <cite>- Emily Clark</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"Reliable and affordable. Easy Dry Cleaner is my top choice for laundry."</p>
+                    <cite>- Michael Lee</cite>
+                </div>
+                <div class="testimonial">
+                    <p>"Excellent quality and friendly staff. Highly recommended!"</p>
+                    <cite>- Sarah Miller</cite>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>We are here to assist you. Reach out with any questions or requests.</p>
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <div id="cart-summary" class="cart-summary">
+        <h3>Your Cart</h3>
+        <div id="cart-items"></div>
+        <h4>Total: $<span id="cart-total">0.00</span></h4>
+        <button id="checkout" class="btn btn-primary">Checkout</button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Easy Dry Cleaner. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#testimonials">Testimonials</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Prime Design Crew</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+</head>
+<body>
+      
+    <div class="container" id="nav" class="bg-white">
+        <header class="absolute inset-x-0 top-0 z-50">
+          <nav class="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
+            <div class="flex lg:flex-1">
+              <a href="#" class="-m-1.5 p-1.5">
+                <span class="sr-only">Your Company</span>
+                <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" width="100%" height="50%" alt="">
+              </a>
+            </div>
+          
+
+              
+            <div class="hidden lg:flex lg:gap-x-8">
+              <div class="dropdown">
+                <button class="btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                 <b> Services</b>
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Web Development</a></li>
+                  <li><a class="dropdown-item" href="#">logo Design</a></li>
+                  <li><a class="dropdown-item" href="#">NFT Design</a></li>
+                  <li><a class="dropdown-item" href="#">Ecommerce Solution</a></li>
+                  <li><a class="dropdown-item" href="#">Video Animation</a></li>
+                  <li><a class="dropdown-item" href="#">Digital Marketing</a></li>
+                 
+                </ul>
+              </div>
+
+              <a href="#" class="text-sm font-semibold leading-6 text-gray-900 ">Our Portfolio</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Pricing</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">About Us</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Reviews</a>
+              <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Contact Us</a>
+            </div>
+            <div class="hidden lg:flex lg:flex-1 lg:justify-end">
+              <!-- <a href="#" class="text-sm font-semibold leading-6 text-gray-900">Log in <span aria-hidden="true">&rarr;</span></a> -->
+              <button  type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" id="number" >+92-239874823</button>
+              <button  type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" id="LiveChat" >Live Chat</button>
+            </div>
+          </nav>
+          <!-- Mobile menu, show/hide based on menu open state. -->
+          <!-- <div class="lg:hidden" role="dialog" aria-modal="true"> -->
+            <!-- Background backdrop, show/hide based on slide-over state. -->
+            <!-- <div class="fixed inset-0 z-50"></div>
+            <div class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+              <div class="flex items-center justify-between">
+                <a href="#" class="-m-1.5 p-1.5">
+                  <span class="sr-only">Your Company</span>
+                  <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt="">
+                </a>
+                <button type="button" class="-m-2.5 rounded-md p-2.5 text-gray-700">
+                  <span class="sr-only">Close menu</span>
+                  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+              <div class="mt-6 flow-root">
+                <div class="-my-6 divide-y divide-gray-500/10">
+                  <div class="space-y-2 py-6">
+                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Product</a>
+                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Features</a>
+                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Marketplace</a>
+                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Company</a>
+                  </div>
+                  <div class="py-6">
+                    <a href="#" class="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50">Log in</a>
+                  </div>
+                </div>
+              </div> 
+             </div> -->
+          </div>
+        </header>
+      
+         <div class="relative isolate px-6 pt-14 lg:px-8">
+          <div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+            <div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+          </div>
+          <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+            <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="1000">
+                  <img src="https://media.licdn.com/dms/image/C4D1BAQFijCFVMLMoHQ/company-background_10000/0/1647289032065/creative_design_crew_cover?e=2147483647&v=beta&t=yTNXJg9o81yfDBhcbgjgX4JuLC9AXt9FH0v-SkfGDD8" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <img src="https://media.licdn.com/dms/image/C4D1BAQFijCFVMLMoHQ/company-background_10000/0/1647289032065/creative_design_crew_cover?e=2147483647&v=beta&t=yTNXJg9o81yfDBhcbgjgX4JuLC9AXt9FH0v-SkfGDD8" class="d-block w-100" alt="...">
+                </div>
+                <div class="carousel-item" data-bs-interval="2000">
+                  <img src="https://media.licdn.com/dms/image/C4D1BAQFijCFVMLMoHQ/company-background_10000/0/1647289032065/creative_design_crew_cover?e=2147483647&v=beta&t=yTNXJg9o81yfDBhcbgjgX4JuLC9AXt9FH0v-SkfGDD8" class="d-block w-100" alt="...">
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleInterval" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+            
+            <div class="text-center">
+              <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Get Your Custom <br>----- Logo Design In <br>  </h1>
+              <p class="mt-6 text-lg leading-8 text-gray-600">Design custom logos for your brand to give it a <br>premium look!</p>
+              <div class="mt-10 flex items-center justify-center gap-x-6">
+                <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600" id="getstarted">Get started</a>
+               
+              </div>
+            </div>
+          </div>
+          <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+            <div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="hodiv" class="card mb-3" style="max-width: 100%;">
+        <div class="row g-4">
+          <div class="col-md-4 ">
+            <img src="https://cdn.dribbble.com/userupload/9088716/file/original-34f1c74ac6c9ab3ad274a6e5040e2bb5.png?resize=400x300&vertical=center" width="350px" height="" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body"><br><br>
+              <h5 class="card-title"><u><i><b>Logo Design</b></i></u></h5>
+              <br><br>
+              <p class="card-text">
+                Your company's logo is what defines you. We at Creative Design Crew are aware of it. According to the nature of your company and your target market, our designers ensure that they produce a customized, expert logo design. We begin with brainstorming, move through conceptualization and sketching, and end with a logo design that you love.
+                
+                View More</p>
+              <br>  
+            </div>
+          </div>
+        </div>
+      </div>
+
+        <br><br>
+ <!-- block box ai -->
+<center>
+ <div class="pricing-plans">
+  
+  <div id="card_s" class="plan-card" onmouseover="">
+    <h2>logo Special</h2>
+    <br>
+    <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="">
+    <ul>
+      <li>4 Original Logo Concepts</li>
+      <li>2 Dedicated Logo Designer</li>
+      <li>4 Revisions</li>
+      <li>Free Icon Design</li>
+      <li>With Scale Format</li>
+      <li>Formats:JPES Only</li>
+      <li>100% Satisfaction</li>
+      <li>100% Ownership Rights</li>
+
+     <br><br>
+    </ul>
+    <p class="price"><b>$35 / <sub><del>177</del></sub></b></p><br>
+    <button id="SignupBtn">Sign up</button>
+  </div>
+  <div id="card_s"  class="plan-card">
+    <h2>logo Plus</h2>
+    <br>
+    <img src="https://creativedesigncrew.com/assets/images/pack-img2.webp" alt="">
+    <ul>
+      <li>12 original logo concepts</li>
+      <li>4 Dedicated Logo Designer <br> (Industry Specific)</li>
+      <li>Unlimited Revisions</li>
+      <li>Email Signature Design</li>
+      <li></li>
+      <li>Up to 20 users</li>
+      <li>With Grey Scale Format</li>
+      <li>Free Icon Design</li>
+    </ul>
+    <br>
+    <p class="price"><b>$119 / <sub><del>397</del></sub></b></p><br>
+    <button id="SignupBtn">Sign up</button>
+  </div>
+  <div id="card_s"  class="plan-card">
+    <h2>logo Platinum</h2><br><br>
+    <img src="https://creativedesigncrew.com/assets/images/pack-img3.webp" alt="">
+    <p>Unlimited Original Logo Concepts</p><br><br>
+    <ul>
+      <li>Unlimited Revisions</li>
+      <li>Unlimited Original Logo Concepts</li>
+      <li>500 Business Cards</li>
+      <li>Unlimited Revisions</li>
+      <li>Email Signature Design</li>
+      <li>Up to 20 users</li>
+      </ul><br>
+    <p class="price"><b>$299 / <sub><del>997</del></sub></b></p><br>
+    <button id="SignupBtn">Sign up</button>
+  </div>
+  <div id="card_s"  class="plan-card">
+    <h2>logo Infinite</h2>
+    <br>
+    <img src="https://creativedesigncrew.com/assets/images/pack-img4.webp" alt="">
+    <p>12 original logo concepts</p>
+    <ul>
+      <li>Unlimited Revisions</li>
+      <li>5 Page Informative Website</li>
+      <li>Letterhead, Envelope<br>
+        Brand Book</li>
+      <li>500 Business Cards</li>
+      <li>50GB storage</li>
+      <li>Prioritized support</li>
+    </ul>
+    <p class="price"><b>$1249 / <sub><del>3330</del></sub></b></p><br>
+    <button id="SignupBtn">Sign up</button>
+  </div>
+  <div id="card_s"  class="plan-card">
+    <h2>Mascot Logo</h2>
+    <br>
+    <img src="https://creativedesigncrew.com/assets/images/pack-img5.webp" alt="">
+    <p>12 original logo concepts</p>
+    <ul>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>50GB storage</li>
+      <li>Prioritized support</li>
+    </ul>
+    <p class="price"><b>$599 / <sub><del>1996.7</del></sub></b></p><br>
+    <button id="SignupBtn">Sign up</button>
+  </div>
+  <div id="card_s"  class="plan-card">
+    <h2>3D Logo</h2>
+    <br>
+    <img src="https://creativedesigncrew.com/assets/images/pack-img6.webp" alt="">
+    <p>12 original logo concepts</p>
+    <ul>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>Up to 20 users</li>
+      <li>50GB storage</li>
+      <li>Prioritized support</li>
+    </ul>
+    <p class="price"><b>$349 / <sub><del>2330</del></sub></b></p><br>
+    <button id="SignupBtn">Sign up <i class="fa-solid fa-basket-shopping"></i></button>
+  </div>
+</div>
+</center>
+<br><br>
+
+<center><h1>
+  <i><b><u>Portfolio</u></b></i>
+</h1>
+
+
+</center>
+
+
+
+
+<!-- Footer -->
+<footer class="text-center text-lg-start bg-body-tertiary text-muted">
+  <!-- Section: Social media -->
+  <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+    <!-- Left -->
+    <div class="me-5 d-none d-lg-block">
+      <span>Get connected with us on social networks:</span>
+    </div>
+    <!-- Left -->
+
+    <!-- Right -->
+    <div>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-twitter"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-google"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-instagram"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-linkedin"></i>
+      </a>
+      <a href="" class="me-4 text-reset">
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <!-- Right -->
+  </section>
+  <!-- Section: Social media -->
+
+  <!-- Section: Links  -->
+  <section class="">
+    <div class="container text-center text-md-start mt-5"><center><b><i><u><strong><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRmyONuOkpXjErhFhYQncmOHtKDq37B-LZ_bQ&s" alt=""></strong></u></i></b></center><br><br>
+      <!-- Grid row -->
+      <div class="row mt-3">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <!-- Content -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            <i class="fas fa-gem me-3"></i>Company name
+          </h6>
+          <p>
+            Here you can use rows and columns to organize your footer content. Lorem ipsum
+            dolor sit amet, consectetur adipisicing elit.
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Services
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Web Development</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Logo Design</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Digital Marketing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Prodect Sealing</a>
+          </p>
+        </div>
+        <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Useful links
+          </h6>
+          <p>
+            <a href="#!" class="text-reset">Pricing</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Settings</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Orders</a>
+          </p>
+          <p>
+            <a href="#!" class="text-reset">Help</a>
+          </p>
+        </div>
+    
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+          <p><i class="fas fa-home me-3"></i> New York, NY 10012, US</p>
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            info@primedesigncrew.com.pk
+          </p>
+          <p><i class="fas fa-phone me-3"></i> +92-3032928719</p>
+          <p><i class="fas fa-print me-3"></i> +92-3032928719</p>
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+  </section>
+ 
+</footer>
+<!-- Footer -->
+    
+      <script src="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+      <script type="module" src="index.js"></script>
+</body>
+</html>
+
+
+
+
+

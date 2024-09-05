@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Responsive Card</title>
+    <style>
+        /* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #f0f4f8, #e6e9ef);
+    font-family: 'Roboto', sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+}
+
+.card-header {
+    position: relative;
+    overflow: hidden;
+    height: 300px;
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.card-header:hover .card-img {
+    transform: scale(1.1);
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 28px;
+    margin: 0;
+    color: #333;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.card-description {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0 20px;
+    line-height: 1.6;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 24px;
+    }
+    
+    .card-description {
+        font-size: 16px;
+    }
+    
+    .card-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/500x300" alt="Card Image" class="card-img">
+            </div>
+            <div class="card-body">
+                <h2 class="card-title">Sophisticated Card Design</h2>
+                <p class="card-description">Elevate your content presentation with a sleek and modern card design. Perfect for showcasing information with style.</p>
+                <a href="#" class="card-button">Explore More</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

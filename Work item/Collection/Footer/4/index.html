@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Footer Design</title>
+    <style>
+        /* CSS Variables for Theme Colors */
+:root {
+    --primary-color: #007bff; /* Vibrant Blue */
+    --secondary-color: #0056b3; /* Darker Blue */
+    --background-light: #f4f4f4;
+    --background-dark: #1c1c1c;
+    --text-light: #f0f0f0;
+    --text-dark: #212121;
+    --border-color: #007bff;
+    --shadow-light: rgba(0, 0, 0, 0.15);
+    --shadow-dark: rgba(0, 0, 0, 0.35);
+}
+
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Footer Styles */
+.footer {
+    position: relative;
+    padding: 40px 20px;
+    text-align: center;
+    color: var(--text-light);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 1));
+    overflow: hidden;
+}
+
+.theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 50%;
+    background: url('theme-toggle-icon.svg') no-repeat center center;
+    background-size: 50%;
+    cursor: pointer;
+    transition: background-size 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px var(--shadow-dark);
+}
+
+.theme-toggle:hover {
+    background-size: 60%;
+    transform: rotate(180deg);
+    box-shadow: 0 6px 15px var(--primary-color);
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.footer-card {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 6px 15px var(--shadow-dark);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    backdrop-filter: blur(6px);
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.25));
+    opacity: 0.25;
+    transition: opacity 0.3s ease;
+}
+
+.footer-card:hover::before {
+    opacity: 0.4;
+}
+
+.footer-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 24px var(--shadow-dark);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.footer-card h2 {
+    font-size: 1.8em;
+    margin-bottom: 15px;
+    color: var(--text-light);
+    border-bottom: 2px solid var(--primary-color);
+    padding-bottom: 8px;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.footer-card p {
+    font-size: 1em;
+    line-height: 1.5;
+}
+
+.footer-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-card ul li {
+    margin: 8px 0;
+}
+
+.footer-card ul li a {
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.footer-card ul li a:hover {
+    color: var(--primary-color);
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+
+.footer-card form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.footer-card input[type="email"] {
+    padding: 12px 18px;
+    border: 2px solid var(--primary-color);
+    border-radius: 8px;
+    width: 100%;
+    max-width: 320px;
+    margin-bottom: 10px;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0.2);
+    color: var(--text-light);
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.footer-card input[type="email"]:focus {
+    border-color: var(--secondary-color);
+    background: rgba(255, 255, 255, 0.3);
+    outline: none;
+}
+
+.footer-card button {
+    padding: 12px 20px;
+    border: none;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-card button:hover {
+    background-color: var(--secondary-color);
+    transform: scale(1.05);
+}
+
+.form-feedback {
+    color: #e74c3c;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background-size: 60%;
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 3px 8px var(--shadow-dark);
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 5px 12px var(--shadow-dark);
+}
+
+.facebook {
+    background-image: url('facebook-icon.svg');
+}
+
+.twitter {
+    background-image: url('twitter-icon.svg');
+}
+
+.instagram {
+    background-image: url('instagram-icon.svg');
+}
+
+.linkedin {
+    background-image: url('linkedin-icon.svg');
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.85em;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 10px;
+    color: var(--text-light);
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+.footer.dark-mode {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 1));
+}
+
+.footer.dark-mode .footer-card {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.footer.dark-mode .footer-card input[type="email"] {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.footer.dark-mode .footer-card button {
+    background-color: var(--secondary-color);
+}
+
+.footer.dark-mode .footer-card button:hover {
+    background-color: var(--primary-color);
+}
+
+.footer.dark-mode .social-icon {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Main content of the page -->
+    <div class="content">
+        <p>Main content goes here.</p>
+    </div>
+
+    <!-- Modern Footer Section -->
+    <footer class="footer">
+        <button class="theme-toggle" aria-label="Toggle Dark/Light Mode"></button>
+        <div class="footer-container">
+            <div class="footer-card about">
+                <h2>About Us</h2>
+                <p>Innovating through exceptional design and cutting-edge technology.</p>
+            </div>
+            <div class="footer-card links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-card newsletter">
+                <h2>Newsletter</h2>
+                <p>Stay updated with our latest news and offers. Subscribe now!</p>
+                <form action="#" method="post">
+                    <input type="email" placeholder="Enter your email" aria-label="Email Address" required>
+                    <button type="submit">Subscribe</button>
+                    <div class="form-feedback"></div>
+                </form>
+            </div>
+            <div class="footer-card social-media">
+                <h2>Follow Us</h2>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook" aria-label="Facebook"></a>
+                    <a href="#" class="social-icon twitter" aria-label="Twitter"></a>
+                    <a href="#" class="social-icon instagram" aria-label="Instagram"></a>
+                    <a href="#" class="social-icon linkedin" aria-label="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript file -->
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Dark Mode Toggle
+    const themeToggle = document.querySelector('.theme-toggle');
+    const body = document.body;
+
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark-mode');
+    });
+
+    // Form validation and real-time feedback
+    const form = document.querySelector('.footer-card form');
+    const emailInput = form.querySelector('input[type="email"]');
+    const submitButton = form.querySelector('button');
+    const formFeedback = form.querySelector('.form-feedback');
+
+    emailInput.addEventListener('input', () => {
+        if (emailInput.validity.valid) {
+            emailInput.style.borderColor = 'var(--primary-color)';
+            submitButton.disabled = false;
+            formFeedback.textContent = '';
+        } else {
+            emailInput.style.borderColor = '#e74c3c';
+            submitButton.disabled = true;
+            formFeedback.textContent = 'Please enter a valid email address.';
+        }
+    });
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        alert('Thank you for subscribing!');
+        form.reset();
+        formFeedback.textContent = 'Thank`s For Subscribe Mate';
+    });
+});
+
+    </script>
+</body>
+</html>

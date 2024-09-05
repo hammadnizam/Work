@@ -1,0 +1,106 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.signup-form {
+    padding: 20px;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.logo img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.signup-form h2 {
+    margin-top: 0;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input[type="text"],.input-group input[type="email"],.input-group input[type="password"] {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.input-group label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    font-size: 16px;
+    color: #aaa;
+    transition: 0.3s;
+}
+
+.input-group input[type="text"]:focus,.input-group input[type="email"]:focus,.input-group input[type="password"]:focus {
+    border-color: #4CAF50;
+}
+
+.input-group input[type="text"]:focus + label,.input-group input[type="email"]:focus + label,.input-group input[type="password"]:focus + label {
+    color: #4CAF50;
+    transform: translateY(-20px);
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: #4CAF50;
+    transition: 0.3s;
+}
+
+.input-group input[type="text"]:focus ~.bar,.input-group input[type="email"]:focus ~.bar,.input-group input[type="password"]:focus ~.bar {
+    height: 4px;
+}
+
+.signup-form input[type="submit"] {
+    width: 100%;
+    height: 40px;
+    background-color: #4CAF50;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.signup-form input[type="submit"]:hover {
+    background-color: #3e8e41;
+}
+
+.signup-form p {
+    margin-top: 10
+}

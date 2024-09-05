@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Fetch Profile</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>GitHub Fetch Profile</h1>
+        <form>
+            <input type="text" id="username" placeholder="Enter GitHub username">
+            <button id="fetch-profile">Fetch Profile</button>
+        </form>
+        <div id="profile-container">
+            <img id="profile-avatar" src="" alt="Profile Avatar">
+            <h2 id="profile-name"></h2>
+            <p id="profile-bio"></p>
+            <ul id="profile-stats">
+                <li><span id="profile-followers"></span> Followers</li>
+                <li><span id="profile-following"></span> Following</li>
+                <li><span id="profile-repos"></span> Repos</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

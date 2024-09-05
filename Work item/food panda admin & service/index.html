@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQsL3xuOEnOKjDUb3yzn8b-ytOXVdyhW_6JDg&s">
+    <style>
+        body {
+            background-image: url('https://images.deliveryhero.io/image/foodpanda/homepage/refresh-hero-home-pk.png');
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+        }
+        h1 {
+            color: #050404;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            background-color: rgb(250, 3, 44);
+            color: white;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px;
+            transition: background-color 0.3s ease;
+            border-radius: 30px;
+
+        }
+        .button:hover {
+            background-color: #0de918;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .button {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+            @media (max-width: 300px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+        @media (max-width: 400px) {
+            h1 {
+                font-size: 2rem;
+            }
+            .button {
+                padding: 10px 20px;
+                font-size: 1rem;
+            }
+        }
+       /* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.search-container {
+  position: relative;
+}
+
+input[type="text"] {
+  padding: 10px 20px;
+  border: 2px solid #ddd;
+  border-radius: 25px;
+  font-size: 16px;
+  width: 300px; /* Adjust width as needed */
+  transition: all 0.3s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: #8bc34a; /* Change border color on focus */
+}
+
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px 15px;
+  border: none;
+  background-color: #8bc34a; /* Button background color */
+  color: white;
+  border-radius: 0 25px 25px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #689f38; /* Darker shade on hover */
+}
+
+/* Font Awesome icon styling */
+button i {
+  font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  input[type="text"] {
+    width: 100%; /* Full width on smaller screens */
+  }
+}
+
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <h1>Welcome to Food panda Website</h1>
+        <br>
+        <div class="buttons">
+                <div class="search-container">
+                  <form action="#">
+                    <input id="Email" type="text" placeholder="Email...">
+                    <button id="SUBMIT" type="submit"><i class="fa fa-search">SUBMIT</i></button>
+                  </form>
+                </div>
+                
+            <a href="signUp.html" id="adminbtn" class="button">ADMIN</a>
+            <a href="signUp.html" id="userbtn" class="button">USER</a>
+
+        </div>
+    </div>
+
+    
+    <script type="module" src="index.js"></script>
+
+
+
+</body>
+</html>

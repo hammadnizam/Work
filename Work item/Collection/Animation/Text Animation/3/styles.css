@@ -1,0 +1,190 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f4f4f4;
+}
+
+.header, .container {
+    text-align: center;
+    padding: 20px;
+}
+
+.typing-container {
+    display: inline-block;
+    border-right: 2px solid #ff6f61;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    font-size: 2rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff6f61; }
+} */
+
+/* .fade-slide {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+} */
+
+/* @keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+} */
+
+.hover-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #333;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.hover-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #ff6f61;
+    transition: width 0.3s;
+}
+
+.hover-underline:hover {
+    color: #ff6f61;
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+
+/* .gradient-text {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #ff6f61, #ff9f70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gradient-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6f61, #ff9f70);
+    animation: slide 2s infinite;
+}
+
+@keyframes slide {
+    to {
+        left: 100%;
+    }
+} */
+/* Gradient Text Reveal */
+.gradient-text {
+    font-size: 3rem;
+    background: linear-gradient(90deg, #ff6f61, #ff9f70);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.gradient-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, #ff6f61, #ff9f70);
+    animation: slide 2s infinite;
+}
+
+@keyframes slide {
+    to {
+        left: 100%;
+    }
+}
+/* Hover Effect with Underline Animation */
+.hover-underline {
+    position: relative;
+    display: inline-block;
+    font-size: 1.5rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.hover-underline::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 3px;
+    background: #ff6f61;
+    transition: width 0.3s;
+}
+
+.hover-underline:hover {
+    color: #ff6f61;
+}
+
+.hover-underline:hover::after {
+    width: 100%;
+}
+/* Fade and Slide Animation */
+.fade-slide {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Typing Animation */
+.typing-container {
+    display: inline-block;
+    border-right: 2px solid #ff6f61; /* Cursor effect */
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+    font-size: 2rem;
+    color: #333;
+    font-family: 'Roboto', sans-serif;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* @keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #ff6f61; }
+} */

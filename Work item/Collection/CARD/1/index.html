@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Responsive Card</title>
+    <style>
+        /* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(to right, #f7f8f8, #e3f2fd);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    max-width: 500px;
+    width: 100%;
+    margin: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+}
+
+.card-header {
+    position: relative;
+    overflow: hidden;
+}
+
+.card-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 26px;
+    margin: 0;
+    color: #333;
+    font-weight: 600;
+}
+
+.card-description {
+    font-size: 18px;
+    color: #555;
+    margin: 10px 0 20px;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 22px;
+    }
+    
+    .card-description {
+        font-size: 16px;
+    }
+    
+    .card-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="card-header">
+            <img src="https://via.placeholder.com/400x200" alt="Card Image" class="card-img">
+        </div>
+        <div class="card-body">
+            <h2 class="card-title">Elegant Card Design</h2>
+            <p class="card-description">Discover how a touch of modern design can make a simple card look extraordinary. Perfect for showcasing content elegantly.</p>
+            <a href="#" class="card-button">Discover More</a>
+        </div>
+    </div>
+</body>
+</html>

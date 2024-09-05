@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite eCommerce Experience</title>
+    <style>
+/* Basic Reset */
+
+body, h1, h2, p, ul, li {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background: #f4f4f4;
+    overflow-x: hidden;
+}
+
+/* Header and Navigation */
+header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: #fff;
+    padding: 20px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: relative;
+}
+
+.logo {
+    font-size: 2.5em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.nav-links li {
+    margin: 0;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.3);
+    color: #ffd700;
+    transform: translateY(-3px);
+}
+
+/* Mobile Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger .bar {
+    height: 3px;
+    background: #fff;
+    margin: 6px 0;
+    width: 30px;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hamburger:hover .bar {
+    background: #ffd700;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1600x800') center/cover no-repeat;
+    color: #fff;
+    text-align: center;
+    padding: 180px 20px;
+    margin-top: 60px;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 5px solid #ffd700;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-shadow: 3px 3px 12px rgba(0, 0, 0, 0.7);
+}
+
+.hero p {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.hero button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: #fff;
+    background: #ff6347;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hero button:hover {
+    background: #ff4500;
+    transform: scale(1.1);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Products Section */
+.products {
+    padding: 80px 20px;
+    background: #fff;
+    border-radius: 15px;
+    margin: 20px auto;
+    max-width: 1200px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.products h2 {
+    text-align: center;
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #333;
+    font-weight: 600;
+}
+
+/* Grid Layout for Products */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.product-card {
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.product-card img {
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.product-card img:hover {
+    transform: scale(1.1);
+}
+
+.product-info {
+    padding: 20px;
+    text-align: center;
+}
+
+.product-info h3 {
+    margin: 15px 0;
+    font-size: 1.8em;
+    color: #333;
+}
+
+.product-info p {
+    color: #ff6347;
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+.product-info button {
+    padding: 12px 25px;
+    font-size: 1.2em;
+    color: #fff;
+    background: #ff6347;
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-info button:hover {
+    background: #ff4500;
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 900px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.modal-content:hover {
+    transform: scale(1.02);
+}
+
+.modal img {
+    max-width: 100%;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+}
+
+.modal img:hover {
+    transform: scale(1.05);
+}
+
+.modal .close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.5em;
+    cursor: pointer;
+    color: #ff6347;
+    transition: color 0.3s ease;
+}
+
+.modal .close:hover {
+    color: #ff4500;
+}
+
+.modal h2 {
+    margin: 20px 0;
+    color: #333;
+}
+
+.modal button {
+    background: #ff6347;
+    border: none;
+    color: #fff;
+    padding: 12px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.modal button:hover {
+    background: #ff4500;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .hero h1 {
+        font-size: 4.5em;
+    }
+
+    .hero p {
+        font-size: 1.6em;
+    }
+
+    .hero button {
+        font-size: 1.1em;
+        padding: 12px 25px;
+    }
+}
+
+@media (max-width: 992px) {
+    .products h2 {
+        font-size: 2.6em;
+    }
+
+    .product-info h3 {
+        font-size: 1.6em;
+    }
+
+    .product-info p {
+        font-size: 1.2em;
+    }
+
+    .product-info button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background: #333;
+        padding: 10px;
+        width: 250px;
+        border-radius: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .hero h1 {
+        font-size: 3em;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .hero button {
+        font-size: 1em;
+        padding: 10px 20px;
+    }
+
+    .products {
+        padding: 40px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero h1 {
+        font-size: 2.6em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
+
+    .hero button {
+        font-size: 0.9em;
+        padding: 8px 15px;
+    }
+
+    .products {
+        padding: 20px;
+    }
+
+    .product-card {
+        border-radius: 10px;
+    }
+} 
+
+
+    </style>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;600&display=swap">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">EliteShop</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Products</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Experience Elegance</h1>
+                <p>Discover premium products curated just for you.</p>
+                <button onclick="window.location.href='#products';">Shop Now</button>
+            </div>
+        </section>
+
+        <section class="products" id="products">
+            <h2>Featured Collections</h2>
+            <div class="product-grid">
+                <!-- Product Card Template -->
+                <div class="product-card" onclick="openModal('modal1')">
+                    <img src="https://via.placeholder.com/300x200" alt="Product 1">
+                    <div class="product-info">
+                        <h3>Product 1</h3>
+                        <p>$29.99</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openModal('modal2')">
+                    <img src="https://via.placeholder.com/300x200" alt="Product 2">
+                    <div class="product-info">
+                        <h3>Product 2</h3>
+                        <p>$39.99</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+                <div class="product-card" onclick="openModal('modal3')">
+                    <img src="https://via.placeholder.com/300x200" alt="Product 3">
+                    <div class="product-info">
+                        <h3>Product 3</h3>
+                        <p>$49.99</p>
+                        <button>Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modals -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal1')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Product 1">
+                <h2>Product 1</h2>
+                <p>Explore the exquisite details of Product 1. Premium quality and unmatched craftsmanship.</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div id="modal2" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal2')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Product 2">
+                <h2>Product 2</h2>
+                <p>Discover the elegance and sophistication of Product 2. A perfect blend of style and function.</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+        <div id="modal3" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal('modal3')">&times;</span>
+                <img src="https://via.placeholder.com/600x400" alt="Product 3">
+                <h2>Product 3</h2>
+                <p>Unveil the luxury of Product 3. Designed for those with a taste for the extraordinary.</p>
+                <button>Add to Cart</button>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 EliteShop. All rights reserved.</p>
+    </footer>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+});
+
+// Function to open modal
+function openModal(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+    document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+}
+
+// Function to close modal
+function closeModal(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+    document.body.style.overflow = 'auto'; // Re-enable scrolling when modal is closed
+}
+
+// Close modals when clicking outside of modal content
+window.addEventListener('click', (event) => {
+    const modals = document.querySelectorAll('.modal');
+    modals.forEach(modal => {
+        if (event.target === modal) {
+            closeModal(modal.id);
+        }
+    });
+});
+
+
+    </script>
+</body>
+</html>

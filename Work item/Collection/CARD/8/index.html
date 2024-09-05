@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Interactive Cards</title>
+    <style>
+        /* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #f7f9fc, #e0e3e6);
+    font-family: 'Arial', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card-row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    width: 320px;
+    height: 420px;
+    perspective: 1200px;
+    border-radius: 15px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    transition: transform 0.8s ease;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s ease;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.card-front {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+    position: relative;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    text-align: center;
+    padding: 20px;
+    backdrop-filter: blur(8px);
+}
+
+.card-front:hover .card-overlay {
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card-front:hover .card-img {
+    transform: scale(1.1);
+}
+
+.card-back {
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: rotateY(180deg);
+    color: #333;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.card-info {
+    max-width: 80%;
+}
+
+.card-title {
+    font-size: 24px;
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.4;
+}
+
+.card-description {
+    font-size: 15px;
+    margin: 10px 0;
+    line-height: 1.6;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 20px;
+    }
+    
+    .card-description {
+        font-size: 14px;
+    }
+    
+    .card-button {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 20px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card-row">
+            <!-- Card 1 -->
+            <div class="card" id="card1">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/600x350" alt="Card Image 1" class="card-img">
+                        <div class="card-overlay">
+                            <h2 class="card-title">Card One</h2>
+                            <p class="card-description">Explore the modern elegance of interactive card design.</p>
+                            <a href="#" class="card-button" data-card="card1">Learn More</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-info">
+                            <h2 class="card-title">Card One</h2>
+                            <p class="card-description">In-depth details and features of this card.</p>
+                            <a href="#" class="card-button" data-card="card1">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="card" id="card2">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/600x350" alt="Card Image 2" class="card-img">
+                        <div class="card-overlay">
+                            <h2 class="card-title">Card Two</h2>
+                            <p class="card-description">Discover the engaging effects and modern design elements.</p>
+                            <a href="#" class="card-button" data-card="card2">Discover More</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-info">
+                            <h2 class="card-title">Card Two</h2>
+                            <p class="card-description">Detailed insights and more information about this card.</p>
+                            <a href="#" class="card-button" data-card="card2">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3 -->
+            <div class="card" id="card3">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/600x350" alt="Card Image 3" class="card-img">
+                        <div class="card-overlay">
+                            <h2 class="card-title">Card Three</h2>
+                            <p class="card-description">Experience stylish animations and modern effects.</p>
+                            <a href="#" class="card-button" data-card="card3">Explore Now</a>
+                        </div>
+                    </div>
+                    <div class="card-back">
+                        <div class="card-info">
+                            <h2 class="card-title">Card Three</h2>
+                            <p class="card-description">More information and engaging details about this card.</p>
+                            <a href="#" class="card-button" data-card="card3">Close</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <h2>Card Details</h2>
+            <p id="modal-text">Detailed information about the selected card will be displayed here.</p>
+        </div>
+    </div>
+
+    <script>
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.card');
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modal-close');
+    const modalText = document.getElementById('modal-text');
+
+    cards.forEach(card => {
+        const cardButtons = card.querySelectorAll('.card-button');
+
+        cardButtons.forEach(button => {
+            button.addEventListener('click', (event) => {
+                event.preventDefault();
+                const cardId = button.getAttribute('data-card');
+                const cardTitle = card.querySelector('.card-title').textContent;
+                const cardDescription = card.querySelector('.card-description').textContent;
+
+                if (button.textContent === 'Close') {
+                    card.querySelector('.card-inner').style.transform = 'rotateY(0deg)';
+                } else {
+                    modal.classList.add('show');
+                    modalText.innerHTML = `<h2>${cardTitle}</h2><p>${cardDescription}</p>`;
+                    card.querySelector('.card-inner').style.transform = 'rotateY(180deg)';
+                }
+            });
+        });
+    });
+
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('show');
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

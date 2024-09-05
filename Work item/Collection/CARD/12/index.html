@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>What We Charge</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+
+    <style>
+        /* Inline styles for simplicity; consider moving to styles.css */
+        body {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            overflow-x: hidden;
+            /* Prevent horizontal scroll */
+        }
+
+        header {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            font-weight: 900;
+            margin: 0;
+            color: #2b2727;
+        }
+
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            padding: 10px 0;
+            background-color: #f9f9f9;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: white;
+            background-image: linear-gradient(to bottom, #131a24, #122032, #112540, #0f2b4e, #0e305d);
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+            gap: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .container.visible {
+            opacity: 1;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            min-height: 350px;
+            box-sizing: border-box;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background-image: linear-gradient(to bottom, #131a24, #122032, #112540, #0f2b4e, #0e305d);
+            color: white;
+        }
+
+        .card img {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 20px;
+        }
+
+        .card h2 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 20px;
+        }
+
+        .card li {
+            font-size: 0.9em;
+            margin-bottom: 5px;
+        }
+
+        .card .price {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .card a.button {
+            display: inline-block;
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .card a.button:hover {
+            background-color: #ffc107;
+            color: #fff;
+        }
+
+        @media (max-width: 1024px) {
+            .card {
+                width: 45%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: 80%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                padding: 8px;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .card {
+                width: 100%;
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 class="animate__animated animate__fadeInDownBig">What We Charge</h1>
+        <nav class="animate__animated animate__zoomIn">
+            <a href="#" data-target="LOGO">Logo</a>
+            <a href="#" data-target="WEBSITE">Website</a>
+            <a href="#" data-target="ECOMMERCESOLUTION">Ecommerce Solution</a>
+            <a href="#" data-target="3D">Animation</a>
+            <a href="#" data-target="WEBPORTAL">Web Portal</a>
+            <a href="#" data-target="BRANDING">Branding</a>
+            <a href="#" data-target="SEO">SEO</a>
+            <a href="#" data-target="SMM">SMM</a>
+            <a href="#" data-target="PRINT">Print</a>
+        </nav>
+    </header>
+    <div id="content" class="container">
+        <!-- Dynamic content will be loaded here -->
+    </div>
+    <a href="signup.html">
+        <img src="assets/image/copy.png" alt="" width="100%" height="100%">
+    </a>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('nav a');
+            const contentDiv = document.getElementById('content');
+
+            const cardData = {
+                LOGO: `
+                <center class="animate__animated animate__zoomIn">
+                    <div class="card">
+                        <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="LOGO">
+                        <h2>Logo Special</h2>
+                        <ul>
+                            <li>4 Original Logo Concepts</li>
+                            <li>2 Dedicated Logo Designer</li>
+                            <li>4 Revisions</li>
+                            <li>With Grey Scale Format</li>
+                            <li>Free Icon Design</li>
+                            <li>Formats: JPEG Only</li>
+                            <li>24 - 48 Business Hours Turn Around Time</li>
+                            <li>100% Satisfaction</li>
+                        </ul>
+                        <div class="price">$35</div>
+                        <a href="signup.html" class="button">Let's Get Started</a>
+                    </div>
+                    </center>
+                `,
+                // Add other card data as needed
+            };
+
+            function loadContent(target) {
+                contentDiv.innerHTML = cardData[target] || '<p>Content not found.</p>';
+                contentDiv.classList.add('visible');
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = e.target.getAttribute('data-target');
+                    loadContent(target);
+                });
+            });
+
+            // Load default content
+            loadContent('LOGO');
+        });
+    </script>
+</body>
+
+</html>

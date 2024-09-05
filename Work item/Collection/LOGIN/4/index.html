@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+/* Basic reset and global styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #a2c2e6, #f4e2d8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* Card Container */
+.container {
+    width: 100%;
+    max-width: 450px;
+    perspective: 1500px; /* Adding depth for 3D effect */
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+/* Card flip effect */
+.card-inner {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s;
+}
+
+.card-front, .card-back {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-front {
+    background: #ffffff;
+}
+
+.card-back {
+    background: #28a745;
+    color: #ffffff;
+    transform: rotateY(180deg);
+    text-align: center;
+}
+
+.card-back h2 {
+    margin-bottom: 20px;
+}
+
+.card-back button {
+    padding: 12px 24px;
+    background: #ffffff;
+    color: #28a745;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.card-back button:hover {
+    background-color: #f1f1f1;
+    transform: scale(1.05);
+}
+
+/* Signup form styling */
+h1 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.form-group {
+    width: 100%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.6);
+}
+
+.error-message {
+    color: #e74c3c;
+    font-size: 14px;
+    display: none;
+    margin-top: 5px;
+}
+
+/* Progress bar */
+.progress-bar {
+    height: 4px;
+    width: 0;
+    background: #007bff;
+    transition: width 0.3s ease;
+    margin-top: 20px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 14px;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* Responsive design adjustments */
+@media (max-width: 600px) {
+    .card-front, .card-back {
+        padding: 20px;
+    }
+}
+
+/* Keyframes for fadeIn */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <h1>Create Your Account</h1>
+                    <form id="signupForm">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" placeholder="John Doe" aria-describedby="nameError" required>
+                            <div class="error-message" id="nameError">Please enter your name.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="example@example.com" aria-describedby="emailError" required>
+                            <div class="error-message" id="emailError">Please enter a valid email address.</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" placeholder="••••••••" aria-describedby="passwordError" required>
+                            <div class="error-message" id="passwordError">Please enter your password.</div>
+                        </div>
+                        <button type="submit">Sign Up</button>
+                        <div class="progress-bar" id="progressBar"></div>
+                    </form>
+                </div>
+                <div class="card-back">
+                    <h2>Success!</h2>
+                    <p>Your account has been created successfully.</p>
+                    <button id="backButton">Go Back</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('signupForm');
+    const progressBar = document.getElementById('progressBar');
+    const card = document.querySelector('.card');
+    
+    form.addEventListener('input', () => {
+        validateForm();
+    });
+
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        if (validateForm()) {
+            progressBar.style.width = '100%';
+            setTimeout(() => {
+                card.style.transform = 'rotateY(180deg)';
+            }, 300);
+        }
+    });
+
+    document.getElementById('backButton').addEventListener('click', () => {
+        card.style.transform = 'rotateY(0deg)';
+    });
+
+    function validateForm() {
+        let isValid = true;
+
+        // Check full name
+        const name = document.getElementById('name');
+        const nameError = document.getElementById('nameError');
+        if (name.value.trim() === '') {
+            nameError.style.display = 'block';
+            isValid = false;
+        } else {
+            nameError.style.display = 'none';
+        }
+
+        // Check email
+        const email = document.getElementById('email');
+        const emailError = document.getElementById('emailError');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailPattern.test(email.value.trim())) {
+            emailError.style.display = 'block';
+            isValid = false;
+        } else {
+            emailError.style.display = 'none';
+        }
+
+        // Check password
+        const password = document.getElementById('password');
+        const passwordError = document.getElementById('passwordError');
+        if (password.value.trim() === '') {
+            passwordError.style.display = 'block';
+            isValid = false;
+        } else {
+            passwordError.style.display = 'none';
+        }
+
+        return isValid;
+    }
+});
+
+    </script>
+</body>
+</html>

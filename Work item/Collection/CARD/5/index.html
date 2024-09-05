@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Interactive Card</title>
+    <style>
+        /* styles.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background: linear-gradient(135deg, #f0f4f8, #e6e9ef);
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.card {
+    position: relative;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    max-width: 600px;
+    width: 100%;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    perspective: 1000px;
+}
+
+.card:hover {
+    transform: rotateY(10deg) scale(1.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.card-header {
+    position: relative;
+    overflow: hidden;
+    height: 350px;
+}
+
+.card-img-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    transform: translateZ(0);
+}
+
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.card-info {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    color: #fff;
+    text-align: center;
+    transform: translateY(100%);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    z-index: 1;
+}
+
+.card-title {
+    font-size: 32px;
+    margin: 0;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.card-description {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #f1f1f1;
+    line-height: 1.6;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 12px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+@media (max-width: 768px) {
+    .card-title {
+        font-size: 26px;
+    }
+    
+    .card-description {
+        font-size: 16px;
+    }
+    
+    .card-button {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
+    color: #333;
+    cursor: pointer;
+}
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="interactive-card">
+            <div class="card-header">
+                <div class="card-img-wrapper">
+                    <img src="https://via.placeholder.com/600x350" alt="Card Image" class="card-img" id="card-img">
+                </div>
+                <div class="card-overlay"></div>
+                <div class="card-info" id="card-info">
+                    <h2 class="card-title">Elegant Interactive Card</h2>
+                    <p class="card-description">Discover a card that combines modern aesthetics with interactive design. Experience smooth animations, engaging hover effects, and rich content reveals.</p>
+                    <a href="#" class="card-button" id="card-button">Explore Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="modal-close" id="modal-close">&times;</span>
+            <h2>More Information</h2>
+            <p>This section contains additional details about the card content. It's designed to provide more insight and engage users further.</p>
+        </div>
+    </div>
+    <script>
+// scripts.js
+
+document.addEventListener('DOMContentLoaded', () => {
+    const card = document.getElementById('interactive-card');
+    const cardImg = document.getElementById('card-img');
+    const cardInfo = document.getElementById('card-info');
+    const cardButton = document.getElementById('card-button');
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modal-close');
+
+    card.addEventListener('mouseenter', () => {
+        cardImg.style.transform = 'scale(1.1)';
+        cardInfo.style.transform = 'translateY(0)';
+        cardInfo.style.opacity = '1';
+        card.querySelector('.card-overlay').style.opacity = '1';
+    });
+
+    card.addEventListener('mouseleave', () => {
+        cardImg.style.transform = 'scale(1)';
+        cardInfo.style.transform = 'translateY(100%)';
+        cardInfo.style.opacity = '0';
+        card.querySelector('.card-overlay').style.opacity = '0';
+    });
+
+    cardButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        modal.classList.add('show');
+    });
+
+    modalClose.addEventListener('click', () => {
+        modal.classList.remove('show');
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+});
+
+    </script>
+</body>
+</html>

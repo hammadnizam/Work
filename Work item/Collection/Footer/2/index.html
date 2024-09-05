@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Modern Footer</title>
+    <style>
+        body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.content {
+    padding: 20px;
+}
+
+.footer {
+    background: linear-gradient(145deg, #1c1c1c, #2b2b2b);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.footer-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.footer-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.4);
+}
+
+.footer-card h2 {
+    font-size: 1.6em;
+    margin-bottom: 15px;
+    color: #f1f1f1;
+    border-bottom: 2px solid #50e3c2;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer-card p {
+    font-size: 0.95em;
+    line-height: 1.6;
+}
+
+.footer-card ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-card ul li {
+    margin: 10px 0;
+}
+
+.footer-card ul li a {
+    color: #f1f1f1;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-card ul li a:hover {
+    color: #50e3c2;
+}
+
+.footer-card form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-card input[type="email"] {
+    padding: 12px;
+    border: 1px solid #50e3c2;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 350px;
+    margin-bottom: 10px;
+    font-size: 0.95em;
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+}
+
+.footer-card button {
+    padding: 12px 25px;
+    border: none;
+    background-color: #50e3c2;
+    color: #fff;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.95em;
+    transition: background-color 0.3s ease;
+}
+
+.footer-card button:hover {
+    background-color: #4abfa3;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.social-icon {
+    display: inline-block;
+    width: 45px;
+    height: 45px;
+    background-size: cover;
+    border-radius: 50%;
+    transition: transform 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.facebook {
+    background-image: url('facebook-icon.png');
+}
+
+.twitter {
+    background-image: url('twitter-icon.png');
+}
+
+.instagram {
+    background-image: url('instagram-icon.png');
+}
+
+.linkedin {
+    background-image: url('linkedin-icon.png');
+}
+
+.footer-bottom {
+    margin-top: 20px;
+    font-size: 0.9em;
+    border-top: 1px solid #444;
+    padding-top: 10px;
+    color: #f1f1f1;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Main content of the page -->
+    <div class="content">
+        <p>Main content goes here.</p>
+    </div>
+
+    <!-- Premium Modern Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-card about">
+                <h2>About Us</h2>
+                <p>Our mission is to provide innovative solutions that exceed expectations.</p>
+            </div>
+            <div class="footer-card links">
+                <h2>Quick Links</h2>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Services</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-card newsletter">
+                <h2>Stay Updated</h2>
+                <p>Sign up for our newsletter to get the latest updates and offers.</p>
+                <form action="#" method="post">
+                    <input type="email" placeholder="Your email address" required>
+                    <button type="submit">Subscribe</button>
+                </form>
+            </div>
+            <div class="footer-card social-media">
+                <h2>Connect with Us</h2>
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook" aria-label="Facebook"></a>
+                    <a href="#" class="social-icon twitter" aria-label="Twitter"></a>
+                    <a href="#" class="social-icon instagram" aria-label="Instagram"></a>
+                    <a href="#" class="social-icon linkedin" aria-label="LinkedIn"></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Your Company. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript file if needed -->
+    <script>
+// Placeholder script for potential interactive features
+document.addEventListener('DOMContentLoaded', () => {
+    // Future interactivity can be added here
+});
+
+    </script>
+</body>
+</html>

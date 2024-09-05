@@ -1,0 +1,73 @@
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, #ff6f61, #de64a0, #4a90e2, #50e3c2);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    z-index: -1;
+}
+
+/* Animation for background gradient */
+@keyframes gradientBG {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+}
+
+#animated-text {
+    font-size: 2.5rem;
+    background: linear-gradient(45deg, #ff6f61, #de64a0, #4a90e2, #50e3c2);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: .15em solid rgba(255, 255, 255, 0.75);
+    animation: typing 5s steps(60, end), blink-caret .75s step-end infinite;
+}
+
+/* Typing animation */
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+/* Blink effect for caret */
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: rgba(255, 255, 255, 0.75); }
+}
+
+/* Responsive text size */
+@media (max-width: 768px) {
+    #animated-text {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    #animated-text {
+        font-size: 1.5rem;
+    }
+}

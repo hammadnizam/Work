@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Text Animations</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="typing-container">Hello, I'm [Muhammad Hammad]</div>
+            <h1 data-aos="fade-up" data-aos-duration="1500">Welcome to My Portfolio</h1>
+            <p data-aos="fade-up" data-aos-delay="500">I am a web developer specializing in interactive design.</p>
+            <h1 class="gradient-text">Creative Text Animation</h1>
+            <br>
+            <a href="#portfolio" class="hover-underline">View My Work</a>
+        </div>
+    </header>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 1000, once: true });
+        });
+    </script>
+
+</body>
+
+</html>

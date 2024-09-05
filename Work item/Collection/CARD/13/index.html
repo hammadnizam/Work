@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mascot Logo Design</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(120deg, #f0f4f8, #e1e5e9);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 30px;
+            background: #fff;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .left-side, .right-side {
+            padding: 20px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #f7f9fc, #e1e5e9);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .left-side:hover {
+            background: #e9eff4;
+            transform: scale(1.02);
+        }
+
+        h2, h3 {
+            color: #333;
+            margin-bottom: 15px;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: 700;
+            color: #e74c3c;
+            margin-bottom: 20px;
+            transition: color 0.3s ease;
+        }
+
+        .price:hover {
+            color: #c0392b;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .features li:hover {
+            transform: translateX(10px);
+            color: #3498db;
+        }
+
+        .features li .check {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background-color: #27ae60;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 15px;
+            font-size: 14px;
+            line-height: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .features li .check:before {
+            content: '\f00c';
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+        }
+
+        .features li .text {
+            font-size: 16px;
+            color: #34495e;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #3498db;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+
+        .button:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #3498db;
+            outline: none;
+            box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+        }
+
+        .contact-info {
+            margin-top: 20px;
+        }
+
+        .contact-info h4 {
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .contact-info div {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            color: #333;
+        }
+
+        .contact-info i {
+            color: #3498db;
+            margin-right: 10px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info i:hover {
+            color: #2980b9;
+        }
+
+        .contact-info a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                padding: 20px;
+                gap: 20px;
+            }
+
+            .left-side {
+                border-right: none;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-side">
+            <h2>Mascot Logo</h2>
+            <div class="price">$599.00</div>
+            <ul class="features">
+                <li>
+                    <span class="check"></span>
+                    <span class="text">2 Mascot Logo Concepts</span>
+                </li>
+                <li>
+                    <span class="check"></span>
+                    <span class="text">Unlimited Revisions</span>
+                </li>
+                <li>
+                    <span class="check"></span>
+                    <span class="text">Hand Drawn Sketch</span>
+                </li>
+                <li>
+                    <span class="check"></span>
+                    <span class="text">Presentation on Mockup</span>
+                </li>
+                <li>
+                    <span class="check"></span>
+                    <span class="text">24-48 Business Hours Turnaround Time</span>
+                </li>
+                <li>
+                    <span class="check"></span>
+                    <span class="text">File Formats: Ai, Eps, Png, Jpeg, Pdf</span>
+                </li>
+                <li>
+                    <span class="check"></span>
+                    <span class="text">More Features</span>
+                </li>
+                <li>
+                    <span class="check"></span>
+                    <span class="text">100% Satisfaction</span>
+                </li>
+            </ul>
+            <a href="#" class="button">Live Chat</a>
+        </div>
+        <div class="right-side">
+            <h3>Please Fill the Form</h3>
+            <form>
+                <div class="form-group">
+                    <label for="name">NAME *</label>
+                    <input type="text" id="name" name="name" placeholder="Name">
+                </div>
+                <div class="form-group">
+                    <label for="email">EMAIL ADDRESS *</label>
+                    <input type="email" id="email" name="email" placeholder="Email Address">
+                </div>
+                <div class="form-group">
+                    <label for="phone">PHONE NUMBER *</label>
+                    <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                </div>
+                <button type="submit" class="button">SUBMIT</button>
+            </form>
+            <div class="contact-info">
+                <h4>Need Assistance?</h4>
+                <div>
+                    <i class="fas fa-phone"></i>
+                    <a href="tel:+18666575669">+1 (866) 657 5669</a>
+                </div>
+                <div>
+                    <i class="fas fa-comments"></i>
+                    <a href="#">Live Chat with Our Design Expert</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
