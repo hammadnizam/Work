@@ -3,253 +3,336 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Client Reviews</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    <title>Custom Logo Designs</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #f8f9fa;
+            background-color: #121212;
+            overflow-x: hidden;
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            background-color: #1e1e1e;
+            border-bottom: 2px solid #343a40;
+            position: relative;
+        }
+        .container .left-side img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        .container .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+        .container .nav-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: #f8f9fa;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .nav-menu ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
             padding: 0;
-            background: #f4f4f4;
+            margin: 0;
+        }
+        .nav-menu ul li a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #343a40;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-menu ul li a:hover {
+            background-color: #495057;
+        }
+        .section-2 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, #121212, #1e1e1e);
+        }
+        .section-2 h1 {
+            font-size: 2.5rem;
+            color: #ffdd00;
+            margin: 0 0 10px;
+        }
+        .section-2 h2 {
+            font-size: 1.75rem;
+            color: #e9ecef;
+            margin: 0 0 20px;
+        }
+        .section-2 p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 0 20px;
+        }
+        .price {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #ffdd00;
+            color: #121212;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 20px 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-        .container {
-            max-width: 1000px;
+        .section-2 input {
+            width: 100%;
+            max-width: 400px;
+            padding: 12px;
+            border: 1px solid #343a40;
+            border-radius: 5px;
+            background-color: #1e1e1e;
+            color: #f8f9fa;
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+        .section-2 button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffdd00;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        .section-2 button:hover {
+            background-color: #e0b900;
+        }
+        .section-2 img {
+            max-width: 120px;
+            margin: 10px;
+            opacity: 0.8;
+        }
+        .section-2 img:hover {
+            opacity: 1;
+        }
+        .section-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
             padding: 20px;
-            box-sizing: border-box;
+            background-color: #1e1e1e;
         }
-        h1, h2 {
-            text-align: center;
-            color: #333;
+        .section-3 .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            background-color: #f8f9fa;
+            color: #121212;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        .reviews {
+        .section-3 .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        }
+        .section-3 .card img {
+            width: 80%;
+            max-width: 150px;
+            transition: opacity 0.3s ease;
+        }
+        .section-3 .card img:hover {
+            opacity: 0.8;
+        }
+        .section-4 {
             display: flex;
             justify-content: space-between;
-            flex-wrap: wrap;
+            align-items: center;
+            padding: 20px;
+            background-color: #343a40;
         }
-        .review {
-            background: #fff;
-            border-radius: 8px;
-            padding: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            flex: 1 1 22%;
-            margin: 10px;
-            box-sizing: border-box;
+        .section-4 .left-side {
             display: flex;
             align-items: center;
+            gap: 20px;
         }
-        .review img {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            margin-right: 10px;
+        .section-4 .left-side img {
+            width: 100px;
         }
-        .review-content {
-            flex: 1;
-        }
-        .review-content h3 {
-            margin: 0;
-            font-size: 1em;
-            color: #333;
-        }
-        .review-content p {
-            margin: 5px 0;
-            color: #555;
-            font-size: 0.8em;
-        }
-        .info {
-            font-size: 0.75em;
-            color: #777;
+        .section-4 .right-side {
             display: flex;
             align-items: center;
+            gap: 15px;
         }
-        .rating {
+        .section-4 .right-side a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            background-color: #212529;
+            transition: background-color 0.3s ease;
+        }
+        .section-4 .right-side a:hover {
+            background-color: #343a40;
+        }
+        .section-5 {
             display: flex;
+            justify-content: center;
             align-items: center;
-            margin-left: auto;
-            color: #ffc107;
+            padding: 20px;
+            background-color: #1e1e1e;
         }
-        .rating i {
-            margin-right: 2px;
+        .section-5 a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            background-color: #212529;
+            transition: background-color 0.3s ease;
         }
-        .verified {
-            color: #28a745;
-            font-weight: bold;
-            margin-left: 5px;
+        .section-5 a:hover {
+            background-color: #343a40;
         }
-        .chat-button {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: #007bff;
-            color: #fff;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.8em;
-        }
-        .chat-button:hover {
-            background: #0056b3;
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container .nav-menu {
+                display: none;
+            }
+            .container .nav-toggle {
+                display: flex;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: #1e1e1e;
+                height: 100%;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: -2px 0 5px rgba(0,0,0,0.3);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+            .nav-menu ul li a {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #343a40;
+            }
+            .nav-menu ul li a:hover {
+                background-color: #495057;
+            }
+            .section-2 {
+                padding: 40px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Client Reviews</h1>
-        <h2>What They Say</h2>
-
-        <div class="reviews">
-            <div class="review">
-                <img src="https://creativedesigncrew.com/assets/images/webp/testi-17.webp" alt="MPI Risk Logo">
-                <div class="review-content">
-                    <h3>MPI RISK</h3>
-                    <p>Great logo design—quick and friendly!</p>
-                    <div class="info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>4.5</span>
-                        </div>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review">
-                <img src="https://creativedesigncrew.com/assets/images/webp/testi-6.webp" alt="Global Tech Logo">
-                <div class="review-content">
-                    <h3>GLOBAL TECH</h3>
-                    <p>Exceptional service—highly professional.</p>
-                    <div class="info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0</span>
-                        </div>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review">
-                <img src="https://creativedesigncrew.com/assets/images/webp/testi-7.webp" alt="Client 3 Logo">
-                <div class="review-content">
-                    <h3>CLIENT 3</h3>
-                    <p>Fast turnaround and great quality.</p>
-                    <div class="info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>4.0</span>
-                        </div>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="review">
-                <img src="https://creativedesigncrew.com/assets/images/webp/testi-8.webp" alt="Client 4 Logo">
-                <div class="review-content">
-                    <h3>CLIENT 4</h3>
-                    <p>Highly recommended for creativity and service.</p>
-                    <div class="info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0</span>
-                        </div>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="review">
-                <img src="https://creativedesigncrew.com/assets/images/webp/testi-9.webp" alt="Client 4 Logo">
-                <div class="review-content">
-                    <h3>CLIENT 5</h3>
-                    <p>Highly recommended for creativity and service.</p>
-                    <div class="info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0</span>
-                        </div>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="review">
-                <img src="https://creativedesigncrew.com/assets/images/webp/testi-10.webp" alt="Client 4 Logo">
-                <div class="review-content">
-                    <h3>CLIENT 6</h3>
-                    <p>Highly recommended for creativity and service.</p>
-                    <div class="info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0</span>
-                        </div>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="review">
-                <img src="https://creativedesigncrew.com/assets/images/webp/testi-1.webp" alt="Client 4 Logo">
-                <div class="review-content">
-                    <h3>CLIENT 7</h3>
-                    <p>Highly recommended for creativity and service.</p>
-                    <div class="info">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>5.0</span>
-                        </div>
-                        <div class="verified">
-                            <i class="fas fa-check-circle"></i> Verified
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="left-side">
+            <img src="https://i.ibb.co/41G32d5/UDC.png" alt="UDC">
+            <span>Cr</span>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our Portfolio</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">+1 (866) 657 5669</a></li>
+                <li><a href="#">Chat</a></li>
+            </ul>
         </div>
     </div>
-    <button class="chat-button">Chat</button>
+
+    <div class="section-2">
+        <h1>Get Your Custom</h1>
+        <h2>Logo Designs Now</h2>
+        <p>Craft unique logos for your brand to stand out with a premium look!</p>
+        <div class="price">$35</div>
+        <input type="text" placeholder="Enter Your Name">
+        <button>START PROJECT</button>
+        <div>
+            <img src="https://i.ibb.co/6Y28s9B/Trustpilot.png" alt="Trustpilot">
+            <img src="https://i.ibb.co/6Y28s9B/Trustpilot.png" alt="Clutch">
+            <img src="https://i.ibb.co/6Y28s9B/Trustpilot.png" alt="Google Partner">
+        </div>
+    </div>
+
+    <div class="section-3">
+        <div class="card">
+            <img src="https://i.ibb.co/zQ84b2v/Sobersandiego.png" alt="Sobersandiego">
+        </div>
+        <div class="card">
+            <img src="https://i.ibb.co/87V0g0T/Faster-Encounter.png" alt="Faster Encounter">
+        </div>
+        <div class="card">
+            <img src="https://i.ibb.co/s9G6H7q/Gorillas-Gaming.png" alt="Gorillas Gaming">
+        </div>
+        <div class="card">
+            <img src="https://i.ibb.co/9Yd4J5F/Real-Estate-Rejuvenators.png" alt="Real Estate Rejuvenators">
+        </div>
+    </div>
+
+    <div class="section-4">
+        <div class="left-side">
+            <img src="https://i.ibb.co/F7yQ6r5/Creative-Design.png" alt="Creative Design">
+            <p>Creative Design</p>
+        </div>
+        <div class="right-side">
+            <a href="#">Contact Us</a>
+            <a href="#">Chat</a>
+        </div>
+    </div>
+
+    <div class="section-5">
+        <a href="#">Chat</a>
+    </div>
+
+    <script>
+        function toggleNav() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

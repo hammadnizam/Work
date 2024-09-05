@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
-    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         body {
@@ -323,7 +323,7 @@
         }
 
 
-         #body {
+        #body {
             background-color: #1c1c1c;
             color: #ddd;
             font-family: Arial, sans-serif;
@@ -440,6 +440,23 @@
             margin-top: 20px;
             font-size: 14px;
         }
+
+        .btn-chat {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-chat:hover {
+            background-color: #0056b3;
+        }
     </style>
 </head>
 
@@ -541,10 +558,12 @@
         </footer>
     </div>
 
+    <button class="btn-chat">Live Chat</button>
+
 
     <script>
         let subscribe = document.getElementById('subscribe')
-        subscribe.addEventListener('click' , ()=>{
+        subscribe.addEventListener('click', () => {
             location.href = "signup.html"
         })
     </script>

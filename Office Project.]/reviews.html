@@ -4,100 +4,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reviews</title>
-    <style>
-        /* Reset some default styles */
-        body,
-        h1,
-        h2,
-        p {
-            margin: 0;
-            padding: 0;
-        }
+    <title>Client Reviews</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
+    <style>
         body {
             font-family: Arial, sans-serif;
-            line-height: 1.6;
-        }
-
-        header {
-            background-color: #17203a;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-
-        h1 {
             margin: 0;
-        }
-
-        main {
-            padding: 20px;
-        }
-
-        .review-container {
+            padding: 0;
+            background: #f4f4f4;
             display: flex;
-            flex-direction: column;
-            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        .reviews {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .review {
-            background: #f4f4f4;
+            background: #fff;
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            flex: 1 1 22%;
+            margin: 10px;
+            box-sizing: border-box;
             display: flex;
             align-items: center;
-            padding: 20px;
-            gap: 20px;
         }
 
         .review img {
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+            margin-right: 10px;
         }
 
         .review-content {
             flex: 1;
         }
 
-        .review-content h2 {
-            margin-bottom: 5px;
+        .review-content h3 {
+            margin: 0;
+            font-size: 1em;
+            color: #333;
+        }
+
+        .review-content p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 0.8em;
+        }
+
+        .info {
+            font-size: 0.75em;
+            color: #777;
+            display: flex;
+            align-items: center;
         }
 
         .rating {
-            font-size: 1.2em;
-            color: #ffcc00;
+            display: flex;
+            align-items: center;
+            margin-left: auto;
+            color: #ffc107;
         }
 
-        footer {
-            background: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px 0;
-            position: absolute;
-            width: 100%;
-            bottom: 0;
+        .rating i {
+            margin-right: 2px;
         }
 
-        /* Responsive design */
-        @media (max-width: 768px) {
-            .review {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            .review img {
-                margin-bottom: 10px;
-            }
-        }
-
-        .logo {
-            font-size: 3em;
-            color: #fff;
-            font-family: fantasy;
-
+        .verified {
+            color: #28a745;
+            font-weight: bold;
+            margin-left: 5px;
         }
 
         .btn-chat {
@@ -120,37 +118,176 @@
 </head>
 
 <body>
-    <header>
-        <div class="logo"><a href="index.html">pDc</a></div>
+    <div class="container">
+        <h1>Client Reviews</h1>
+        <h2>What They Say</h2>
 
-        <h1>Customer Reviews</h1>
-    </header>
-    <main>
-        <section class="review-container">
-            <article class="review">
-                <img src="https://via.placeholder.com/100" alt="Customer Photo">
+        <div class="reviews">
+            <div class="review">
+                <img src="https://creativedesigncrew.com/assets/images/webp/testi-17.webp" alt="MPI Risk Logo">
                 <div class="review-content">
-                    <h2>Muhammad Hammad</h2>
-                    <p class="rating">★★★★☆</p>
-                    <p>As a front end Developer in Digi Tech Administration. I have a lote of Expereince in Web and App
-                        Development.</p>
+                    <h3>MPI RISK</h3>
+                    <p>Great logo design—quick and friendly!</p>
+                    <div class="info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.5</span>
+                        </div>
+                        <div class="verified">
+                            <i class="fas fa-check-circle"></i> Verified
+                        </div>
+                    </div>
                 </div>
-            </article>
-            <article class="review">
-                <img src="https://via.placeholder.com/100" alt="Customer Photo">
+            </div>
+
+            <div class="review">
+                <img src="https://creativedesigncrew.com/assets/images/webp/testi-6.webp" alt="Global Tech Logo">
                 <div class="review-content">
-                    <h2>Jatoi</h2>
-                    <p class="rating">★★★★★</p>
-                    <p>As a Seals and Marketing head in Prime Deign Crew. And have a 11 years of Expereince in
-                        marketing. </p>
+                    <h3>GLOBAL TECH</h3>
+                    <p>Exceptional service—highly professional.</p>
+                    <div class="info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="verified">
+                            <i class="fas fa-check-circle"></i> Verified
+                        </div>
+                    </div>
                 </div>
-            </article>
-            <!-- Add more reviews here -->
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Your Company</p>
-    </footer>
+            </div>
+
+            <div class="review">
+                <img src="https://creativedesigncrew.com/assets/images/webp/testi-7.webp" alt="Client 3 Logo">
+                <div class="review-content">
+                    <h3>CLIENT 3</h3>
+                    <p>Fast turnaround and great quality.</p>
+                    <div class="info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>4.0</span>
+                        </div>
+                        <div class="verified">
+                            <i class="fas fa-check-circle"></i> Verified
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="review">
+                <img src="https://creativedesigncrew.com/assets/images/webp/testi-8.webp" alt="Client 4 Logo">
+                <div class="review-content">
+                    <h3>CLIENT 4</h3>
+                    <p>Highly recommended for creativity and service.</p>
+                    <div class="info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="verified">
+                            <i class="fas fa-check-circle"></i> Verified
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review">
+                <img src="https://creativedesigncrew.com/assets/images/webp/testi-9.webp" alt="Client 4 Logo">
+                <div class="review-content">
+                    <h3>CLIENT 5</h3>
+                    <p>Highly recommended for creativity and service.</p>
+                    <div class="info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="verified">
+                            <i class="fas fa-check-circle"></i> Verified
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review">
+                <img src="https://creativedesigncrew.com/assets/images/webp/testi-10.webp" alt="Client 4 Logo">
+                <div class="review-content">
+                    <h3>CLIENT 6</h3>
+                    <p>Highly recommended for creativity and service.</p>
+                    <div class="info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="verified">
+                            <i class="fas fa-check-circle"></i> Verified
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="review">
+                <img src="https://creativedesigncrew.com/assets/images/webp/testi-1.webp" alt="Client 4 Logo">
+                <div class="review-content">
+                    <h3>CLIENT 7</h3>
+                    <p>Highly recommended for creativity and service.</p>
+                    <div class="info">
+                        <div class="rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>5.0</span>
+                        </div>
+                        <div class="verified">
+                            <i class="fas fa-check-circle"></i> Verified
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="review">
+            <img src="https://creativedesigncrew.com/assets/images/webp/testi-2.webp" alt="Client 4 Logo">
+            <div class="review-content">
+                <h3>CLIENT 8</h3>
+                <p>Highly recommended for creativity and service.</p>
+                <div class="info">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span>5.0</span>
+                    </div>
+                    <div class="verified">
+                        <i class="fas fa-check-circle"></i> Verified
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
 
     <button class="btn-chat">Live Chat</button>
 

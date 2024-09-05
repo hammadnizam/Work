@@ -17,6 +17,7 @@ header {
 }
 
 .container {
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
@@ -89,6 +90,7 @@ nav a:hover {
 }
 
 .feature {
+    max-width: 190px;
     width: 30%;
     padding: 20px;
     margin-bottom: 20px;
