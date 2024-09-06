@@ -1,377 +1,452 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylo Design</title>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-
+    <title>Custom Logo Designs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
-         body {
+        body {
             margin: 0;
-            /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
             font-family: 'Roboto', sans-serif;
             color: #f8f9fa;
-            background-color: #212529;
+            background-color: white;
+            /* background-color: #121212;           */
             overflow-x: hidden;
-            padding: 0;
         }
+
+        .container {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            /* Center the items horizontally */
+            align-items: center;
+            padding: 20px;
+            /* background-color: #1e1e1e; */
+            /* border-bottom: 2px solid #343a40; */
+            position: relative;
+        }
+
+        .container .left-side {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container .left-side img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .container .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .container .nav-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: #f8f9fa;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu ul li a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            /* background-color: #343a40; */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu ul li a:hover {
+            color: #ffd500;
+            background-color: #495057;
+        }
+
         .section-2 {
             display: flex;
             flex-direction: column;
+
             align-items: center;
             padding: 60px 20px;
             text-align: center;
-            background-color: #121212;
-            /* background: linear-gradient(to bottom, #212529, #343a40); */
+            background: linear-gradient(to bottom, #121212, #1e1e1e);
         }
+
         .section-2 h1 {
             font-size: 2.5rem;
             color: #ffdd00;
             margin: 0 0 10px;
         }
+
         .section-2 h2 {
             font-size: 1.75rem;
             color: #e9ecef;
             margin: 0 0 20px;
         }
+
         .section-2 p {
-            color:#e9ecef;
             font-size: 1.125rem;
             max-width: 600px;
             margin: 0 0 20px;
         }
-        #price {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: #ffdd00;
-            color: #212529;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .section-2 input {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            border: 1px solid #495057;
-            border-radius: 5px;
-            background-color: #343a40;
-            color: #f8f9fa;
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
+
+
         .section-2 button {
-            padding: 12px 20px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             background-color: #ffdd00;
-            color: #212529;
+            color: #121212;
             font-weight: bold;
             cursor: pointer;
             font-size: 1rem;
             transition: background-color 0.3s ease;
         }
+
         .section-2 button:hover {
             background-color: #e0b900;
         }
+
         .section-2 img {
-            max-width: 190px;
+            max-width: 120px;
             margin: 10px;
             opacity: 0.8;
         }
+
         .section-2 img:hover {
             opacity: 1;
         }
 
+        .section-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .section-3 .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #f8f9fa;
+            color: #121212;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-3 .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-3 .card img {
+            width: 80%;
+            max-width: 150px;
+            transition: opacity 0.3s ease;
+        }
+
+        .section-3 .card img:hover {
+            opacity: 0.8;
+        }
+
+        .section-5 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #1e1e1e;
+        }
+
+        .section-5 a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            background-color: #212529;
+            transition: background-color 0.3s ease;
+        }
+
+        .section-5 a:hover {
+            background-color: #343a40;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container .nav-menu {
+                display: none;
+            }
+
+            .container .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: #1e1e1e;
+                height: 100%;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .nav-menu ul li a {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #343a40;
+            }
+
+            .nav-menu ul li a:hover {
+                background-color: #495057;
+            }
+
+            .section-2 {
+                padding: 40px 20px;
+            }
+        }
+
+        span {
+            color: white;
+        }
+
+        #pa {
+            font-size: 3.5rem;
+            font-weight: bolder;
+            color: #000;
+            /* margin: 0 0 10px;  */
+        }
+
+        #button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #17203a;
+            color: #fff9f9;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .content {
+            color: #17203a;
+        }
+        .content h2{
+            font-weight: bolder;
+            font-size:xx-large;
+        }
+
+        .services-list {
+            list-style: none;
+            /* padding: 0; */
+        }
+
+        .services-list li {
+            
+            cursor: pointer;
+            padding: 5px 0;
+            position: relative;
+            font-size: 1rem;
+        }
+        .services-list li a{
+            text-decoration: none;
+            color: #000;
+            font-size: larger;
+            font-weight: bolder;
+            padding-left: 10px;
+        }
+        .services-list li a:hover{
+            color: #95ce00;
+            background-color: #131925;
+        }
+
+
+
+        .services-list li::before {
+            content: "- ";
+            position: absolute;
+            left: -20px;
+        }
 
         
-/* * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-} */
-
-:root {
-    /* --primary-bg: linear-gradient(to right, #1e3c72, #2a5298); */
-    --secondary-bg: rgba(30, 60, 114, 0.9);
-    --text-color: #fff;
-    --highlight-color: #ffeb3b;
-    --overlay-bg: rgba(0, 0, 0, 0.8);
-    --transition-speed: 0.3s;
-}
-
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    color: #333;
-    margin: 0;
-    padding: 0;
-}
-
-header {
-    position: relative;
-}
-
-.navbar {
-    background: var(--primary-bg);
-    padding: 15px 30px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    z-index: 1000;
-    transition: background var(--transition-speed) ease;
-}
-
-.navbar.scrolled {
-    background: var(--secondary-bg);
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 1fr auto;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    font-size: 24px;
-    color: var(--text-color);
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.menu-toggle {
-    display: none;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    position: relative;
-    z-index: 2;
-}
-
-.menu-toggle .bar {
-    width: 30px;
-    height: 3px;
-    background-color: var(--text-color);
-    margin: 5px 0;
-    transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
-}
-
-.nav-links {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
-}
-
-.nav-links li {
-    margin: 0;
-}
-
-.nav-links a {
-    color: var(--text-color);
-    text-decoration: none;
-    font-size: 16px;
-    padding: 10px;
-    border-radius: 4px;
-    transition: color var(--transition-speed) ease, background-color var(--transition-speed) ease;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-    color: var(--highlight-color);
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.overlay {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--overlay-bg);
-    z-index: 999;
-    transition: opacity var(--transition-speed) ease;
-}
-
-.overlay.active {
-    display: block;
-    opacity: 1;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: 0;
-        width: 250px;
-        height: 100%;
-        background: #333;
-        flex-direction: column;
-        align-items: flex-start;
-        padding-top: 60px;
-        transform: translateX(100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: transform var(--transition-speed) ease, opacity var(--transition-speed) ease;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .menu-toggle {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .menu-toggle.active .bar:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 6px);
-    }
-
-    .menu-toggle.active .bar:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-toggle.active .bar:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -6px);
-    }
-
-    .nav-links li {
-        margin: 20px 0;
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links a {
-        font-size: 20px;
-        padding: 15px;
-        display: block;
-    }
-}
-
     </style>
 </head>
-<body>
-    <header>
-        <nav class="navbar" role="navigation" aria-label="Main Navigation">
-            <div class="container">
-                <a href="#" class="logo" aria-label="Homepage">MySite</a>
-                <button class="menu-toggle" id="mobile-menu" aria-expanded="false" aria-controls="nav-links">
-                    <span class="visually-hidden">Toggle navigation</span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-                <ul class="animate__animated animate__fadeInDown nav-links" id="nav-links" role="menubar">
-                    <li><a href="#" role="menuitem" tabindex="0">Home</a></li>
-                    <li><a href="#" role="menuitem" tabindex="0">About</a></li>
-                    <li><a href="#" role="menuitem" tabindex="0">Services</a></li>
-                    <li><a href="#" role="menuitem" tabindex="0">Contact</a></li>
-                </ul>
-            </div>
-            <div class="overlay" id="overlay" aria-hidden="true"></div>
-        </nav>
-    </header>
-    
-    <div class="section-2">
-        <h1 class="animate__animated animate__bounceInLeft">Get Your Custom</h1>
-        <h2 class="animate__animated animate__bounceInRight">Logo Designs Now</h2>
-        <p class="animate__animated animate__bounceInUp">Craft unique logos for your brand to stand out with a premium look!</p>
-        <div id="price" class="animate__animated animate__bounceInDown">$35/-</div>
-        
-        <input class="animate__animated animate__wobble nav-links" type="text" placeholder="Enter Your Name">
-        <button class="animate__animated animate__bounceInDown">START PROJECT</button>
-        <br>
 
-        <div>
-            <img class="animate__animated animate__backInLeft" src="https://www.pixel4k.com/wp-content/uploads/2020/10/mulan-anime-girl-4k_1602436723-300x200.jpg.webp" alt="anime">
-            <img class="animate__animated animate__bounceInUp" src="https://www.pixel4k.com/wp-content/uploads/2022/08/girl-dress-ninja-lanterns-anime-art-4k_1660350892-300x200.jpg.webp" alt="anime">
-            <img class="animate__animated animate__backInRight" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSekfuWuFLG6UiuRMijeCkECOkzGTVulE1Bw&s" alt="anime">
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="https://i.ibb.co/41G32d5/UDC.png" alt="UDC">
+            <span>Cr</span>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our Portfolio</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
         </div>
     </div>
+
+    <div class="section-2 animate__animated animate__fadeInDown">
+        <h1>----Customized <br>
+            <span>Website Design</span> <br>& Development <br> Services
+        </h1>
+        <h2>Your Brand, Our Design</h2>
+        <p>Prime Design Crew is a leading web design agency creating innovative, effective websites that capture your
+            brand, improve your conversion rates, and maximize your revenue to help grow your business and achieve your
+            goals.</p>
+        <button>Get Started</button>
+
+    </div>
+    <hr>
+
+    <div class="content">
+        <h2>Services</h2>
+        <ul class="services-list">
+            <li><a href="#" data-target="LOGO">Responsive Website</a></li>
+            <li><a href=""> WordPress Website</a></li>
+            <li><a href="">E-commerce Website</a></li>
+            <li><a href="">Corporate Website</a></li>
+            <li><a href="">Flat Website</a></li>
+            <li><a href="">Landing Pages</a></li>
+        </ul>
+    </div>
+
+    <div id="content" class="container">
+        <!-- Dynamic content will be loaded here -->
+    </div>
+
+
+    <div class="section-3">
+
+        <center>
+            <p id="pa">Variety of Professional Website Design <br> Services Under One Roof</p>
+            <p style="color: #7c7070; font-size: small;">Prime Design Crew provides top-of-the-line web solutions
+                customized according to the needs of your business. A website is a unique way to attract <br> visitors
+                and help people understand the product, company, and branding through various indicators, including
+                visuals, text, and other interactions. We <br> believe that every element of your site needs to work
+                towards a distinct goal. Our web designers & developers bring value to your business by designing <br>
+                Interactive and robust websites that stick in the minds of your target audience.</p>
+            <button id="button">Read More</button>
+        </center>
+
+
+
+    </div>
+
+
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navLinks = document.getElementById('nav-links');
-    const overlay = document.getElementById('overlay');
-    const navbar = document.querySelector('.navbar');
+        document.addEventListener('DOMContentLoaded', () => {
+            const links = document.querySelectorAll('nav a');
+            const contentDiv = document.getElementById('content');
 
-    // Toggle mobile menu
-    mobileMenu.addEventListener('click', function() {
-        const isActive = navLinks.classList.toggle('active');
-        overlay.classList.toggle('active', isActive);
-        mobileMenu.setAttribute('aria-expanded', isActive);
-    });
+            const cardData = {
 
-    // Close menu when clicking overlay
-    overlay.addEventListener('click', function() {
-        navLinks.classList.remove('active');
-        overlay.classList.remove('active');
-        mobileMenu.setAttribute('aria-expanded', 'false');
-    });
+                LOGO: `
+                <center class="animate__animated animate__zoomIn">
+                    <div class="card">
+                        <h2>Responsive Website</h2>
+                       <p>The user experience on responsive websites is <br> much better than on traditional websites. Today,<br> nearly 90% of daily activities are performed on<br> smartphones and tablets. Due to these devices<br> having different screen size resolutions, websites<br> need to have flexible screen dimensions.</p>
+                       
+                       <img id="i" src="https://creativedesigncrew.com/assets/images/webp/website-pg/tabs-img/resp/1.webp" alt="LOGO">
+                       
+                       <ul>
+                        <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="LOGO">
+                        <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="LOGO">
+                        <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="LOGO">
+                        <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="LOGO">
+                        <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="LOGO">
 
-    // Change navbar background on scroll using Intersection Observer
-    const observer = new IntersectionObserver(([entry]) => {
-        if (entry.intersectionRatio < 1) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
-    }, { threshold: [1] });
+                            <li>4 Original Logo Concepts</li>
+                            <li>2 Dedicated Logo Designer</li>
+                            <li>4 Revisions</li>
+                            <li>With Grey Scale Format</li>
+                            <li>Free Icon Design</li>
+                            <li>Formats: JPEG Only</li>
+                            <li>24 - 48 Business Hours Turn Around Time</li>
+                            <li>100% Satisfaction</li>
+                        </ul>
+                        <div class="price">$35</div>
+                       <a href="css/morecotation.html/logospecial.html" class="button">Let's Get Started</a>
+                    </div> `
 
-    observer.observe(document.querySelector('header'));
+            };
 
-    // Close menu on ESC key press
-    document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-            navLinks.classList.remove('active');
-            overlay.classList.remove('active');
-            mobileMenu.setAttribute('aria-expanded', 'false');
-        }
-    });
-
-    // Keyboard navigation: Focus menu items
-    navLinks.addEventListener('keydown', function(event) {
-        if (event.key === 'ArrowDown') {
-            event.preventDefault();
-            const next = event.target.closest('li').nextElementSibling;
-            if (next && next.querySelector('a')) {
-                next.querySelector('a').focus();
+            function loadContent(target) {
+                contentDiv.innerHTML = cardData[target] || '<p>Content not found.</p>';
+                contentDiv.classList.add('visible');
             }
-        } else if (event.key === 'ArrowUp') {
-            event.preventDefault();
-            const prev = event.target.closest('li').previousElementSibling;
-            if (prev && prev.querySelector('a')) {
-                prev.querySelector('a').focus();
-            }
-        }
-    });
-});
+
+            links.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const target = e.target.getAttribute('data-target');
+                    loadContent(target);
+                });
+            });
+
+            // Load default content
+            loadContent('LOGO');
+        })
 
     </script>
+
+    <script>
+        function toggleNav() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
 </body>
+
 </html>
-
-
-
-
-

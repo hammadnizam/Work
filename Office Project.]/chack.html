@@ -3,336 +3,269 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Custom Logo Designs</title>
+    <title>Creative Design Crew</title>
     <style>
-        body {
-            margin: 0;
-            font-family: 'Roboto', sans-serif;
-            color: #f8f9fa;
-            background-color: #121212;
-            overflow-x: hidden;
+        /* Root variables for easy theme adjustments */
+        :root {
+            --primary-color: #007bff;
+            --primary-dark: #0056b3;
+            --background-color: #f5f5f5;
+            --text-color-dark: #333;
+            --text-color-muted: #555;
+            --overlay-color: rgba(0, 0, 0, 0.5);
+            --footer-background: #333;
+            --footer-text-color: #fff;
+            --border-radius: 5px;
+            --transition-speed: 0.3s;
         }
+
+        /* Global styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+        }
+
         .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px;
-            background-color: #1e1e1e;
-            border-bottom: 2px solid #343a40;
-            position: relative;
-        }
-        .container .left-side img {
-            height: 40px;
-            margin-right: 10px;
-        }
-        .container .nav-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            background: none;
-            border: none;
-        }
-        .container .nav-toggle div {
-            width: 30px;
-            height: 3px;
-            background-color: #f8f9fa;
-            margin: 5px 0;
-            transition: 0.3s;
-        }
-        .nav-menu {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .nav-menu ul {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-        .nav-menu ul li a {
-            color: #f8f9fa;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            background-color: #343a40;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        .nav-menu ul li a:hover {
-            background-color: #495057;
-        }
-        .section-2 {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 60px 20px;
-            text-align: center;
-            background: linear-gradient(to bottom, #121212, #1e1e1e);
-        }
-        .section-2 h1 {
-            font-size: 2.5rem;
-            color: #ffdd00;
-            margin: 0 0 10px;
-        }
-        .section-2 h2 {
-            font-size: 1.75rem;
-            color: #e9ecef;
-            margin: 0 0 20px;
-        }
-        .section-2 p {
-            font-size: 1.125rem;
-            max-width: 600px;
-            margin: 0 0 20px;
-        }
-        .price {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #ffdd00;
-            color: #121212;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin: 20px 0;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        }
-        .section-2 input {
-            width: 100%;
-            max-width: 400px;
-            padding: 12px;
-            border: 1px solid #343a40;
-            border-radius: 5px;
-            background-color: #1e1e1e;
-            color: #f8f9fa;
-            margin-bottom: 10px;
-            font-size: 1rem;
-        }
-        .section-2 button {
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            background-color: #ffdd00;
-            color: #121212;
-            font-weight: bold;
-            cursor: pointer;
-            font-size: 1rem;
-            transition: background-color 0.3s ease;
-        }
-        .section-2 button:hover {
-            background-color: #e0b900;
-        }
-        .section-2 img {
-            max-width: 120px;
-            margin: 10px;
-            opacity: 0.8;
-        }
-        .section-2 img:hover {
-            opacity: 1;
-        }
-        .section-3 {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            background-color: #1e1e1e;
-        }
-        .section-3 .card {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            background-color: #f8f9fa;
-            color: #121212;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .section-3 .card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
-        }
-        .section-3 .card img {
-            width: 80%;
-            max-width: 150px;
-            transition: opacity 0.3s ease;
-        }
-        .section-3 .card img:hover {
-            opacity: 0.8;
-        }
-        .section-4 {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-            background-color: #343a40;
-        }
-        .section-4 .left-side {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        .section-4 .left-side img {
-            width: 100px;
-        }
-        .section-4 .right-side {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-        .section-4 .right-side a {
-            color: #f8f9fa;
-            text-decoration: none;
-            padding: 10px 15px;
-            border-radius: 5px;
-            background-color: #212529;
-            transition: background-color 0.3s ease;
-        }
-        .section-4 .right-side a:hover {
-            background-color: #343a40;
-        }
-        .section-5 {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            background-color: #1e1e1e;
-        }
-        .section-5 a {
-            color: #f8f9fa;
-            text-decoration: none;
-            padding: 12px 24px;
-            border-radius: 5px;
-            background-color: #212529;
-            transition: background-color 0.3s ease;
-        }
-        .section-5 a:hover {
-            background-color: #343a40;
+            max-width: 1200px;
+            margin: 0 auto;
+            flex-wrap: wrap;
         }
 
-        /* Responsive Styles */
+        .creative, .designs {
+            font-size: 60px;
+            color: #888;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .designs {
+            transform: rotate(-90deg);
+            transform-origin: center;
+            margin-top: 20px;
+        }
+
+        .content {
+            flex: 1;
+            padding: 20px;
+            max-width: 100%;
+        }
+
+        h1, h2 {
+            margin: 0 0 10px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-color-dark);
+        }
+
+        p {
+            color: var(--text-color-muted);
+        }
+
+        .services-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .services-list li {
+            padding: 5px 0;
+            position: relative;
+            font-size: 1rem;
+        }
+
+        .services-list li::before {
+            content: "- ";
+            position: absolute;
+            left: -20px;
+        }
+
+        .button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color var(--transition-speed) ease;
+            font-size: 1rem;
+        }
+
+        .button:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: calc(25% - 20px);
+            box-sizing: border-box;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            transition: transform var(--transition-speed) ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--overlay-color);
+            opacity: 0;
+            transition: opacity var(--transition-speed) ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-item:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay h3 {
+            color: #fff;
+            font-size: 1.25rem;
+            margin: 0;
+            text-align: center;
+        }
+
+        .footer {
+            background-color: var(--footer-background);
+            color: var(--footer-text-color);
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .footer-links {
+            color: var(--footer-text-color);
+            margin: 0 10px;
+            text-decoration: none;
+            font-size: 1rem;
+        }
+
+        .footer-links:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive design */
         @media (max-width: 768px) {
-            .container .nav-menu {
-                display: none;
+            .creative, .designs {
+                font-size: 40px;
             }
-            .container .nav-toggle {
-                display: flex;
+
+            .designs {
+                transform: rotate(0deg);
+                margin-top: 20px;
             }
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                right: 0;
-                background-color: #1e1e1e;
-                height: 100%;
-                width: 250px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                box-shadow: -2px 0 5px rgba(0,0,0,0.3);
-                transform: translateX(100%);
-                transition: transform 0.3s ease;
+
+            .gallery-item {
+                width: calc(50% - 20px);
             }
-            .nav-menu.active {
-                transform: translateX(0);
-            }
-            .nav-menu ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            .nav-menu ul li a {
+        }
+
+        @media (max-width: 480px) {
+            .gallery-item {
                 width: 100%;
-                text-align: center;
-                padding: 15px;
-                border-radius: 5px;
-                background-color: #343a40;
-            }
-            .nav-menu ul li a:hover {
-                background-color: #495057;
-            }
-            .section-2 {
-                padding: 40px 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="left-side">
-            <img src="https://i.ibb.co/41G32d5/UDC.png" alt="UDC">
-            <span>Cr</span>
+        <div class="creative">
+            CREATIVE
         </div>
-        <button class="nav-toggle" onclick="toggleNav()">
-            <div></div>
-            <div></div>
-            <div></div>
-        </button>
-        <div class="nav-menu">
-            <ul>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Our Portfolio</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">+1 (866) 657 5669</a></li>
-                <li><a href="#">Chat</a></li>
+        <div class="content">
+            <h1>Variety of Professional Website Design Services Under One Roof</h1>
+            <p>Creative Design Crew provides top-of-the-line web solutions customized according to the needs of your business. A website is a unique way to attract visitors and help people understand the product, company, and branding through various indicators, including visuals, text, and other interactions. We believe that every element of your site needs to work towards a distinct goal. Our web designers & developers bring value to your business by designing interactive and robust websites that stick in the minds of your target audience.</p>
+            <a href="#" class="button">Read More</a>
+
+            <h2>Responsive Website</h2>
+            <p>The user experience on responsive websites is much better than on traditional websites. Today, nearly 90% of daily activities are performed on smartphones and tablets. Due to these devices having different screen size resolutions, websites need to have flexible screen dimensions.</p>
+
+            <h2>Services</h2>
+            <ul class="services-list">
+                <li>Responsive Website</li>
+                <li>WordPress Website</li>
+                <li>E-commerce Website</li>
+                <li>Corporate Website</li>
+                <li>Flat Website</li>
+                <li>Landing Pages</li>
             </ul>
         </div>
-    </div>
-
-    <div class="section-2">
-        <h1>Get Your Custom</h1>
-        <h2>Logo Designs Now</h2>
-        <p>Craft unique logos for your brand to stand out with a premium look!</p>
-        <div class="price">$35</div>
-        <input type="text" placeholder="Enter Your Name">
-        <button>START PROJECT</button>
-        <div>
-            <img src="https://i.ibb.co/6Y28s9B/Trustpilot.png" alt="Trustpilot">
-            <img src="https://i.ibb.co/6Y28s9B/Trustpilot.png" alt="Clutch">
-            <img src="https://i.ibb.co/6Y28s9B/Trustpilot.png" alt="Google Partner">
+        <div class="designs">
+            DESIGNS
         </div>
     </div>
 
-    <div class="section-3">
-        <div class="card">
-            <img src="https://i.ibb.co/zQ84b2v/Sobersandiego.png" alt="Sobersandiego">
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/7V5hG8S/gallery-image-1.jpg" alt="Motorcity">
+            <div class="overlay">
+                <h3>Motorcity</h3>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://i.ibb.co/87V0g0T/Faster-Encounter.png" alt="Faster Encounter">
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/f4wWv17/gallery-image-2.jpg" alt="Dive World">
+            <div class="overlay">
+                <h3>Dive World</h3>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://i.ibb.co/s9G6H7q/Gorillas-Gaming.png" alt="Gorillas Gaming">
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/V0X0h0M/gallery-image-3.jpg" alt="Modern Digital Agency">
+            <div class="overlay">
+                <h3>Modern Digital Agency</h3>
+            </div>
         </div>
-        <div class="card">
-            <img src="https://i.ibb.co/9Yd4J5F/Real-Estate-Rejuvenators.png" alt="Real Estate Rejuvenators">
+        <div class="gallery-item">
+            <img src="https://i.ibb.co/c1wYk8p/gallery-image-4.jpg" alt="Lightlife">
+            <div class="overlay">
+                <h3>Lightlife</h3>
+            </div>
         </div>
     </div>
 
-    <div class="section-4">
-        <div class="left-side">
-            <img src="https://i.ibb.co/F7yQ6r5/Creative-Design.png" alt="Creative Design">
-            <p>Creative Design</p>
-        </div>
-        <div class="right-side">
-            <a href="#">Contact Us</a>
-            <a href="#">Chat</a>
-        </div>
+    <div class="footer">
+        <p>We Are Reliable</p>
+        <a href="#" class="footer-links">About Us</a>
+        <a href="#" class="footer-links">Contact Us</a>
+        <a href="#" class="footer-links">Services</a>
     </div>
-
-    <div class="section-5">
-        <a href="#">Chat</a>
-    </div>
-
-    <script>
-        function toggleNav() {
-            document.querySelector('.nav-menu').classList.toggle('active');
-        }
-    </script>
 </body>
 </html>
