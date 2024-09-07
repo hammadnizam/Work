@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Logo Designs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            color: #f8f9fa;
+            background-color: white;
+            /* background-color: #121212;           */
+            overflow-x: hidden;
+        }
+
+        .container {
+            background-color: #000;
+            display: flex;
+            justify-content: center;
+            /* Center the items horizontally */
+            align-items: center;
+            padding: 20px;
+            /* background-color: #1e1e1e; */
+            /* border-bottom: 2px solid #343a40; */
+            position: relative;
+        }
+
+        .container .left-side {
+            position: absolute;
+            left: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .container .left-side img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .container .nav-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            background: none;
+            border: none;
+        }
+
+        .container .nav-toggle div {
+            width: 30px;
+            height: 3px;
+            background-color: #f8f9fa;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-menu ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-menu ul li a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            /* background-color: #343a40; */
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .nav-menu ul li a:hover {
+            color: #ffd500;
+            background-color: #495057;
+        }
+
+        .section-2 {
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            padding: 60px 20px;
+            text-align: center;
+            background: linear-gradient(to bottom, #121212, #1e1e1e);
+        }
+
+        .section-2 h1 {
+            font-size: 2.5rem;
+            color: #ffdd00;
+            margin: 0 0 10px;
+        }
+
+        .section-2 h2 {
+            font-size: 1.75rem;
+            color: #e9ecef;
+            margin: 0 0 20px;
+        }
+
+        .section-2 p {
+            font-size: 1.125rem;
+            max-width: 600px;
+            margin: 0 0 20px;
+        }
+
+
+        .section-2 button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffdd00;
+            color: #121212;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .section-2 button:hover {
+            background-color: #e0b900;
+        }
+
+        .section-2 img {
+            max-width: 120px;
+            margin: 10px;
+            opacity: 0.8;
+        }
+
+        .section-2 img:hover {
+            opacity: 1;
+        }
+
+        .section-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: white;
+        }
+
+        .section-3 .card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #f8f9fa;
+            color: #121212;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .section-3 .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+
+        .section-3 .card img {
+            width: 80%;
+            max-width: 150px;
+            transition: opacity 0.3s ease;
+        }
+
+        .section-3 .card img:hover {
+            opacity: 0.8;
+        }
+
+        .section-5 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #1e1e1e;
+        }
+
+        .section-5 a {
+            color: #f8f9fa;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            background-color: #212529;
+            transition: background-color 0.3s ease;
+        }
+
+        .section-5 a:hover {
+            background-color: #343a40;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container .nav-menu {
+                display: none;
+            }
+
+            .container .nav-toggle {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: 0;
+                background-color: #1e1e1e;
+                height: 100%;
+                width: 250px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+                transform: translateX(100%);
+                transition: transform 0.3s ease;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .nav-menu ul li a {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-radius: 5px;
+                background-color: #343a40;
+            }
+
+            .nav-menu ul li a:hover {
+                background-color: #495057;
+            }
+
+            .section-2 {
+                padding: 40px 20px;
+            }
+        }
+
+        span {
+            color: white;
+        }
+
+        #pa {
+            padding: 0;
+            margin: 0;
+            margin-bottom: 20px;
+            font-size: 3.5rem;
+            font-weight: bolder;
+            color: #000;
+            /* margin: 0 0 10px;  */
+        }
+
+        #button {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            background-color: #17203a;
+            color: #fff9f9;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+        
+        #header {
+            background-color: #222;
+            color: #fff;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+        #header h1 {
+            
+            
+            font-size: 5.5rem;
+            
+            margin: 0;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px; /* Slightly increased gap for better spacing */
+            padding: 20px;
+        }
+
+        .card {
+            border-radius: 10px;
+            background-color: #222;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden; /* Ensure content doesn't overflow */
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effects */
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistency */
+            object-fit: cover; /* Ensure image covers the area */
+            display: block; /* Remove extra space below images */
+        }
+
+        .card-content {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .card-content h2 {
+            font-size: 1.5rem;
+            margin: 10px 0 5px;
+        }
+
+        .card-content p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .card:hover {
+            transform: translateY(-5px); /* Slightly lift the card on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        }
+
+        .button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Single column for smaller screens */
+                gap: 10px; /* Adjusted gap for better spacing */
+            }
+        }
+
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                gap: 15px; /* Maintain gap consistency */
+            }
+        }
+
+        body {
+  font-family: Hind, sans-serif;
+}
+
+.faq-container {
+    color: #000;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.faq-question {
+    background-color: #ebf2f8;
+    /* background-color: transparent; */
+  
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  cursor: pointer;
+}
+
+.faq-answer {
+    background-color: #112846;
+    color: white;
+  padding: 15px;
+  display: none;
+}
+
+.faq-icon {
+  float: right;
+  font-size: 20px;
+  color: #333;
+}
+
+.plus-icon {
+  display: inline-block;
+}
+
+.minus-icon {
+  display: none;
+}
+
+.faq-question:hover {
+    color: white;
+    background-color: #060b33;
+}
+
+/* .faq-question.active {
+  background-color: #ddd;
+} */
+
+/* .faq-answer.active {
+  display: block;
+} */
+
+#body {
+    background-color: #1c1c1c;
+    color: #ddd;
+    font-family: Arial, sans-serif;
+}
+
+.custom-footer {
+    background-color: #282828;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.custom-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.custom-section {
+    flex: 1;
+    min-width: 200px;
+    margin-bottom: 20px;
+    padding: 0 15px;
+    text-align: left;
+}
+
+.custom-section h3 {
+    color: #ff9800;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.custom-section p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+}
+
+.custom-list {
+    list-style: none;
+    padding: 0;
+}
+
+.custom-list-item {
+    margin-bottom: 10px;
+}
+
+.custom-link {
+    color: #ff9800;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.custom-link:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.social-icons-wrapper {
+    margin-top: 15px;
+}
+
+.social-icons-wrapper .social-icon-item {
+    display: inline-block;
+    margin: 0 8px;
+}
+
+.social-icons-wrapper .social-icon-link {
+    display: inline-block;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ff9800;
+    color: #282828;
+    text-align: center;
+    line-height: 36px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 18px;
+}
+
+.social-icons-wrapper .social-icon-link:hover {
+    background-color: #282828;
+    color: #ff9800;
+}
+
+.newsletter-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #444;
+    border-radius: 5px;
+    background-color: #333;
+    color: #ddd;
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.newsletter-button {
+    background-color: #ff9800;
+    color: #282828;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.newsletter-button:hover {
+    background-color: #282828;
+    color: #ff9800;
+}
+
+.footer-credits {
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+
+.btn-chat {
+    background-color: #007bff;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.btn-chat:hover {
+    background-color: #0056b3;
+}
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left-side">
+            <img src="https://i.ibb.co/41G32d5/UDC.png" alt="UDC">
+            <span>Cr</span>
+        </div>
+        <button class="nav-toggle" onclick="toggleNav()">
+            <div></div>
+            <div></div>
+            <div></div>
+        </button>
+        <div class="nav-menu">
+            <ul>
+                <li><a href="index.html">Services</a></li>
+                <li><a href="./ourportfolio.html">Our Portfolio</a></li>
+                <li><a href="./pricing.html">Pricing</a></li>
+                <li><a href="signup.html">Contact</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section-2 animate__animated animate__fadeInDown">
+        <h1>----We Deliver World-Class<br>
+
+            
+            <span>Mobile Application</span> <br> Development Services
+        </h1>
+        <h2>Your Brand, Our Design</h2>
+        <p>Our prime designers provide you with extremely stylish <br> marketing material that impresses the customer.
+
+            Let's Get Started</p>
+        <button id="btm">Get Started</button>
+
+    </div>
+    <hr>   
+        <center>
+            <p id="pa">App Design Solutions To Make  <br>
+                Your Brand Presence Stronger</p>
+            <p style="color: #7c7070; font-size: small;">We like to stay ahead of the curve when it comes to technology and we find helping our clients get there equally enthralling. This is the reason we enable <br> apps that are game changers. While we like practicality, revolutionary products are our forte.</p>
+            <button id="button">Read More</button>
+        </center>
+    </div>  
+    <br>
+    <header id="header"></header>
+    <center>
+        <h1 style="color: #1f262c;">What We Deliver</h1></center>
+    </header>
+
+    <div class="grid-container">
+        <div class="card" id="card1">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/1.webp" alt="Healthy Products">
+            <div class="card-content">
+                <h2>Healthy Products</h2>
+                <p>Explore our range of healthy products designed to enhance your well-being.</p>
+            </div>
+        </div>
+        <div class="card" id="card2">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/4.webp" alt="Organic Foods">
+            <div class="card-content">
+                <h2>Organic Foods</h2>
+                <p>Discover our selection of organic foods for a healthier lifestyle.</p>
+            </div>
+        </div>
+        <div class="card" id="card3">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/6.webp" alt="Digital Agency">
+            <div class="card-content">
+                <h2>Digital Agency</h2>
+                <p>Providing top-notch digital marketing and web solutions.</p>
+            </div>
+        </div>
+        <div class="card" id="card4">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/8.webp" alt="Fitness Gear">
+            <div class="card-content">
+                <h2>Fitness Gear</h2>
+                <p>High-quality fitness gear to support your workout routines.</p>
+            </div>
+        </div>
+        <div class="card" id="card5">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/7.webp" alt="Natural Supplements">
+            <div class="card-content">
+                <h2>Natural Supplements</h2>
+                <p>Enhance your health with our range of natural supplements.</p>
+            </div>
+        </div>
+        <div class="card" id="card6">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/10.webp" alt="Healthy Snacks">
+            <div class="card-content">
+                <h2>Healthy Snacks</h2>
+                <p>Enjoy our selection of nutritious and tasty snacks.</p>
+            </div>
+        </div>
+        <div class="card" id="card7">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/13.webp" alt="Eco-friendly Products">
+            <div class="card-content">
+                <h2>Eco-friendly Products</h2>
+                <p>Shop eco-friendly products that are good for you and the planet.</p>
+            </div>
+        </div>
+        <div class="card" id="card8">
+            <img src="https://creativedesigncrew.com/assets/images/webp/portfolio/mobile-app/12.webp" alt="Wellness Kits">
+            <div class="card-content">
+                <h2>Wellness Kits</h2>
+                <p>Comprehensive wellness kits for a balanced and healthy lifestyle.</p>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="faq-container">
+        <center>
+        <h2>Frequently Asked Question</h2></center>
+        <div class="faq-question active 
+        ">How do I order Logo Design service from Prime Design Crew?
+          <span class="faq-icon plus-icon" style="color: white;">+</span>
+          <span class="faq-icon minus-icon" style="color: white;">-</span>
+        </div>
+        <div class="faq-answer active">
+          <p>That's pretty simple. All you have to do is fill in a short brief form, and boom, your request will be processed as soon as you make the payment. Also, you can schedule a design consultation with one of our consultants in case you need any assistance.</p>
+        </div>
+        <div class="faq-question">How much time does it take to get a logo designed with Prime Design Crew?
+          <span class="faq-icon plus-icon" style="color: white;">+</span>
+          <span class="faq-icon minus-icon" style="color: white;">-</span>
+        </div>
+        <div class="faq-answer">
+          <p>Depending on your requirements, the time may vary; it usually takes 24 – 48 business hours to get an aesthetically attractive logo designed with Creative Design Crew.</p>
+        </div>
+        <div class="faq-question">
+            How much does it cost to get a logo designed with Prime Design Crew?
+          <span class="faq-icon plus-icon" style="color: white;">+</span>
+          <span class="faq-icon minus-icon" style="color: white;">-</span>
+        </div>
+        <div class="faq-answer">
+          <p>We do not believe in costing you a fortune against an appealing logo design. Visit our pricing page to know the exact cost.</p>
+        </div>
+        <div class="faq-question">How many revisions can I get done for my Logo?
+          
+          
+          <span class="faq-icon plus-icon" style="color: white;">+</span>
+          <span class="faq-icon minus-icon" style="color: white;">-</span>
+        </div>
+        <div class="faq-answer">
+          <p>  The number of revisions depends on the package you choose to go for. However, generally, we do provide unlimited revisions so that you are satisfied with the final version.</p>
+        </div>
+        <div class="faq-question">
+            How important is a business logo design?
+          <span class="faq-icon plus-icon" style="color: white;">+</span>
+          <span class="faq-icon minus-icon" style="color: white;">-</span>
+        </div>
+        <div class="faq-answer">
+          <p>A logo is the first look of your business. It is a visual representation of your brand or business which should align with your brand persona and the overall mood of the business.</p>
+        </div>
+        <div class="faq-question">
+            Can I get my Logo revamped if it's old?
+          <span class="faq-icon plus-icon" style="color: white;">+</span>
+          <span class="faq-icon minus-icon" style="color: white;">-</span>
+        </div>
+        <div class="faq-answer">
+          <p>Yes, of course. You should! If your brand is not receiving the preferred attention or has failed to create an impression, immediately revamp your Logo. Even successful brands can also choose our services for logo design in the USA to redesign their old logos. This way, you can ensure that they are accurately aligned with modern trends and sensibilities, which allows you to better connect with the varying audience.</p>
+        </div>
+        <div class="faq-question">
+            Which is the best logo design service in the USA?
+            
+          <span class="faq-icon plus-icon" style="color: white;">+</span>
+          <span class="faq-icon minus-icon" style="color: white;">-</span>
+        </div>
+        <div class="faq-answer">
+          <p>For years, Creative Design Crew has been leading by offering custom logo design services that are reasonable and reliable. We create a logo design that represents all the qualities you've anticipated for your brand.
+            
+            Contact us today and avail our free logo consultancy.</p>
+        </div>
+      </div>
+      <br>
+
+      <div id="body">
+        <footer class="custom-footer">
+            <div class="custom-container">
+                <div class="custom-section">
+                    <h3>About Us</h3>
+                    <p>We are a company dedicated to providing exceptional service and high-quality products. Our goal
+                        is to exceed customer expectations with every interaction.</p>
+                    <ul class="custom-list social-icons-wrapper">
+                        <li class="social-icon-item"><a href="#" aria-label="Google" class="social-icon-link"><i
+                                    class="fab fa-google"></i></a></li>
+                        <li class="social-icon-item"><a href="#" aria-label="Twitter" class="social-icon-link"><i
+                                    class="fab fa-twitter"></i></a></li>
+                        <li class="social-icon-item"><a href="#" aria-label="Facebook" class="social-icon-link"><i
+                                    class="fab fa-facebook-f"></i></a></li>
+                        <li class="social-icon-item"><a href="#" aria-label="PayPal" class="social-icon-link"><i
+                                    class="fab fa-paypal"></i></a></li>
+                    </ul>
+                </div>
+                <div class="custom-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: <a href="mailto:info@primedesigncrew.com" class="custom-link">info@primedesigncrew.com</a>
+                    </p>
+                    <p>Phone: +1 (510) 954-0786</p>
+                    <p>Address: 2950 E Texas St, Suite 81, Bossier City, LA 71111</p>
+                </div>
+                <div class="custom-section">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                    <button type="submit" class="newsletter-button" id="subscribe">Subscribe</button>
+                </div>
+            </div>
+            <p class="footer-credits">&copy; 2024 Your Company. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <button class="btn-chat">Live Chat</button>
+    <script src="app.js"></script>
+    <script>
+        let btm = document.getElementById("btm")
+        btm.addEventListener('click' , ()=>{
+            location.href = "./signup.html"
+        })
+        var acc = document.getElementsByClassName("faq-question");
+        var i;
+        
+        for (i = 0; i < acc.length; i++) {
+          acc[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+              panel.style.display = "none";
+              this.querySelector(".plus-icon").style.display = "inline-block";
+              this.querySelector(".minus-icon").style.display = "none";
+            } else {
+              panel.style.display = "block";
+              this.querySelector(".plus-icon").style.display = "none";
+              this.querySelector(".minus-icon").style.display = "inline-block";
+            }
+          });
+        }
+        
+        </script>
+
+    <script>
+        function toggleNav() {
+            const navMenu = document.querySelector('.nav-menu');
+            navMenu.classList.toggle('active');
+        }
+    </script>
+</body>
+
+</html>
