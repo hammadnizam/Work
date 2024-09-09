@@ -9,20 +9,25 @@ body {
 
 }
 
-header {
-    background-color: #17203a;
+/* header { */
+    /* background-color: #17203a; */
 
-    padding: 20px;
-    text-align: center;
-}
+    /* padding: 20px; */
+    /* text-align: center; */
+/* } */
+
+
+
 
 .container {
-    position: relative;
-    max-width: 1200px;
+    position:relative;
+    
+    /* max-width: 1200px; */
     margin: 0;
-    margin-top: 1px;
+    padding: 0;
+    /* margin-top: 1px; */
     /* margin: 0 auto; */
-    padding: 20px;
+    /* padding: 20px; */
 }
 
 .logo {
@@ -478,6 +483,7 @@ button {
 }
 
 #body {
+
     background-color: #1c1c1c;
     color: #ddd;
     font-family: Arial, sans-serif;
@@ -487,6 +493,17 @@ button {
     background-color: #282828;
     padding: 40px 20px;
     text-align: center;
+}
+@media (max-width: 500px) {
+    .custom-footer {
+     margin: 0;
+     padding: 0;
+     width: 450px;
+     
+     
+     
+    }
+
 }
 
 .custom-container {

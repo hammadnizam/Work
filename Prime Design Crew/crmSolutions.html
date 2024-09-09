@@ -12,6 +12,7 @@
     <style>
         body {
             margin: 0;
+            padding: 0;
             font-family: 'Roboto', sans-serif;
             color: #f8f9fa;
             background-color: white;
@@ -588,7 +589,7 @@
             margin: 0;
             padding: 0;
             background-color: var(--background-color);
-            color: var(--text-color-dark);
+            /* color: var(--text-color-dark); */
         }
 
         #main-container {
@@ -744,8 +745,8 @@
 <body>
     <div class="container">
         <div class="left-side">
-            <img src="https://i.ibb.co/41G32d5/UDC.png" alt="UDC">
-            <span>Cr</span>
+            <img src="assets/image/pdc.png" alt="UDC">
+            <span>pdc</span>
         </div>
         <button class="nav-toggle" onclick="toggleNav()">
             <div></div>
@@ -753,7 +754,7 @@
             <div></div>
         </button>
         <div class="nav-menu">
-            <ul>
+            <ul class="animate__animated animate__fadeInDown">
                 <li><a href="index.html">Services</a></li>
                 <li><a href="./ourportfolio.html">Our Portfolio</a></li>
                 <li><a href="./pricing.html">Pricing</a></li>
@@ -777,8 +778,8 @@
     </div>
     <hr>
     <center>
-        <p id="pa">How Can Small Businesses Benefit from CRM?</p>
-        <p style="color: #7c7070; font-size: small;">We offer critical features that a business needs; this includes
+        <p class="animate__animated animate__fadeInLeft" id="pa">How Can Small Businesses Benefit from CRM?</p>
+        <p style="color: #7c7070; font-size: small;" class="animate__animated animate__fadeInUpBig">We offer critical features that a business needs; this includes
             leads, deals, contact management, tasks and events, payments, and more! The best part is having a <br>
             customized management system according to your business requirement.</p>
         <p id="pa">Lead Generation CRM</p>
@@ -790,12 +791,12 @@
     </div>
     <br>
     <center>
-        <img src="https://creativedesigncrew.com/assets/images/webp/crm-pg/states.jpg" alt="">
+        <img src="https://creativedesigncrew.com/assets/images/webp/crm-pg/states.jpg" alt="" width="100%">
     </center>
     <br>
     <div id="main-container"></div>
     <div class="header-buttons">
-        <button class="button">Easy Installation</button>
+        <button class="button">Installation</button>
         <button class="button">Protect Content</button>
         <button class="button">Automation</button>
         <button class="button">Reporting & Analytics</button>
@@ -854,7 +855,7 @@
     <div class="info-card">
         <div class="icon-wrapper">
             <i class="icon fas fa-lock"></i>
-            <h3> Protect Content</h3>
+            <h3>Protect Content</h3>
             <p>Protect member-only content with a variety of access controls.</p>
         </div>
         <button class="button">Request Demo</button>
@@ -890,45 +891,84 @@
     </div>
     </div>
 
+
+    
     <div class="info-card">
         <div class="icon-wrapper">
-            <i class="icon fas fa-lock"></i>
+            <i class="card-icon fas fa-cog"></i>
             <h3> Automation</h3>
-            <p>It has powerful reporting features that let you figure out customer lifetime value, sales, and other things.</p>
+            <p>It has powerful reporting features that let you figure out customer lifetime value, sales, and other
+                things.</p>
         </div>
         <button class="button">Request Demo</button>
     </div>
     <div class="feature-card">
         <div class="feature-list">
             <div class="feature-item">
-                <i class="icon fas fa-ban"></i>
-                <h3> Protected Members Area</h3>
-            </div>
-            <div class="feature-item">
-                <i class="icon fas fa-exclamation-triangle"></i>
-                <h3>Limit Login Attempts</h3>
-            </div>
-            <div class="feature-item">
-                <i class="icon fas fa-lock"></i>
-                <h3>Auto-lock Shared Accounts</h3>
-            </div>
-            <div class="feature-item">
-                <i class="icon fas fa-laptop"></i>
-                <h3>Custom Login Page</h3>
-            </div>
-            <div class="feature-item">
-                <i class="icon fas fa-sync-alt"></i>
-                <h3>Custom Password Reset Page</h3>
-            </div>
-            <div class="feature-item">
-                <i class="icon fas fa-folder"></i>
-                <h3>Protect Categories & Taxonomies</h3>
+                <i class="card-icon fas fa-building"></i>
+                <h3> Overdue Payment Notification</h3>
             </div>
 
+            <div class="feature-item">
+                <i class="card-icon fas fa-clipboard-check"></i>
+                <h3>Content Protection Sync'd with Billing Status</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-chart-pie"></i>
+                <h3>Integrate with 3rd Party Systems</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-building"></i>
+                <h3>Internal Company Notifications</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-lock"></i>
+                <h3>Password Reset</h3>
+            </div>
         </div>
     </div>
     </div>
 
+    <div class="info-card">
+        <div class="icon-wrapper">
+            <i class="card-icon fas fa-cog"></i>
+            <h3>Reporting & Analytics</h3>
+            <p>It offers robust reporting tools that help you calculate sales, customer lifetime value, and more.</p>
+        </div>
+        <button class="button">Request Demo</button>
+    </div>
+    <div class="feature-card">
+        <div class="feature-list">
+            <div class="feature-item">
+                <i class="card-icon fas fa-chart-line"></i>
+                <h3> Leads Dashboard</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-thumbs-up"></i>
+                <h3>Engagement Statistics</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-money-bill-wave"></i>
+                <h3>Lifetime Customer Value</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-download"></i>
+                <h3>Export Transactions</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-mouse-pointer"></i>
+                <h3>Browse Transactions Report</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-chalkboard-teacher"></i>
+                <h3>Sales by Membership Level Report</h3>
+            </div>
+            <div class="feature-item">
+                <i class="card-icon fas fa-file-alt"></i>
+                <h3>Sales By Product Report</h3>
+            </div>
+        </div>
+    </div>
     <br>
     <center>
         <h1 style="color: #1f262c;">What We Deliver</h1>
