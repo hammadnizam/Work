@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Client Project Management</title>
+  <style>
+    body {
+      background-color: #f7f9fc;
+      color: #2e3a59;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .main-wrapper {
+      text-align: center;
+      max-width: 90%;
+      padding: 2em;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-wrapper h1 {
+      font-size: 2.4em;
+      color: #1e2a38;
+      margin-bottom: 0.5em;
+    }
+
+    .main-wrapper p {
+      font-size: 1.1em;
+      color: #4a5c73;
+      margin-bottom: 1.5em;
+      line-height: 1.6;
+    }
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      gap: 1em;
+      margin-bottom: 1em;
+      justify-content: center; /* Center horizontally */
+      flex-wrap: wrap;
+    }
+
+    .text-input {
+      padding: 0.8em;
+      border: none;
+      border-radius: 10px;
+      background-color: #e3f2fd;
+      color: #1e2a38;
+      font-size: 1em;
+      width: 100%;
+      max-width: 300px; /* Adjust width as needed */
+      box-sizing: border-box;
+    }
+
+    .action-button, .submit-button {
+      padding: 0.8em 1.6em;
+      border: none;
+      border-radius: 10px;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+      margin: 0.5em;
+    }
+
+    .action-button {
+      background-color: #4caf50;
+    }
+
+    .action-button:hover {
+      background-color: #388e3c;
+      transform: scale(1.05);
+    }
+
+    .submit-button {
+      background-color: #007bff;
+    }
+
+    .submit-button:hover {
+      background-color: #0056b3;
+      transform: scale(1.05);
+    }
+
+    .hidden-element {
+      display: none;
+    }
+
+    .hidden-button {
+      display: none; /* Hide by default */
+    }
+
+    /* Custom styling for SweetAlert2 confirm button */
+    .swal2-confirm-custom {
+      border: 2px solid #d32f2f;
+      color: #d32f2f;
+      font-weight: bold;
+      border-radius: 10px;
+      padding: 0.5em 1.2em;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .swal2-confirm-custom:hover {
+      background-color: #d32f2f;
+      color: white;
+    }
+  </style>
+  <!-- SweetAlert2 CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <!-- Animate.css for animations -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+  <div class="main-wrapper" id="form-container">
+    <h1 id="main-heading">Client Project Management Made Easy</h1>
+    <p id="intro-text">Unique and powerful suite of software to run your entire business!</p>
+
+    <div class="input-container">
+      <input type="text" id="nameInputField" class="text-input" placeholder="Enter Your Name">
+      <input type="email" id="emailInputField" class="text-input hidden-element" placeholder="Enter Your Email">
+      <input type="password" id="passwordInputField" class="text-input hidden-element" placeholder="Enter Your Password">
+      <button id="prevButton" class="action-button hidden-button">Previous</button>
+      <button id="nextButton" class="action-button">Next</button>
+      <button id="submitButton" class="submit-button hidden-button">Submit</button> <!-- New Submit Button -->
+    </div>
+  </div>
+
+  <!-- SweetAlert2 JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.all.min.js"></script>
+  <script>
+    let currentIndex = 0;
+    const inputs = document.querySelectorAll('.text-input');
+    const prevButton = document.getElementById('prevButton');
+    const nextButton = document.getElementById('nextButton');
+    const submitButton = document.getElementById('submitButton');
+
+    function showInput(index) {
+      inputs.forEach((input, i) => {
+        input.classList.toggle('hidden-element', i !== index);
+      });
+
+      // Toggle button visibility based on the currentIndex
+      prevButton.classList.toggle('hidden-button', index === 0);
+      nextButton.classList.toggle('hidden-button', index === inputs.length - 1);
+      submitButton.classList.toggle('hidden-button', index !== inputs.length - 1);
+    }
+
+    function validateCurrentField() {
+      const currentInput = inputs[currentIndex];
+      if (!currentInput.value.trim()) {
+        Swal.fire({
+          title: '<strong><u>Oops!</u></strong>',
+          html: `
+            <div style="display: flex; align-items: center;">
+              <img src="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.png" 
+                   alt="Error Icon" 
+                   style="width: 80px; height: 80px; margin-right: 20px;" />
+              <div>
+                <p style="font-size: 1.2em; margin: 0;">Please complete the highlighted field:</p>
+                <p style="font-size: 1em; color: #d32f2f;">All fields must be filled before proceeding.</p>
+              </div>
+            </div>`,
+          icon: 'error',
+          background: '#fff3f3',
+          color: '#d32f2f',
+          confirmButtonText: 'Got it',
+          confirmButtonColor: '#d32f2f',
+          footer: '<a href="https://example.com">Need more help?</a>',
+          customClass: {
+            popup: 'animate__animated animate__fadeIn',
+            confirmButton: 'swal2-confirm-custom'
+          },
+          backdrop: `rgba(0,0,0,0.4)`
+        });
+        return false;
+      }
+      return true;
+    }
+
+    nextButton.addEventListener('click', function() {
+      if (!validateCurrentField()) {
+        return;
+      }
+      if (currentIndex < inputs.length - 1) {
+        currentIndex++;
+        showInput(currentIndex);
+      }
+    });
+
+    prevButton.addEventListener('click', function() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        showInput(currentIndex);
+      }
+    });
+
+    submitButton.addEventListener('click', function() {
+      if (!validateCurrentField()) {
+        return;
+      }
+      Swal.fire({
+        title: 'Submission Successful!',
+        text: 'Thank you for completing the form.',
+        icon: 'success',
+        confirmButtonText: 'OK',
+        confirmButtonColor: '#4caf50',
+        customClass: {
+          popup: 'animate__animated animate__fadeIn'
+        }
+      });
+    });
+
+    // Initialize by showing the first input
+    showInput(currentIndex);
+  </script>
+</body>
+</html>

@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #162139;
+            color: #e0e0e0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            /* Allow wrapping of items on smaller screens */
+            max-width: 1200px;
+            /* Limiting the maximum width */
+            width: 100%;
+        }
+
+        .form-container,
+        .contact-info,
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+
+        .form-container {
+            background-color: #1e1e1e;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .form-container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #00b050;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background-color: #2c2c2c;
+            color: #e0e0e0;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .form-input:focus {
+            border-color: #00b050;
+            background-color: #333;
+            outline: none;
+        }
+
+        textarea.form-input {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .form-button {
+            background-color: #00b050;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .form-button:hover {
+            background-color: #009d42;
+            transform: scale(1.05);
+        }
+
+        .contact-info {
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+            padding: 20px;
+            border-radius: 12px;
+            width: 100%;
+            max-width: 300px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #00b050;
+        }
+
+        .contact-info p {
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        .contact-info a {
+            color: #00b050;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+            
+        }
+
+        .image-container {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid #00b050;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .form-container,
+            .contact-info,
+            .image-container {
+                max-width: 90%;
+            }
+
+            .form-container h2 {
+                font-size: 20px;
+            }
+
+            .contact-info h3 {
+                font-size: 18px;
+            }
+
+            .form-input,
+            .form-button {
+                font-size: 14px;
+            }
+
+            .contact-info p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+
+            .form-container,
+            .contact-info,
+            .image-container {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .form-container h2 {
+                font-size: 18px;
+            }
+
+            .contact-info h3 {
+                font-size: 16px;
+            }
+
+            .form-input,
+            .form-button {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .contact-info p {
+                font-size: 12px;
+            }
+
+            .image-container {
+                height: 250px;
+            }
+        }
+
+        .btn-chat {
+            background-color: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn-chat:hover {
+            background-color: #0056b3;
+        }        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h2>Don't Be Shy. Talk To Us.</h2>
+            <div>
+                
+                <div class="form-group">
+                    <label for="email" class="form-label">Your Email</label>
+                    <input type="email" id="email" class="form-input" placeholder="Enter Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Password</label>
+                    <input type="tel" id="phone" class="form-input" placeholder="Password" required>
+                </div>
+                <br>
+                <button type="submit" class="form-button" id="SUBMIT">Submit</button>
+                <button type="submit" class="form-button" id="GOOGLE"><i class="fa-brands fa-google"></i> Continue with Google</button>
+                <br><br>
+                <center><a style="color: #f5d3d3;" href="signup.html">signup===>>></a></center>
+            </div>
+        </div>
+        <div class="contact-info">
+            <h3>Contact Us</h3>
+            <p><i id="icons" class="fas fa-phone-alt"></i> +1 (510) 954 0786 (USA)</p>
+            <p><i id="icons" class="fas fa-envelope"></i> <a
+                    href="mailto:info@primedesigncrew.com">info@primedesigncrew.com</a>
+            </p>
+            <p><i id="icons" class="fas fa-comments"></i> <a href="#">Live Chat</a></p>
+        </div>
+        <div class="image-container">
+            <img src="https://creativedesigncrew.com/assets/images/webp/footer-form-img.webp" alt="Woman on phone">
+        </div>
+    </div>
+
+    <button class="btn-chat">Live Chat</button>
+
+
+    <script type="module" >
+
+    </script>
+</body>
+</html>
