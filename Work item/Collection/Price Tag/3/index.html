@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price Tag</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .price-tag {
+      position: relative;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ffeb3b, #fdd835);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 3.5rem;
+      font-weight: bold;
+      color: #212121;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+      transform: rotate(-5deg);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .price-tag:hover {
+      transform: rotate(0deg) scale(1.05);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .price-tag::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      transform: rotate(45deg);
+      width: 120%;
+      height: 120%;
+      background: linear-gradient(145deg, #ffeb3b, #fdd835);
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .price-tag::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 25px 25px 0 25px;
+      border-color: #ffeb3b transparent transparent transparent;
+      z-index: -1;
+    }
+
+    .price-tag .icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      font-size: 1.5rem;
+      color: #212121;
+    }
+  </style>
+</head>
+<body>
+  <div class="price-tag">
+    <div class="icon">&#9733;</div> <!-- Example star icon -->
+    $35
+  </div>
+</body>
+</html>

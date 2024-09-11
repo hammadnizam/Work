@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price Tag</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Playfair Display', serif;
+    }
+
+    .price-tag {
+      position: relative;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(145deg, #ff9800, #ff5722);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3), inset 0 -6px 12px rgba(0, 0, 0, 0.3);
+      border: 6px solid transparent;
+      border-image: linear-gradient(45deg, #ff9800, #ff5722);
+      border-image-slice: 1;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      transform: rotate(-5deg);
+    }
+
+    .price-tag:hover {
+      transform: rotate(0deg) scale(1.1);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), inset 0 -8px 16px rgba(0, 0, 0, 0.4);
+    }
+
+    .price-tag::before {
+      content: "";
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      width: 80%;
+      height: 80%;
+      background: radial-gradient(circle at 50%, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .price-tag::after {
+      content: "";
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 30px 30px 0 30px;
+      border-color: #ff9800 transparent transparent transparent;
+      z-index: -1;
+    }
+
+    .price-tag .icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 2rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .price-tag:hover .icon {
+      color: #ffd54f;
+    }
+
+    .price-tag .badge {
+      position: absolute;
+      top: -20px;
+      right: -20px;
+      background: #ff5722;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      transform: rotate(45deg);
+      text-align: center;
+      white-space: nowrap;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="price-tag">
+    <div class="icon">&#9733;</div> <!-- Example star icon -->
+    $35
+    <div class="badge">Limited Offer</div>
+  </div>
+</body>
+</html>

@@ -3,447 +3,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDC - Custom Logo Designs</title>
+    <title>Logo Packages</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Include the CSS code provided above here */
         body {
-            background-color: #181818;
-            color: #fff;
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+}
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px;
-            background-color: #121212;
-            border-bottom: 1px solid #333;
-            position: relative;
-        }
+.slider-container {
+    position: relative;
+    width: 80%;
+    max-width: 1200px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #fff;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-        }
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
 
-        .logo img {
-            width: 50px;
-            height: auto;
-            margin-right: 10px;
-        }
+.card {
+    min-width: 300px;
+    margin: 0 15px;
+    text-align: center;
+    background-color: #282c34;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-        .logo h1 {
-            font-size: 24px;
-            margin: 0;
-        }
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            justify-content: space-around;
-            width: 30px;
-            height: 25px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            z-index: 1000;
-        }
+.card h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: 600;
+}
 
-        .menu-toggle div {
-            width: 30px;
-            height: 3px;
-            background: #fff;
-            transition: 0.3s;
-        }
+.card p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
 
-        nav {
-            display: flex;
-            flex: 1;
-            justify-content: center; /* Center the menu horizontally */
-        }
+.card .price {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 
-        .nav-menu {
-            display: flex;
-            align-items: center;
-        }
+.card .original-price {
+    font-size: 16px;
+    text-decoration: line-through;
+    color: #777;
+}
 
-        .nav-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
+.card button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+}
 
-        .nav-menu ul li {
-            position: relative;
-        }
+.card button:hover {
+    background-color: #0056b3;
+}
 
-        .nav-menu ul li a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
+.slider-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    transform: translateY(-50%);
+    z-index: 2; /* Ensure buttons are above other elements */
+}
 
-        .nav-menu ul li a:hover {
-            color: #f7931e;
-        }
+.slider-nav .prev-btn,
+.slider-nav .next-btn {
+    background: rgba(0, 123, 255, 0.8); /* Semi-transparent background */
+    color: #fff;
+    border: none;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Slightly darker shadow */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 2; /* Ensure buttons are above other elements */
+}
 
-        /* Dropdown Menu Styles */
-        .dropdown-menu {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #121212;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            border-radius: 5px;
-            padding: 10px;
-            z-index: 1000;
-            width: 200px;
-        }
+.slider-nav .prev-btn:hover,
+.slider-nav .next-btn:hover {
+    background: rgba(0, 123, 255, 1); /* Full opacity on hover */
+    transform: scale(1.1);
+}
 
-        .dropdown-menu ul {
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
+.slider-nav .prev-btn {
+    position: absolute;
+    left: 10px;
+}
 
-        .dropdown-menu ul li {
-            margin: 0;
-        }
+.slider-nav .next-btn {
+    position: absolute;
+    right: 50px;
+    top: -0px;
+}
 
-        .dropdown-menu ul li a {
-            color: #fff;
-            text-decoration: none;
-            display: block;
-            padding: 10px;
-            transition: background-color 0.3s;
-        }
 
-        .dropdown-menu ul li a:hover {
-            background-color: #333;
-        }
-
-        .dropdown-active {
-            display: block;
-        }
-
-        .contact {
-            display: flex;
-            align-items: center;
-        }
-
-        .contact a {
-            color: #fff;
-            text-decoration: none;
-            margin-left: 20px;
-            font-size: 16px;
-            transition: color 0.3s;
-        }
-
-        .contact a.live-chat {
-            background-color: #f7931e;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .contact a.live-chat:hover {
-            background-color: #e67e22;
-        }
-
-        .nav-menu.active {
-            display: flex;
-            flex-direction: column;
-            position: absolute;
-            top: 70px;
-            right: 20px;
-            background-color: #121212;
-            border-radius: 5px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            padding: 20px;
-            gap: 10px;
-        }
-
-        .nav-menu.active ul {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            margin: 0;
-            padding: 0;
-        }
-
-        .nav-menu.active ul li {
-            margin: 0;
-        }
-
-        .nav-menu.active ul li a {
-            font-size: 18px;
-        }
-
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 50px 20px;
-        }
-
-        .hero h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
-
-        .cta-button {
-            background-color: #f7931e;
-            color: #fff;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .cta-button:hover {
-            background-color: #e67e22;
-        }
-
-        .call-to-action {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .call-to-action .form {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .call-to-action input {
-            padding: 10px;
-            border: 1px solid #fff;
-            border-radius: 5px;
-            background-color: #282828;
-            color: #fff;
-            width: 100%;
-            max-width: 300px;
-        }
-
-        .call-to-action button {
-            background-color: #f7931e;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .call-to-action button:hover {
-            background-color: #e67e22;
-        }
-
-        .call-to-action .badge {
-            display: flex;
-            gap: 10px;
-        }
-
-        .badge img {
-            width: 50px;
-            height: auto;
-        }
-
-        .portfolio {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
-            padding: 50px 20px;
-            gap: 20px;
-        }
-
-        .portfolio-item {
-            width: 250px;
-            height: 250px;
-            border: 1px solid #fff;
-            background-color: #282828;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            transition: transform 0.3s;
-        }
-
-        .portfolio-item:hover {
-            transform: scale(1.05);
-        }
-
-        .portfolio-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .portfolio-item .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .portfolio-item .overlay h3 {
-            color: #fff;
-            margin: 0;
-            text-align: center;
-        }
-
-        .portfolio-item:hover .overlay {
-            opacity: 1;
-        }
-
-        footer {
-            background-color: #111;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu {
-                display: none;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .nav-menu.active {
-                display: flex;
-            }
-        }
     </style>
 </head>
 <body>
-    <header>
-        <div class="logo">
-            <img src="logo.png" alt="UDC Logo">
-            <!-- <h1>UDC</h1> -->
-        </div>
-        <button class="menu-toggle" aria-label="Toggle Navigation">
-            <div></div>
-            <div></div>
-            <div></div>
-        </button>
-        <nav class="nav-menu">
-            <ul>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle">Services</a>
-                    <div class="dropdown-menu">
-                        <ul>
-                            <li><a href="#">Service 1</a></li>
-                            <li><a href="#">Service 2</a></li>
-                            <li><a href="#">Service 3</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="#">Our Portfolio</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-        </nav>
-        <div class="contact">
-            <a href="tel:+18666575669">+1 (866) 657 5669</a>
-            <a href="#" class="live-chat">Live Chat</a>
-        </div>
-    </header>
+    <div class="slider-container">
+        <div class="slider">
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/14/02/09/design-1973205_960_720.jpg" alt="Logo Design">
+                <h2>Logo Special</h2>
+                <p>4 Original Logo Concepts</p>
+                <p>2 Dedicated Logo Designers</p>
+                <p>4 Revisions</p>
+                <p>With Grey Scale Format</p>
+                <p>Free Icon Design</p>
+                <p>Formats: JPEG Only</p>
+                <p>24-48 Business Hours Turnaround Time</p>
+                <div class="price">$35</div>
+                <div class="original-price">$117</div>
+                <button>Get Started</button>
+            </div>
 
-    <section class="hero">
-        <h2>Get Your Custom <br> Logo Designs In</h2>
-        <p>Design custom logos for your brand to give it a premium look!</p>
-        <div class="call-to-action">
-            <div class="form">
-                <input type="text" placeholder="Enter Your Name">
-                <button class="cta-button">Start Project</button>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/14/02/09/design-1973205_960_720.jpg" alt="Logo Design">
+                <h2>Logo Plus</h2>
+                <p>12 Original Logo Concepts</p>
+                <p>4 Dedicated Logo Designers (Industry-Specific)</p>
+                <p>Unlimited Revisions</p>
+                <p>Stationery Design (Business Card, Letterhead, Envelope)</p>
+                <p>Email Signature Design</p>
+                <p>With Grey Scale Format</p>
+                <p>Free Icon Design</p>
+                <div class="price">$119</div>
+                <div class="original-price">$397</div>
+                <button>Get Started</button>
             </div>
-            <div class="badge">
-                <img src="trustpilot-badge.png" alt="Trustpilot Badge">
-                <img src="clutch-badge.png" alt="Clutch Badge">
-                <img src="google-partner-badge.png" alt="Google Partner Badge">
-            </div>
-        </div>
-    </section>
 
-    <section class="portfolio">
-        <div class="portfolio-item">
-            <img src="portfolio-item-1.png" alt="Sobersandiego Logo">
-            <div class="overlay">
-                <h3>SOBERSANDIEGO</h3>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/14/02/09/design-1973205_960_720.jpg" alt="Logo Design">
+                <h2>Logo Platinum</h2>
+                <p>Unlimited Original Logo Concepts</p>
+                <p>8 Dedicated Logo Designers (Industry-Specific)</p>
+                <p>Unlimited Revisions</p>
+                <p>Stationery Design (Business Card, Letterhead, Envelope)</p>
+                <p>500 Business Cards</p>
+                <p>Email Signature Design</p>
+                <p>With Grey Scale Format</p>
+                <div class="price">$299</div>
+                <div class="original-price">$997</div>
+                <button>Get Started</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/14/02/09/design-1973205_960_720.jpg" alt="Logo Design">
+                <h2>Logo Platinum</h2>
+                <p>Unlimited Original Logo Concepts</p>
+                <p>8 Dedicated Logo Designers (Industry-Specific)</p>
+                <p>Unlimited Revisions</p>
+                <p>Stationery Design (Business Card, Letterhead, Envelope)</p>
+                <p>500 Business Cards</p>
+                <p>Email Signature Design</p>
+                <p>With Grey Scale Format</p>
+                <div class="price">$299</div>
+                <div class="original-price">$997</div>
+                <button>Get Started</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/14/02/09/design-1973205_960_720.jpg" alt="Logo Design">
+                <h2>Logo Platinum</h2>
+                <p>Unlimited Original Logo Concepts</p>
+                <p>8 Dedicated Logo Designers (Industry-Specific)</p>
+                <p>Unlimited Revisions</p>
+                <p>Stationery Design (Business Card, Letterhead, Envelope)</p>
+                <p>500 Business Cards</p>
+                <p>Email Signature Design</p>
+                <p>With Grey Scale Format</p>
+                <div class="price">$299</div>
+                <div class="original-price">$997</div>
+                <button>Get Started</button>
+            </div>
+            <div class="card">
+                <img src="https://cdn.pixabay.com/photo/2017/01/14/02/09/design-1973205_960_720.jpg" alt="Logo Design">
+                <h2>Logo Platinum</h2>
+                <p>Unlimited Original Logo Concepts</p>
+                <p>8 Dedicated Logo Designers (Industry-Specific)</p>
+                <p>Unlimited Revisions</p>
+                <p>Stationery Design (Business Card, Letterhead, Envelope)</p>
+                <p>500 Business Cards</p>
+                <p>Email Signature Design</p>
+                <p>With Grey Scale Format</p>
+                <div class="price">$299</div>
+                <div class="original-price">$997</div>
+                <button>Get Started</button>
             </div>
         </div>
-        <div class="portfolio-item">
-            <img src="portfolio-item-2.png" alt="Faster Encounter Logo">
-            <div class="overlay">
-                <h3>FASTER ENCOUNTER</h3>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <img src="portfolio-item-3.png" alt="Gorillas Gaming Logo">
-            <div class="overlay">
-                <h3>GORILLAS GAMING</h3>
-            </div>
-        </div>
-        <div class="portfolio-item">
-            <img src="portfolio-item-4.png" alt="Real Estate Rejuvenators Logo">
-            <div class="overlay">
-                <h3>REAL ESTATE REJUVENATORS</h3>
-            </div>
-        </div>
-    </section>
 
-    <footer>
-        <p>&copy; 2024 UDC. All Rights Reserved.</p>
-    </footer>
+        <div class="slider-nav">
+            <button class="prev-btn"><i class="fas fa-chevron-left"></i></button>
+            <button class="next-btn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </div>
+
+    
 
     <script>
-        document.querySelector('.menu-toggle').addEventListener('click', () => {
-            document.querySelector('.nav-menu').classList.toggle('active');
+        const prevBtn = document.querySelector('.prev-btn');
+        const nextBtn = document.querySelector('.next-btn');
+        const slider = document.querySelector('.slider');
+        const cards = document.querySelectorAll('.card');
+        const cardWidth = cards[0].offsetWidth + 30; // Width including margin
+
+        let currentIndex = 0;
+
+        const showSlide = (index) => {
+            slider.style.transform = `translateX(${-cardWidth * index}px)`;
+        };
+
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+            } else {
+                currentIndex = cards.length - 1;
+            }
+            showSlide(currentIndex);
         });
 
-        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
-            toggle.addEventListener('click', (event) => {
-                event.preventDefault();
-                const dropdownMenu = toggle.nextElementSibling;
-                dropdownMenu.classList.toggle('dropdown-active');
-            });
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < cards.length - 1) {
+                currentIndex++;
+            } else {
+                currentIndex = 0;
+            }
+            showSlide(currentIndex);
+        });
+
+        window.addEventListener('resize', () => {
+            // Update cardWidth and reapply transform if necessary
+            const newCardWidth = cards[0].offsetWidth + 30;
+            if (cardWidth !== newCardWidth) {
+                showSlide(currentIndex);
+            }
         });
     </script>
 </body>

@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UDC - Custom Logo Designs</title>
+    <title>PDC - Custom Logo Designs</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         body {
             background-color: #181818;
@@ -22,6 +24,7 @@
             background-color: #121212;
             border-bottom: 1px solid #333;
             position: relative;
+            z-index: 1; /* Ensure header is above other elements */
         }
 
         .logo {
@@ -91,6 +94,48 @@
 
         .nav-menu ul li a:hover {
             color: #f7931e;
+        }
+
+        /* Dropdown Menu Styles */
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            padding: 10px;
+            z-index: 1000; /* Ensure dropdown is above other elements */
+            width: 200px; /* Adjust width as needed */
+        }
+
+        .dropdown-menu ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column; /* Stack items vertically */
+        }
+
+        .dropdown-menu ul li {
+            margin: 0;
+        }
+
+        .dropdown-menu ul li a {
+            color: #111;
+            text-decoration: none;
+            display: block;
+            padding: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-menu ul li a:hover {
+            background-color: #333;
+        }
+
+        .dropdown-active {
+            display: block; /* Show dropdown when active */
         }
 
         .contact {
@@ -224,8 +269,14 @@
         }
 
         .badge img {
-            width: 50px;
             height: auto;
+        }
+
+        @media (max-width: 404px) {
+            .badge img {
+                width: 300px;
+                height: auto;
+            }
         }
 
         .portfolio {
@@ -284,16 +335,7 @@
             opacity: 1;
         }
 
-        footer {
-            background-color: #111;
-            padding: 20px;
-            text-align: center;
-            border-top: 1px solid #333;
-        }
-
-        footer p {
-            margin: 0;
-        }
+       
 
         @media (max-width: 768px) {
             .nav-menu {
@@ -308,13 +350,223 @@
                 display: flex;
             }
         }
+        
+        span {
+            color: #e67e22;
+        }
+        #body {
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    #unique-price-tag {
+      position: absolute;
+      right: 120px;
+      /* bottom: 20px; */
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #ff8c00; /* Warm orange color */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      border: 4px solid #ff6f00; /* Slightly darker orange */
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    #unique-price-tag:hover {
+      background-color: #ff6f00; /* Darker orange on hover */
+      transform: scale(1.05);
+    }
+
+    #unique-price-tag .unique-icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    #unique-price-tag .unique-badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #ffb300; /* Bright yellow-orange */
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 15px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    /* Media Queries */
+    @media (max-width: 768px) {
+      #unique-price-tag {
+        width: 100px;
+        height: 100px;
+        
+        font-size: 2rem;
+        right: 10px;
+        /* bottom: 10px; */
+      }
+
+      #unique-price-tag .unique-icon {
+        font-size: 1.2rem;
+        top: 8px;
+        left: 8px;
+      }
+
+      #unique-price-tag .unique-badge {
+        font-size: 0.7rem;
+        padding: 3px 8px;
+        top: -8px;
+        right: -8px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      #unique-price-tag {
+        width: 80px;
+        height: 80px;
+        font-size: 1.5rem;
+        position: absolute;
+        top:97px;
+        left: 130px;
+        /* right: 5px; */
+        /* bottom: 5px; */
+      }
+
+      #unique-price-tag .unique-icon {
+        font-size: 1rem;
+        top: 6px;
+        left: 6px;
+      }
+
+      #unique-price-tag .unique-badge {
+        font-size: 0.6rem;
+        padding: 2px 6px;
+        top: -6px;
+        right: -6px;
+      }
+    }
+
+    /* Define the keyframes for a smooth pulse effect */
+@keyframes smooth-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Apply the smooth pulse animation to an element with a slower speed */
+.smooth-pulse {
+  display: inline-block;
+  animation: smooth-pulse 4s ease-in-out infinite;
+}
+.sidebar {
+    position: fixed;
+    top: 20%;
+    right: -10px;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    transition: width 0.3s ease, height 0.3s ease;
+    overflow: hidden;
+}
+
+.sidebar:hover {
+    width: 300px;
+    height: auto;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 15px;
+    font-size: 20px;
+    transition: opacity 0.3s ease;
+    opacity: 0;
+}
+
+.sidebar:hover h2 {
+    opacity: 1;
+}
+
+.sidebar-content {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar:hover .sidebar-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar button {
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 10px;
+    font-weight: 600;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.sidebar button:hover {
+    background-color: #e9ecef;
+}
+
+.sidebar .chat-icon {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #fff;
+    color: #007bff;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    font-size: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.sidebar .chat-icon:hover {
+    background-color: #e9ecef;
+}
+
     </style>
 </head>
 <body>
     <header>
         <div class="logo">
-            <img src="assets/image/pdc.png" alt="UDC Logo">
-            <h1>pdc</h1>
+            <img src="logo.png" alt="PDC Logo">
+            <a href="" style="color: white; text-decoration: none;"><h1>PDC</h1></a>
         </div>
         <button class="menu-toggle" aria-label="Toggle Navigation">
             <div></div>
@@ -322,71 +574,112 @@
             <div></div>
         </button>
         <nav class="nav-menu">
-            <ul>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Contact Us</a></li>
+            <ul class="animate__animated animate__fadeInDown">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">Services <i class="fa fa-caret-down"></i></a>
+                    
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="webdevelopment.html">Webdevelopment</a></li>
+                            <li><a href="logodesign.html">logo Design</a></li>
+                            <li><a href="nft.html">NFT Design</a></li>
+                            <li><a href="ecommercesolutions.html">Ecommerce Solitions</a></li>
+                            <li><a href="videoanimation.html">Video Animaiton</a></li>
+                            <li><a href="marketingcollateral.html">Marketing Collateral</a></li>
+                            <li><a href="digitalmarketing.html">Digital Marketing</a></li>
+                            <li><a href="creativecopywriting.html">Creative Copywriting</a></li>
+                            <li><a href="mobileApps.html">Mobile Apps</a></li>
+                            <li><a href="seoServices.html">SEO Services</a></li>
+                            <li><a href="crmSolutions.html">CRM Solitions</a></li>                            
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="ourportfolio.html">Our Portfolio</a></li>
+                <li><a href="pricing.html">Pricing</a></li>
+                <li><a href="aboutus.html">About Us</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="signup.html">Contact Us</a></li>
             </ul>
         </nav>
-        <div class="contact">
-            <a href="tel:+18666575669" aria-label="Call Us">+1 (866) 657 5669</a>
-            <a href="#" class="live-chat" aria-label="Live Chat">Live Chat</a>
+        <div class="contact animate__animated animate__fadeInRight">
+            <a href="tel:+18666575669">+1 (866) 657 5669</a>
+            <a href="#" class="live-chat">Live Chat</a>
         </div>
     </header>
 
     <section class="hero">
-        <h2>Get Your Custom <br> Logo Designs In</h2>
-        <p>Design custom logos for your brand to give it a premium look!</p>
+        <div class="sidebar">
+            <h2>Get 70% Discount</h2>
+            <div class="sidebar-content">
+                <button>Get Discount</button>
+                <button>Contact Us</button>
+            </div>
+            <div class="chat-icon">
+                <i class="fas fa-comment"></i>
+            </div>
+        </div>
+        <h2 class="animate__animated animate__fadeInLeft">Get Your Custom <br><span> Logo Designs</span> In</h2>
+        <div id="body">
+        <div id="unique-price-tag" class="smooth-pulse">
+            <div class="unique-icon">&#9733;</div> <!-- Example star icon -->
+            $35
+            <div class="unique-badge">Special</div>
+          </div>
+        </div>
+        <p class="animate__animated animate__fadeInUp"><span>Design</span> custom <span>logos</span> for your <span>brand</span> to give it a <span>premium look!</span></p>
         <div class="call-to-action">
             <div class="form">
                 <input type="text" placeholder="Enter Your Name">
-                <button class="cta-button">Start Project</button>
+                <button class="cta-button" id="startproject">Start Project</button>
             </div>
             <div class="badge">
-                <img src="trustpilot-badge.png" alt="Trustpilot Badge">
-                <img src="clutch-badge.png" alt="Clutch Badge">
-                <img src="google-partner-badge.png" alt="Google Partner Badge">
+                <img src="https://creativedesigncrew.com/assets/logo-design/images/trust.png" alt="Trustpilot Badge">
             </div>
         </div>
     </section>
 
     <section class="portfolio">
         <div class="portfolio-item">
-            <img src="portfolio-item-1.png" alt="Sobersandiego Logo">
+            <img src="https://creativedesigncrew.com/assets/logo-design/images/sloge01.webp" alt="Sobersandiego Logo">
             <div class="overlay">
                 <h3>SOBERSANDIEGO</h3>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="portfolio-item-2.png" alt="Faster Encounter Logo">
+            <img src="https://creativedesigncrew.com/assets/logo-design/images/sloge02.webp" alt="Faster Encounter Logo">
             <div class="overlay">
                 <h3>FASTER ENCOUNTER</h3>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="portfolio-item-3.png" alt="Gorillas Gaming Logo">
+            <img src="https://creativedesigncrew.com/assets/logo-design/images/sloge03.webp" alt="Gorillas Gaming Logo">
             <div class="overlay">
                 <h3>GORILLAS GAMING</h3>
             </div>
         </div>
         <div class="portfolio-item">
-            <img src="portfolio-item-4.png" alt="Real Estate Rejuvenators Logo">
+            <img src="https://creativedesigncrew.com/assets/logo-design/images/sloge04.webp" alt="Real Estate Rejuvenators Logo">
             <div class="overlay">
                 <h3>REAL ESTATE REJUVENATORS</h3>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2024 UDC. All Rights Reserved.</p>
-    </footer>
+
+    
+   
 
     <script>
         document.querySelector('.menu-toggle').addEventListener('click', () => {
             document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+            toggle.addEventListener('click', (event) => {
+                event.preventDefault();
+                const dropdownMenu = toggle.nextElementSibling;
+                dropdownMenu.classList.toggle('dropdown-active');
+            });
         });
     </script>
 </body>

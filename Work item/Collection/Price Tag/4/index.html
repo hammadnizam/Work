@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Price Tag</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    .price-tag {
+      position: relative;
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ff6f00, #ffb300);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #fff;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+      border: 5px solid #ff8f00;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      transform: rotate(-2deg);
+    }
+
+    .price-tag:hover {
+      transform: rotate(0deg) scale(1.05);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .price-tag::before {
+      content: "";
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.2));
+      border-radius: 50%;
+      z-index: -1;
+    }
+
+    .price-tag::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 20px 20px 0 20px;
+      border-color: #ff6f00 transparent transparent transparent;
+      z-index: -1;
+    }
+
+    .price-tag .icon {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 1.8rem;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .price-tag:hover .icon {
+      color: #ffd740;
+    }
+
+    .price-tag .ribbon {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+      background: #ffb300;
+      color: #fff;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transform: rotate(45deg);
+      text-align: center;
+      white-space: nowrap;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="price-tag">
+    <div class="icon">&#9733;</div> <!-- Example star icon -->
+    $35
+    <div class="ribbon">Special!</div>
+  </div>
+</body>
+</html>
