@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenny - Frontend Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f0f4f8, #d9e2ec);
+            color: #2c3e50;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        .card {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        header {
+            padding: 40px 0;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 25px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34495e;
+            padding: 10px 0;
+            transition: color 0.4s, transform 0.4s;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #e74c3c;
+            transition: width 0.4s ease, left 0.4s ease;
+        }
+
+        nav a:hover {
+            color: #e74c3c;
+            transform: scale(1.05);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 40px;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 600px;
+            padding-right: 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 64px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .hero-content h2 {
+            font-size: 36px;
+            color: #34495e;
+            margin-bottom: 20px;
+            font-weight: normal;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.8;
+            color: #7f8c8d;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            border: 8px solid #ffffff;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            margin-right: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .social-links {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 15px;
+            color: #e74c3c;
+            font-size: 28px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #c0392b;
+            transform: scale(1.2);
+        }
+
+        .let-chat {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .let-chat:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        .let-chat i {
+            margin-right: 8px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 40px 20px;
+            }
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <header>
+                <div class="logo">Jenny</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Hi, I'm Jenny</h1>
+                    <h2>Your Frontend Developer</h2>
+                    <p>Welcome to my portfolio! I specialize in creating stunning and responsive web applications that provide seamless user experiences.</p>
+                    <div class="buttons">
+                        <button>Hire Me Now!</button>
+                        <button>Download CV</button>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/350" alt="Jenny's photo">
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <button class="let-chat" aria-label="Start a chat"><i class="fas fa-comments"></i> Let's Chat</button>
+</body>
+</html>

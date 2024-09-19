@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tea Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #e0f7fa, #80deea);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .cup {
+            position: relative;
+            width: 80px;
+            height: 50px;
+            border-radius: 20px 20px 0 0;
+            background: linear-gradient(to right, #ffccbc, #bcaaa4); /* Cup gradient color */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .saucer {
+            position: absolute;
+            bottom: -10px;
+            left: -20px;
+            width: 120px;
+            height: 10px;
+            background: linear-gradient(to right, #d7ccc8, #a1887f); /* Saucer gradient color */
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .steam {
+            position: absolute;
+            bottom: 50px; /* Above the cup */
+            left: 25px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            animation: steam 1.5s infinite ease-in-out;
+        }
+
+        @keyframes steam {
+            0% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            50% {
+                transform: translateY(-20px);
+                opacity: 0.7;
+            }
+            100% {
+                transform: translateY(-40px);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            color: #6d4c41;
+            font-size: 1.5em;
+            position: absolute;
+            top: 120px;
+            text-align: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+
+        .fade-out {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading Tea...</h1>
+    <div class="cup">
+        <div class="saucer"></div>
+        <div class="steam"></div>
+        <div class="steam" style="left: 40px; animation-delay: 0.2s;"></div>
+        <div class="steam" style="left: 10px; animation-delay: 0.4s;"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingMessage = document.querySelector('h1');
+                loadingMessage.classList.add('fade-out');
+                const cup = document.querySelector('.cup');
+                cup.style.opacity = '0'; // Fade out cup
+
+                setTimeout(() => {
+                    cup.style.display = 'none'; // Hide cup
+                }, 300); // Time to complete fade out
+            }, 4000); // Wait for 4 seconds
+        });
+    </script>
+</body>
+</html>

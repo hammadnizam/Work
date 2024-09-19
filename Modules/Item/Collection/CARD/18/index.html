@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Design Crew</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: #333;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            scroll-behavior: smooth;
+        }
+
+        .main-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            max-width: 1200px;
+            width: 100%;
+            box-sizing: border-box;
+            margin: 0 auto;
+        }
+
+        .header-area {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            padding: 30px;
+            border-radius: 12px;
+            background: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            margin-bottom: 40px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .header-area:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-area h1 {
+            margin: 0;
+            font-size: 36px;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        .social-logos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .social-logo {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+        }
+
+        .social-logo:hover {
+            transform: scale(1.2);
+            filter: brightness(1.2);
+        }
+
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            padding: 20px;
+            width: 100%;
+        }
+
+        .info-box-container, .creative-tag-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            background: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 500px;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+
+        .info-box-container:hover, .creative-tag-container:hover {
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+            transform: scale(1.02);
+        }
+
+        .info-box-container h2, .creative-tag-container h2 {
+            margin: 0;
+            font-size: 26px;
+            color: #007bff;
+        }
+
+        .info-box-container p {
+            font-size: 18px;
+            line-height: 1.6;
+        }
+
+        .creative-tag-container {
+            position: relative;
+        }
+
+        .creative-tag-text {
+            font-size: 18px;
+            color: #888;
+            font-weight: bold;
+        }
+
+        .creative-tag-image {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .cta-button, #main-call-to-action {
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            font-size: 18px;
+            display: inline-block;
+            transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+            text-decoration: none;
+            margin: 20px;
+        }
+
+        .cta-button:hover, #main-call-to-action:hover {
+            background: linear-gradient(135deg, #0056b3, #003d80);
+            transform: translateY(-4px);
+        }
+
+        .gallery-area {
+            text-align: center;
+            padding: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .gallery-area h2 {
+            font-size: 28px;
+            color: #007bff;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .gallery-area p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #555;
+        }
+
+        .gallery-area div {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: slideIn 1s ease-out;
+        }
+
+        .gallery-area img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        .gallery-area img:hover {
+            transform: scale(1.05);
+            filter: brightness(1.1);
+        }
+
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            animation: scaleIn 0.5s ease-out;
+        }
+
+        .lightbox.show {
+            display: flex;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            transition: color 0.3s ease-in-out;
+        }
+
+        .lightbox-close:hover {
+            color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .header-area h1 {
+                font-size: 32px;
+            }
+
+            .social-logos {
+                gap: 15px;
+            }
+
+            .social-logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .content-wrapper {
+                padding: 15px;
+            }
+
+            .info-box-container, .creative-tag-container {
+                max-width: 90%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .header-area h1 {
+                font-size: 28px;
+            }
+
+            .social-logo {
+                width: 40px;
+                height: 40px;
+            }
+
+            .info-box-container, .creative-tag-container {
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            .gallery-area img {
+                max-width: 100%;
+                margin: 5px 0;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @keyframes scaleIn {
+            from { transform: scale(0.8); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="header-area">
+            <h1>Welcome to Prime Design Crew</h1>
+            <div class="social-logos">
+                <img src="https://cdn1.iconfinder.com/data/icons/google-s-logo/150/Google_Icons-09-512.png" alt="Google" class="social-logo">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/027/395/710/small_2x/twitter-brand-new-logo-3-d-with-new-x-shaped-graphic-of-the-world-s-most-popular-social-media-free-png.png" alt="Twitter" class="social-logo">
+                <img src="https://freepnglogo.com/images/all_img/facebook-circle-logo-png.png" alt="Facebook" class="social-logo">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Paypal_2014_logo.png" alt="Paypal" class="social-logo">
+                <img src="https://cdn3.iconfinder.com/data/icons/2018-social-media-logotypes/1000/2018_social_media_popular_app_logo_instagram-512.png" alt="Instagram" class="social-logo">
+            </div>
+        </div>
+        <h2>What We Do</h2>
+        <div class="content-wrapper">
+            <div class="info-box-container">
+                <h2>Logo Design</h2>
+                <p>Welcome to Prime Design Crew! We design custom logos that capture your brand’s personality and help you stand out. Whether you’re launching a new business or rebranding an established one, we’re here to make your brand unforgettable.</p>
+                <a href="#" id="view-more-info" class="cta-button">View More</a>
+            </div>
+            <div class="creative-tag-container">
+                <div class="creative-tag-text">MADE BY</div>
+                <img src="https://www.shutterstock.com/image-photo/burger-tomateoes-lettuce-pickles-on-260nw-2309539129.jpg" alt="Creative Design Crew" class="creative-tag-image">
+            </div>
+        </div>
+    </div>
+
+    <div class="gallery-area">
+        <h2>Recent Works</h2>
+        <p>We provide an expansive set of digital services according to your business strategy to help attract traffic and users to your website. Below are a few innovative concepts that speak for themselves. Like what you see? Contact us now!</p>
+        <div>
+            <img src="./assets/image/p img 1.webp" alt="img 1" onclick="openLightbox('./assets/image/p img 1.webp')">
+            <img src="./assets/image/p img 2.webp" alt="img 2" onclick="openLightbox('./assets/image/p img 2.webp')">
+            <img src="./assets/image/p img 3.webp" alt="img 3" onclick="openLightbox('./assets/image/p img 3.webp')">
+            <img src="./assets/image/p img 4.webp" alt="img 4" onclick="openLightbox('./assets/image/p img 4.webp')">
+            <img src="./assets/image/p img 5.webp" alt="img 5" onclick="openLightbox('./assets/image/p img 5.webp')">
+            <img src="./assets/image/p img 6.webp" alt="img 6" onclick="openLightbox('./assets/image/p img 6.webp')">
+        </div>
+    </div>
+
+    <!-- Lightbox Modals -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <img id="lightbox-image" src="" alt="Lightbox Image">
+    </div>
+
+    <div class="main-wrapper">
+        <a href="#" id="main-call-to-action" class="cta-button">Let's Get Started</a>
+    </div>
+
+    <script>
+        function openLightbox(imageSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightbox-image');
+            lightboxImage.src = imageSrc;
+            lightbox.classList.add('show');
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('show');
+        }
+
+        // Close lightbox when clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(event) {
+            if (event.target === this) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>

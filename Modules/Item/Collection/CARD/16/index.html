@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Slider HTML and CSS</title>
+    <!-- Linking SwiperJS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url("images/bg.jpg") #030728 no-repeat center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+        header {
+            margin-bottom: 20px;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .swiper {
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+        }
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .card-item {
+            width: 300px; /* Adjust the width as needed */
+            padding: 20px;
+            color: #fff;
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 15px;
+            backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        .card-item:hover {
+            transform: scale(1.05);
+            background: rgba(255, 255, 255, 0.5);
+        }
+        .user-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            border: 4px solid #fff;
+            padding: 2px;
+        }
+        .user-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+        .scroll-container {
+            max-height: 150px; /* Adjust the height as needed */
+            overflow-y: auto;
+            margin-bottom: 20px;
+        }
+        .user-profession {
+            font-size: 1.2rem;
+            color: #e3e3e3;
+            font-weight: 500;
+            margin-bottom: 10px; /* Adjust spacing between paragraphs */
+        }
+        .message-button {
+            font-size: 1.25rem;
+            padding: 10px 20px;
+            color: #030728;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            background: #fff;
+            border: none;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .message-button:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: #030728;
+        }
+        .swiper-pagination-bullet {
+            background: #fff;
+            height: 12px;
+            width: 12px;
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+        .swiper-button-next, .swiper-button-prev {
+            color: #fff;
+            transition: color 0.3s ease;
+        }
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            color: #4658ff;
+        }
+        @media (max-width: 768px) {
+            .swiper-button-next, .swiper-button-prev {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>What We Deliver</h1>
+    </header>
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide card-item">
+                <img src="images/img-1.jpg" alt="James Wilson" class="user-image">
+                <h2 class="user-name">Logo Special</h2>
+                <div class="scroll-container">
+                    <p class="user-profession">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="user-profession">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="user-profession">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="user-profession">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <button class="message-button">Let's Get Started</button>
+            </div>
+            <div class="swiper-slide card-item">
+                <img src="images/img-1.jpg" alt="James Wilson" class="user-image">
+                <h2 class="user-name">Logo Special</h2>
+                <div class="scroll-container">
+                    <p class="user-profession">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="user-profession">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="user-profession">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="user-profession">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <button class="message-button">Let's Get Started</button>
+            </div>
+            <div class="swiper-slide card-item">
+                <img src="images/img-1.jpg" alt="James Wilson" class="user-image">
+                <h2 class="user-name">Logo Special</h2>
+                <div class="scroll-container">
+                    <p class="user-profession">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p class="user-profession">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <p class="user-profession">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p class="user-profession">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <button class="message-button">Let's Get Started</button>
+            </div>
+            <!-- Repeat .swiper-slide for other cards -->
+        </div>
+        
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+
+    <!-- Linking SwiperJS script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            grabCursor: true,
+            spaceBetween: 30,
+            slidesPerView: 1,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                }
+            }
+        });
+    </script>
+</body>
+</html>

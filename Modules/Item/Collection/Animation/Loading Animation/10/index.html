@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Animation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #e3f2fd, #ffccbc);
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 15%;
+            animation: float 4s infinite ease-in-out;
+            opacity: 0.9;
+        }
+
+        .shape:nth-child(1) {
+            width: 80px;
+            height: 80px;
+            background: #ff6f61; 
+            animation-delay: 0s; 
+        }
+        .shape:nth-child(2) {
+            width: 90px;
+            height: 90px;
+            background: #42a5f5; 
+            animation-delay: 0.5s; 
+        }
+        .shape:nth-child(3) {
+            width: 100px;
+            height: 100px;
+            background: #8e24aa; 
+            animation-delay: 1s; 
+        }
+        .shape:nth-child(4) {
+            width: 70px;
+            height: 70px;
+            background: #66bb6a; 
+            animation-delay: 1.5s; 
+        }
+        .shape:nth-child(5) {
+            width: 60px;
+            height: 60px;
+            background: #ffa726; 
+            animation-delay: 2s; 
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(25px, -25px) scale(1.1);
+            }
+            50% {
+                transform: translate(-25px, 25px) scale(0.9);
+            }
+            75% {
+                transform: translate(10px, -10px) scale(1);
+            }
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 2em;
+            position: fixed;
+            top: 20px;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading Knowledge...</h1>
+    <div class="container">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Fade out loading message
+                const loadingMessage = document.querySelector('h1');
+                loadingMessage.classList.add('fade-out');
+
+                // Stop animation and fade out shapes
+                const shapes = document.querySelectorAll('.shape');
+                shapes.forEach(shape => {
+                    shape.style.animation = 'none'; // Stop animation
+                    shape.style.opacity = '0'; // Fade out
+                });
+                setTimeout(() => {
+                    document.querySelector('.container').style.display = 'none'; // Hide shapes
+                }, 300); // Time to complete fade out
+            }, 3000); // Wait for 3 seconds
+        });
+    </script>
+</body>
+</html>

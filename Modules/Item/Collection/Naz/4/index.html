@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jenny - Frontend Developer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f8e3e8, #fce0e8);
+            color: #2c3e50;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .heart {
+            width: 70px;
+            height: 70px;
+            position: absolute;
+            background-color: #e74c3c;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+            animation: rotate 3s infinite linear;
+            opacity: 0.8;
+            transform-origin: -30px 0; /* Adjusted for circular movement */
+            border-radius: 50%; /* Rounded edges for hearts */
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg) translate(30px) rotate(0deg); }
+            100% { transform: rotate(360deg) translate(30px) rotate(-360deg); }
+        }
+
+        .heart:nth-child(1) { animation-delay: 0s; }
+        .heart:nth-child(2) { animation-delay: 0.5s; }
+        .heart:nth-child(3) { animation-delay: 1s; }
+
+        /* Main Container */
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Card and Header Styles */
+        .card {
+            background: linear-gradient(135deg, #ffffff, #f9c1d5);
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            padding: 40px 0;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid #eaeaea;
+        }
+
+        .logo {
+            font-size: 40px;
+            font-weight: bold;
+            color: #e74c3c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            margin-top: 20px;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline-block;
+            margin: 0 20px;
+            position: relative;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34495e;
+            padding: 10px 0;
+            transition: color 0.4s, transform 0.4s;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        nav a:hover {
+            color: #d5006d;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 400px;
+            padding-right: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            color: #e74c3c;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero-content h2 {
+            font-size: 24px;
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 16px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #2c3e50;
+        }
+
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+
+        .hero-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            border: 8px solid #ffffff;
+            box-shadow: 0 10px 50px rgba(0, 0, 0, 0.3);
+            transition: transform 0.4s, box-shadow 0.4s;
+        }
+
+        .hero-image img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .buttons {
+            margin-top: 30px;
+        }
+
+        .buttons button {
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+            margin-right: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .buttons button:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .social-links {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: #e74c3c;
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        .social-links a:hover {
+            color: #c0392b;
+            transform: scale(1.2);
+        }
+
+        /* Chat Button */
+        .let-chat {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+        }
+
+        .let-chat:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+        }
+
+        .let-chat i {
+            margin-right: 5px;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 30px 20px;
+            }
+            .hero-content {
+                padding-right: 0;
+                margin-bottom: 20px;
+            }
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            .hero-content h2 {
+                font-size: 20px;
+            }
+            .hero-content p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="heart"></div>
+        <div class="heart"></div>
+        <div class="heart"></div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <header>
+                <div class="logo">Jenny</div>
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Portfolio</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <section class="hero">
+                <div class="hero-content">
+                    <h1>Hi, I'm Jenny</h1>
+                    <h2>Your Frontend Developer</h2>
+                    <p>Welcome to my portfolio! I specialize in creating stunning and responsive web applications that provide seamless user experiences.</p>
+                    <div class="buttons">
+                        <button>Hire Me Now!</button>
+                        <button>Download CV</button>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://via.placeholder.com/400" alt="Jenny">
+                </div>
+            </section>
+        </div>
+    </div>
+    <button class="let-chat" aria-label="Start a chat"><i class="fas fa-comments"></i> Let's Chat</button>
+
+    <script>
+        window.addEventListener('load', () => {
+            const loading = document.querySelector('.loading');
+            loading.classList.add('hidden');
+            setTimeout(() => loading.style.display = 'none', 2000);
+        });
+    </script>
+</body>
+</html>

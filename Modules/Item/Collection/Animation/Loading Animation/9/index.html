@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Knowledge Animation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #e0f7fa, #ffe0b2);
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 300px;
+            height: 300px;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: swirl 3s infinite ease-in-out;
+        }
+
+        @keyframes swirl {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(60px, -30px) scale(1.2);
+            }
+            50% {
+                transform: translate(0, 70px) scale(1);
+            }
+            75% {
+                transform: translate(-50px, 20px) scale(0.9);
+            }
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+        }
+
+        .shape:nth-child(1) { 
+            width: 30px; 
+            height: 30px; 
+            background: #ff7043; 
+            animation-delay: 0s; 
+        }
+        .shape:nth-child(2) { 
+            width: 40px; 
+            height: 40px; 
+            background: #42a5f5; 
+            animation-delay: 0.2s; 
+        }
+        .shape:nth-child(3) { 
+            width: 50px; 
+            height: 50px; 
+            background: #ab47bc; 
+            animation-delay: 0.4s; 
+        }
+        .shape:nth-child(4) { 
+            width: 35px; 
+            height: 35px; 
+            background: #66bb6a; 
+            animation-delay: 0.6s; 
+        }
+        .shape:nth-child(5) { 
+            width: 45px; 
+            height: 45px; 
+            background: #ffa726; 
+            animation-delay: 0.8s; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            const loading = document.createElement('div');
+            loading.style.position = 'fixed';
+            loading.style.top = '0';
+            loading.style.left = '0';
+            loading.style.width = '100%';
+            loading.style.height = '100%';
+            loading.style.background = 'rgba(255, 255, 255, 0.9)';
+            loading.style.display = 'flex';
+            loading.style.alignItems = 'center';
+            loading.style.justifyContent = 'center';
+            loading.innerHTML = '<h1 style="color: #ff7043;">Loading Knowledge...</h1>';
+            document.body.appendChild(loading);
+
+            setTimeout(() => {
+                loading.style.opacity = '0';
+                setTimeout(() => loading.style.display = 'none', 300);
+            }, 3000); // Wait for 3 seconds before hiding
+        });
+    </script>
+</body>
+</html>

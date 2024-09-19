@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Modern and Attractive Service Cards</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --background-color: #f4f4f9;
+    --card-background-color: #ffffff;
+    --card-hover-background: #f0f0f0;
+    --text-color: #333333;
+    --card-width: 350px;
+    --card-padding: 40px;
+    --border-radius: 15px;
+    --box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    --hover-scale: 1.05;
+    --transition-duration: 0.3s;
+    --gradient-start: #ff7e5f;
+    --gradient-end: #feb47b;
+    --icon-size: 80px;
+    --title-font-size: 24px;
+    --description-font-size: 16px;
+  }
+
+  body {
+    background-color: var(--background-color);
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .container {
+    display: flex;
+    gap: 30px;
+    padding: 20px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .card {
+    background: var(--card-background-color);
+    padding: var(--card-padding);
+    border-radius: var(--border-radius);
+    text-align: center;
+    width: var(--card-width);
+    box-shadow: var(--box-shadow);
+    position: relative;
+    transition: transform var(--transition-duration), background var(--transition-duration);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    cursor: pointer;
+    overflow: hidden;
+  }
+
+  .card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
+    opacity: 0.1;
+    z-index: 0;
+  }
+
+  .card:hover {
+    transform: scale(var(--hover-scale)) rotateX(3deg) rotateY(-2deg);
+    background: var(--card-hover-background);
+  }
+
+  .icon {
+    font-size: var(--icon-size);
+    margin-bottom: 20px;
+    color: var(--gradient-end);
+    z-index: 1;
+  }
+
+  .title {
+    font-size: var(--title-font-size);
+    font-weight: 500;
+    margin-bottom: 15px;
+    z-index: 1;
+  }
+
+  .description {
+    font-size: var(--description-font-size);
+    line-height: 1.5;
+    z-index: 1;
+  }
+
+  @media (max-width: 1200px) {
+    .container {
+      flex-direction: row;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .card {
+      width: 90%;
+      max-width: 350px;
+    }
+  }
+</style>
+</head>
+<body>
+  <section class="container">
+    <article class="card" aria-labelledby="card1-title">
+      <i class="icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 48 48">
+          <path d="M17.5 22.5v-10l7.5 7.5h10v10h-10l-7.5-7.5z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M22.5 10.5h15v15h-15z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M17.5 31.5h10v10h-10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+      </i>
+      <h2 id="card1-title" class="title">Quick Turnarounds</h2>
+      <p class="description">We don’t keep our clients waiting; we respond to all your concerns and requirements instantly!</p>
+    </article>
+    <article class="card" aria-labelledby="card2-title">
+      <i class="icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 48 48">
+          <path d="M32.5 15v10h-10v-10h10zM20.5 10.5v10h10v-10h-10zM28.5 35v10h-10v-10h10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M37.5 22.5h-5l-3 3v10h-10v-10l-3-3h-5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+      </i>
+      <h2 id="card2-title" class="title">Transparency and Reliability</h2>
+      <p class="description">We keep all our clients informed throughout the process; our services are transparent and reliable.</p>
+    </article>
+    <article class="card" aria-labelledby="card3-title">
+      <i class="icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 48 48">
+          <path d="M35.5 37.5h-10v-10h10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M32.5 27.5h10v10h-10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M35.5 25h-10v-10h10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+      </i>
+      <h2 id="card3-title" class="title">Live Chat Support</h2>
+      <p class="description">We are here to assist you via live chat during business hours (Monday-Friday), regardless of your query!</p>
+    </article>
+    <article class="card" aria-labelledby="card4-title">
+      <i class="icon" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 48 48">
+          <path d="M35.5 27.5h-10v-10h10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M20.5 22.5h10v10h-10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M17.5 15h10v10h-10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+          <path d="M22.5 27.5h10v10h-10z" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+        </svg>
+      </i>
+      <h2 id="card4-title" class="title">Tailored Solutions</h2>
+      <p class="description">Our strategists create successful strategy concepts for all businesses, whether startups or established enterprises.</p>
+    </article>
+  </section>
+</body>
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Card Slider HTML and CSS</title>
+    <!-- Linking SwiperJS CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        #bbody {
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background: url("images/bg.jpg") #030728 no-repeat center;
+            background-size: cover;
+            color: #fff;
+            text-align: center;
+        }
+
+        #header1 {
+            margin-bottom: 20px;
+        }
+
+        #header1 #h11 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .swiper {
+            width: 100%;
+            max-width: 1200px;
+            height: 100%;
+        }
+
+        .swiper-slide {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .card-item:hover {
+            background-image: linear-gradient(to bottom, #131a24, #122032, #112540, #0f2b4e, #0e305d);
+
+
+        }
+
+        .card-item {
+            width: 400px;
+            padding: 15px;
+            color: #fff;
+
+            user-select: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 15px;
+            /* backdrop-filter: blur(15px); */
+            /* background: rgba(255, 255, 255, 0.3); */
+
+            border: 1px solid rgba(255, 255, 255, 0.7);
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .user-image {
+            width: 200px;
+            height: 200px;
+            /* border-radius: 50%; */
+            margin-bottom: 30px;
+            /* border: 4px solid #fff; */
+            padding: 2px;
+        }
+
+        .user-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .scroll-container {
+            max-height: 300px;
+            /* Increased max height */
+            overflow-y: auto;
+            margin-bottom: 30px;
+            /* Increased margin */
+        }
+
+        .user-profession {
+            font-size: 16px;
+            /* color: #e3e3e3; */
+            color: #979797;
+            font-weight: 500;
+            margin-bottom: 15px;
+            /* Increased margin */
+        }
+
+        .message-button {
+            font-size: 1.5rem;
+            /* Increased font size */
+            padding: 15px 30px;
+            /* Increased padding */
+            color: #030728;
+            border-radius: 8px;
+            font-weight: 500;
+            cursor: pointer;
+            background: #fff;
+            border: none;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .message-button:hover {
+            background: rgba(255, 255, 255, 0.8);
+            color: #030728;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="bbody">
+        <header id="header1">
+            <h1 id="h11">What We Deliver</h1>
+        </header>
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide card-item">
+                    <img src="https://creativedesigncrew.com/assets/images/pack-img1.webp" alt="James Wilson"
+                        class="user-image">
+                    <h2 class="user-name">Logo Special</h2>
+                    <div class="scroll-container">
+                        <p class="user-profession">4 Original Logo Concepts</p>
+                        <p class="user-profession">2 Dedicated Logo Designer</p>
+                        <p class="user-profession">4 Revisions</p>
+                        <p class="user-profession">With Grey Scale Format</p>
+                        <p class="user-profession">Free Icon Design</p>
+                        <p class="user-profession">Formats: JPEG Only</p>
+                        <p class="user-profession">24 - 48 Business Hours Turn Around Time</p>
+                        <p class="user-profession">MORE FEATURES</p>
+                        <p class="user-profession">100% Satisfaction</p>
+                        <p class="user-profession">100% Ownership Rights</p>
+                        <p class="user-profession">Money Back Guarantee</p>
+                        <p class="user-profession">Dedicated Account Manager</p>
+                    </div>
+                    <strong>
+                        <p class="price"><b>$35 / <sub><del>117</del></sub></b></p><br>
+                    </strong>
+                    <button id="signup1" class="message-button">Let's Get Started</button>
+                </div>
+                <div class="swiper-slide card-item">
+                    <img src="https://creativedesigncrew.com/assets/images/pack-img2.webp" alt="James Wilson"
+                        class="user-image">
+                    <h2 class="user-name">Logo Plus</h2>
+                    <div class="scroll-container">
+                        <p class="user-profession">12 Original Logo Concepts</p>
+                        <p class="user-profession">4 Dedicated Logo Designer (Industry Specific)</p>
+                        <p class="user-profession">Unlimited Revisions</p>
+                        <p class="user-profession">Stationery Design (Business Card, Letterhead, Envelope)</p>
+                        <p class="user-profession">Email Signature Design</p>
+                        <p class="user-profession">Free Icon Design</p>
+                        <p class="user-profession">Formats: JPEG, PSD, EPS, AI, PNG, TIFF, SVG</p>
+                        <p class="user-profession">24 - 48 Business Hours Turn Around Time</p>
+                        <p class="user-profession">MORE FEATURES</p>
+                        <p class="user-profession">100% Satisfaction</p>
+                        <p class="user-profession">100% Ownership Rights</p>
+                        <p class="user-profession">Money Back Guarantee</p>
+                        <p class="user-profession">Dedicated Account Manager</p>
+                        <p class="user-profession">24/7 Support (Email, Chat, Call, SMS, Whatsapp)</p>
+
+                    </div>
+                    <strong>
+                        <p class="price"><b>$119 / <sub><del>397</del></sub></b></p><br>
+                    </strong>
+                    <button id="signup2" class="message-button">Let's Get Started</button>
+                </div>
+
+                <div class="swiper-slide card-item">
+                    <img src="https://creativedesigncrew.com/assets/images/pack-img3.webp" alt="James Wilson"
+                        class="user-image">
+                    <h2 class="user-name">Logo Platinum</h2>
+                    <div class="scroll-container">
+                        <p class="user-profession">Unlimited Original Logo Concepts</p>
+                        <p class="user-profession">8 Dedicated Logo Designer (Industry Specific)</p>
+                        <p class="user-profession">Unlimited Revisions</p>
+                        <p class="user-profession">Stationery Design (Business Card, Letterhead, Envelope)</p>
+                        <p class="user-profession">500 Business Cards</p>
+                        <p class="user-profession">Email Signature Design</p>
+                        <p class="user-profession">With Grey Scale Format</p>
+                        <p class="user-profession">Free Icon Design</p>
+                        <p class="user-profession">Formats: JPEG, PSD, EPS, AI, PNG, TIFF, SVG</p>
+                        <p class="user-profession">24 - 48 Business Hours Turn Around Time</p>
+                        <p class="user-profession">MORE FEATURES</p>
+                        <p class="user-profession">100% Satisfaction</p>
+                        <p class="user-profession">100% Ownership Rights</p>
+                        <p class="user-profession">Money Back Guarantee</p>
+                        <p class="user-profession">Dedicated Account Manager</p>
+                    </div>
+                    <strong>
+                        <p class="price"><b>$299 / <sub><del>997</del></sub></b></p><br>
+                    </strong>
+                    <button id="signup3" class="message-button">Let's Get Started</button>
+                </div>
+
+                <div class="swiper-slide card-item">
+                    <img src="https://creativedesigncrew.com/assets/images/pack-img4.webp" alt="James Wilson"
+                        class="user-image">
+                    <h2 class="user-name">Logo Infinite</h2>
+                    <div class="scroll-container">
+                        <p class="user-profession">Unlimited Original Logo Concepts</p>
+                        <p class="user-profession">12 Dedicated Logo Designer (Industry Specific)</p>
+                        <p class="user-profession">Unlimited Revisions</p>
+                        <p class="user-profession">5 Page Informative Website</p>
+                        <p class="user-profession">Stationery Design (Business Card, Letterhead, Envelope)</p>
+                        <p class="user-profession">Brand Book</p>
+                        <p class="user-profession">500 Business Card</p>
+                        <p class="user-profession">500 Letterheads</p>
+                        <p class="user-profession">Email Signature Design</p>
+                        <p class="user-profession">Social Media Designs (Facebook, Twitter, Instagram)</p>
+                        <p class="user-profession">2 Sided Flyer OR Bi-Fold Brochure Design</p>
+                        <p class="user-profession">With Grey Scale Format</p>
+                        <p class="user-profession">Free Icon Design</p>
+                        <p class="user-profession">Formats: JPEG, PSD, EPS, AI, PNG, TIFF, SVG</p>
+                        <p class="user-profession">24 - 48 Business Hours Turn Around Time</p>
+                        <p class="user-profession">MORE FEATURES</p>
+                        <p class="user-profession">100% Satisfaction</p>
+                        <p class="user-profession">100% Ownership Rights</p>
+                        <p class="user-profession">Money Back Guarantee</p>
+                        <p class="user-profession">Dedicated Account Manager</p>
+                    </div>
+                    <strong>
+                        <p class="price"><b>$1249 / <sub><del>3330</del></sub></b></p><br>
+                    </strong>
+                    <button id="signup4" class="message-button">Let's Get Started</button>
+                </div>
+                <div class="swiper-slide card-item">
+                    <img src="https://creativedesigncrew.com/assets/images/pack-img5.webp" alt="James Wilson"
+                        class="user-image">
+                    <h2 class="user-name">Mascot Logo</h2>
+                    <div class="scroll-container">
+                        <p class="user-profession">2 Mascot Logo Concepts</p>
+                        <p class="user-profession">Unlimited Revisions</p>
+                        <p class="user-profession">Hand drawn Sketch</p>
+                        <p class="user-profession">Presentation on mockup</p>
+                        <p class="user-profession">24 - 48 Business Hours Turn Around Time</p>
+                        <p class="user-profession">File Formats: Ai,Eps,Png,Jpeg,pdf</p>
+                        <p class="user-profession">MORE FEATURES</p>
+                        <p class="user-profession">100% Satisfaction</p>
+                        <p class="user-profession">100% Ownership Right</p>
+                        <p class="user-profession">Money Back Guarantee</p>
+                        <p class="user-profession">Dedicated Account Manager</p>
+                    </div>
+                    <strong>
+                        <p class="price"><b>$599 / <sub><del>1996.7</del></sub></b></p><br>
+                    </strong>
+                    <button id="signup5" class="message-button">Let's Get Started</button>
+                </div>
+                <div class="swiper-slide card-item">
+                    <img src="https://creativedesigncrew.com/assets/images/pack-img6.webp" alt="James Wilson"
+                        class="user-image">
+                    <h2 class="user-name">3D Logo</h2>
+                    <div class="scroll-container">
+                        <p class="user-profession">3 Unique 3D Logo Concepts</p>
+                        <p class="user-profession">Light Effects and VFX</p>
+                        <p class="user-profession">Fully Rendered</p>
+                        <p class="user-profession">Multiple 3D Angles</p>
+                        <p class="user-profession">3 Dedicated Designers</p>
+                        <p class="user-profession">72 Business Hours Turn Around Time</p>
+                        <p class="user-profession">UNLIMITED Revisions</p>
+                        <p class="user-profession">MORE FEATURES</p>
+                        <p class="user-profession">100% Ownership Rights</p>
+                        <p class="user-profession">100% Satisfaction Guarantee</p>
+                        <p class="user-profession">100% Unique Design Guarantee</p>
+                        <p class="user-profession">100% Money Back Guarantee*</p>
+                    </div>
+                    <strong>
+                        <p class="price"><b>$349 / <sub><del>2330</del></sub></b></p><br>
+                    </strong>
+                    <button id="signup6" class="message-button">Let's Get Started</button>
+                </div>
+
+                <!-- Repeat .swiper-slide for other cards -->
+            </div>
+
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+    </div>
+    <!-- Linking SwiperJS script -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true,
+            grabCursor: true,
+            spaceBetween: 30,
+            slidesPerView: 1,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+                dynamicBullets: true
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                }
+            }
+        });
+
+    </script>
+</body>
+
+</html>

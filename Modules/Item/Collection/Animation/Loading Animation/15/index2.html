@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colorful Bars Loading</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: #1a1a1a;
+            font-family: 'Arial', sans-serif;
+        }
+        .booth {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            width: 150px;
+            height: 60px;
+            background: #222;
+            border-radius: 10px;
+            padding: 5px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+        }
+        .light {
+            width: 15px;
+            height: 40px;
+            border-radius: 10px;
+            background: #00e5ff;
+            animation: slide 0.8s infinite alternate;
+        }
+        .light:nth-child(2) { background: #ffea00; animation-delay: 0.2s; }
+        .light:nth-child(3) { background: #ff4081; animation-delay: 0.4s; }
+        @keyframes slide {
+            0% { transform: scaleY(1); }
+            100% { transform: scaleY(1.5); }
+        }
+        h1 {
+            color: #ffffff;
+            font-size: 1.5em;
+            position: absolute;
+            top: 80px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading...</h1>
+    <div class="booth">
+        <div class="light"></div>
+        <div class="light"></div>
+        <div class="light"></div>
+    </div>
+</body>
+</html>

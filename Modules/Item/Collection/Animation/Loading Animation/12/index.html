@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girlfriend Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f3e5f5, #f8bbd0);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            position: relative;
+            width: 150px; /* Smaller container */
+            height: 150px; /* Smaller container */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heart {
+            width: 60px; /* Smaller heart */
+            height: 60px; /* Smaller heart */
+            background-color: #ff6f61;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: pulse 1.2s infinite alternate, glow 1.2s infinite alternate;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 60px; /* Smaller circles */
+            height: 60px; /* Smaller circles */
+            background-color: #ff6f61;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            top: -30px; /* Adjusted for smaller size */
+            left: 0;
+        }
+
+        .heart::after {
+            left: 30px; /* Adjusted for smaller size */
+            top: 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) rotate(-45deg); }
+            100% { transform: scale(1.1) rotate(-45deg); } /* Slightly smaller pulse */
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px rgba(255, 111, 97, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 111, 97, 1); }
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 1.2em; /* Smaller font size */
+            position: absolute;
+            top: 80px; /* Adjusted for smaller heart */
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading Love...</h1>
+    <div class="container">
+        <div class="heart"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                const loadingMessage = document.querySelector('h1');
+                loadingMessage.classList.add('fade-out');
+
+                const heart = document.querySelector('.heart');
+                heart.style.animation = 'none';
+                heart.style.opacity = '0';
+                setTimeout(() => {
+                    document.querySelector('.container').style.display = 'none';
+                }, 300);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girlfriend Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #f3e5f5, #f8bbd0);
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: #ff6f61;
+            position: relative;
+            transform: rotate(-45deg);
+            animation: heartbeat 1s infinite alternate;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            width: 100px;
+            height: 100px;
+            background-color: #ff6f61;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.2); }
+        }
+
+        h1 {
+            color: #ff6f61;
+            font-size: 1.5em;
+            position: absolute;
+            top: 120px;
+            text-align: center;
+            transition: opacity 0.3s ease;
+        }
+
+        .fade-out {
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Loading Love...</h1>
+    <div class="container">
+        <div class="heart"></div>
+    </div>
+
+    <script>
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Fade out loading message
+                const loadingMessage = document.querySelector('h1');
+                loadingMessage.classList.add('fade-out');
+
+                // Stop animation and fade out heart
+                const heart = document.querySelector('.heart');
+                heart.style.animation = 'none'; // Stop heartbeat
+                heart.style.opacity = '0'; // Fade out
+                setTimeout(() => {
+                    document.querySelector('.container').style.display = 'none'; // Hide heart
+                }, 300); // Time to complete fade out
+            }, 3000); // Wait for 3 seconds
+        });
+    </script>
+</body>
+</html>
