@@ -1,0 +1,188 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0d0d0d;
+            color: #ffffff;
+        }
+        .gradient-bg {
+            background: linear-gradient(135deg, #6e00ff, #ff00ff);
+        }
+        .neon-text {
+            color: #ff00ff;
+            text-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+        }
+        .neon-border {
+            border: 2px solid #ff00ff;
+            box-shadow: 0 0 5px #ff00ff, 0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 40px #ff00ff;
+        }
+        .mobile-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background-color: #1f2937; /* Dark background for the mobile menu */
+            z-index: 10;
+        }
+    </style>
+</head>
+<body class="bg-black text-white">
+    <header class="p-6 flex justify-between items-center">
+        <div>
+            <h1 class="text-4xl font-bold">Carlos Mafia</h1>
+            <p class="text-lg">Web Developer</p>
+        </div>
+        <img alt="Profile picture of Carlos Mafia" class="rounded-full" height="100" src="https://storage.googleapis.com/a1aa/image/AFek8sI90q3SU6b2oZsQNM4dL99Qwvfeu6k1S8b8DVp0tpFnA.jpg" width="100"/>
+    </header>
+
+    <!-- Navbar -->
+    <nav class="bg-gray-800 p-4 relative">
+        <div class="flex justify-between items-center">
+            <div class="text-white font-bold text-lg">Portfolio</div>
+            <button id="navbar-toggle" class="text-white focus:outline-none lg:hidden">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        <div id="navbar-menu" class="hidden lg:flex lg:items-center mt-2 lg:mt-0">
+            <a href="#about" class="block lg:inline-block text-gray-300 hover:text-white px-4 py-2">About</a>
+            <a href="#skills" class="block lg:inline-block text-gray-300 hover:text-white px-4 py-2">Skills</a>
+            <a href="#projects" class="block lg:inline-block text-gray-300 hover:text-white px-4 py-2">Projects</a>
+            <a href="#blog" class="block lg:inline-block text-gray-300 hover:text-white px-4 py-2">Blog</a>
+            <a href="#contact" class="block lg:inline-block text-gray-300 hover:text-white px-4 py-2">Contact</a>
+        </div>
+        <div id="mobile-menu" class="mobile-menu hidden lg:hidden">
+            <a href="#about" class="block text-gray-300 hover:text-white px-4 py-2">About</a>
+            <a href="#skills" class="block text-gray-300 hover:text-white px-4 py-2">Skills</a>
+            <a href="#projects" class="block text-gray-300 hover:text-white px-4 py-2">Projects</a>
+            <a href="#blog" class="block text-gray-300 hover:text-white px-4 py-2">Blog</a>
+            <a href="#contact" class="block text-gray-300 hover:text-white px-4 py-2">Contact</a>
+        </div>
+    </nav>
+
+    <section id="about" class="p-6 text-center">
+        <h2 class="text-3xl font-bold neon-text">About me</h2>
+        <div class="flex justify-center mt-6">
+            <img alt="About me image" class="rounded-lg shadow-lg" height="200" src="https://storage.googleapis.com/a1aa/image/rsqYQH8IIyrOA9vNZJmY4rvtP9H8HAhwGyflilezOBcetpFnA.jpg" width="300"/>
+        </div>
+        <p class="mt-4 text-lg">I am a passionate web developer with a knack for creating stunning websites.</p>
+    </section>
+    
+    <section id="skills" class="p-6 text-center">
+        <h2 class="text-3xl font-bold neon-text">My skills</h2>
+        <div class="flex justify-center mt-6">
+            <ul class="grid grid-cols-3 gap-4 text-lg">
+                <li>HTML</li>
+                <li>CSS</li>
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Node.js</li>
+                <li>Python</li>
+                <li>Git</li>
+                <li>SQL</li>
+                <li>Docker</li>
+            </ul>
+        </div>
+    </section>
+    
+    <section id="projects" class="p-6 text-center">
+        <h2 class="text-3xl font-bold neon-text">My projects</h2>
+        <div class="flex justify-center mt-6">
+            <div class="grid grid-cols-1 gap-6">
+                <div>
+                    <img alt="Project 1 image" class="rounded-lg shadow-lg" height="200" src="https://storage.googleapis.com/a1aa/image/BEXeAgRfTrmVs0LjPhzcBfZH7fQPbpqqc0if2daL6ruU4mWcC.jpg" width="300"/>
+                    <p class="mt-2 text-lg">Project name</p>
+                </div>
+                <div>
+                    <img alt="Project 2 image" class="rounded-lg shadow-lg" height="200" src="https://storage.googleapis.com/a1aa/image/V6VEAnXGZJIePaa9mvyK6VyEIegAHeElPyUVOp7ycf3HcTLOB.jpg" width="300"/>
+                    <p class="mt-2 text-lg">Project name</p>
+                </div>
+                <div>
+                    <img alt="Project 3 image" class="rounded-lg shadow-lg" height="200" src="https://storage.googleapis.com/a1aa/image/qK9aneap2L3fiU6vffPydZZdzhIuMdP6syLfKFNvENSt3mWcC.jpg" width="300"/>
+                    <p class="mt-2 text-lg">Project name</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="blog" class="p-6 text-center">
+        <h2 class="text-3xl font-bold neon-text">My blog</h2>
+        <div class="flex justify-center mt-6">
+            <div class="grid grid-cols-1 gap-6">
+                <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                    <img alt="Blog post 1 image" class="rounded-lg shadow-lg" height="200" src="https://storage.googleapis.com/a1aa/image/JCee8IcRPKue5pkyv1VU9UyrmB4Iyx17WIK6fqgYsb5BcTLOB.jpg" width="300"/>
+                    <p class="mt-2 text-lg">Blog post title</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                    <img alt="Blog post 2 image" class="rounded-lg shadow-lg" height="200" src="https://storage.googleapis.com/a1aa/image/hfOOIePVd9o6BUenPYPu8ZTIAAbDRMj0QEYiW147cFQztpFnA.jpg" width="300"/>
+                    <p class="mt-2 text-lg">Blog post title</p>
+                </div>
+                <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+                    <img alt="Blog post 3 image" class="rounded-lg shadow-lg" height="200" src="https://storage.googleapis.com/a1aa/image/b5EeQpz8I2QZX6bEoLfwFF3BC7eyyxkvBrUefUwBCAAZ3mWcC.jpg" width="300"/>
+                    <p class="mt-2 text-lg">Blog post title</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact" class="p-6 text-center">
+        <h2 class="text-3xl font-bold neon-text">Contact me</h2>
+        <form class="mt-6">
+            <div class="grid grid-cols-1 gap-4">
+                <input class="p-2 rounded-lg bg-gray-800 text-white" placeholder="Name" type="text"/>
+                <input class="p-2 rounded-lg bg-gray-800 text-white" placeholder="Email" type="email"/>
+                <textarea class="p-2 rounded-lg bg-gray-800 text-white" placeholder="Message"></textarea>
+                <button class="p-2 rounded-lg bg-purple-600 text-white" type="submit">Send</button>
+            </div>
+        </form>
+    </section>
+
+    <footer class="p-6 text-center">
+        <h2 class="text-3xl font-bold neon-text">Follow me</h2>
+        <div class="flex justify-center mt-6 space-x-4">
+            <a class="text-2xl" href="#">
+                <i class="fab fa-facebook"></i>
+            </a>
+            <a class="text-2xl" href="#">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a class="text-2xl" href="#">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a class="text-2xl" href="#">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const toggleButton = document.getElementById('navbar-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        toggleButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navbar links
+        const links = document.querySelectorAll('nav a');
+
+        links.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = e.target.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({ behavior: 'smooth' });
+
+                // Close the mobile menu after selection
+                mobileMenu.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>

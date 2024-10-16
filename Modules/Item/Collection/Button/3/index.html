@@ -1,0 +1,108 @@
+<html>
+<head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <style>
+        .dropdown-content {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <div class="flex justify-center items-center min-h-screen">
+        <div class="relative">
+            <button id="dropdownButton" class="bg-gray-800 p-4 rounded-lg shadow-lg flex items-center">
+                <span>Open Dropdown</span>
+                <i class="fas fa-chevron-down ml-2"></i>
+            </button>
+            <div id="dropdownContent" class="dropdown-content absolute bg-gray-800 p-6 rounded-lg shadow-lg mt-2 w-full md:w-auto">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                    <div>
+                        <h2 class="text-lg font-semibold mb-4">Canva Enterprise</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-building text-purple-500 text-2xl mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Empower your organization with an all-in-one workplace solution.</p>
+                            </div>
+                        </div>
+                        <h2 class="text-lg font-semibold mb-4">Canva Teams</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-users text-purple-500 text-2xl mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Transform teamwork, grow your brand and simplify workflows.</p>
+                            </div>
+                        </div>
+                        <h2 class="text-lg font-semibold mb-4">Contact Sales</h2>
+                        <div class="flex items-center mb-4">
+                            <i class="fas fa-phone text-purple-500 text-2xl mr-3"></i>
+                            <div>
+                                <p class="font-semibold">Talk to sales about how Canva can help your business.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-semibold mb-4">Business solutions</h2>
+                        <ul class="space-y-2">
+                            <li>Marketing</li>
+                            <li>Creatives</li>
+                            <li>Agencies</li>
+                            <li>Sales</li>
+                            <li>Communications</li>
+                            <li>Real estate</li>
+                            <li>Small and medium business</li>
+                            <li>Startups</li>
+                            <li>Franchises</li>
+                            <li class="font-semibold">All business solutions <i class="fas fa-chevron-right"></i></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-semibold mb-4">Use case</h2>
+                        <ul class="space-y-2">
+                            <li>Content creation</li>
+                            <li>Visual communication</li>
+                            <li>Brand management</li>
+                            <li>Team collaboration</li>
+                            <li>Asset management</li>
+                            <li>Brainstorms and workshops</li>
+                            <li>Branded team templates</li>
+                            <li>Productivity and workflows</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h2 class="text-lg font-semibold mb-4">Resources</h2>
+                        <ul class="space-y-2">
+                            <li>Business resources</li>
+                            <li>Case studies</li>
+                            <li>Features</li>
+                            <li>Integrations and apps</li>
+                            <li>Security</li>
+                            <li>Enterprise onboarding services</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('dropdownButton').addEventListener('click', function() {
+            var dropdownContent = document.getElementById('dropdownContent');
+            if (dropdownContent.style.display === 'none' || dropdownContent.style.display === '') {
+                dropdownContent.style.display = 'block';
+            } else {
+                dropdownContent.style.display = 'none';
+            }
+        });
+
+        // Close the dropdown if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('#dropdownButton') && !event.target.closest('#dropdownContent')) {
+                var dropdownContent = document.getElementById('dropdownContent');
+                if (dropdownContent.style.display === 'block') {
+                    dropdownContent.style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
