@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js 3D Animation</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <canvas id="threeCanvas"></canvas>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/controls/OrbitControls.js"></script>
+    
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('threeCanvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        // Create a gradient background
+        const loader = new THREE.TextureLoader();
+        loader.load('https://www.transparenttextures.com/patterns/asfalt-light.png', function (texture) {
+            scene.background = texture;
+        });
+
+        // Add lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+
+        // Create a reflective ground plane
+        const planeGeometry = new THREE.PlaneGeometry(100, 100);
+        const planeMaterial = new THREE.MeshStandardMaterial({ color: 0x555555, metalness: 0.9, roughness: 0.1 });
+        const ground = new THREE.Mesh(planeGeometry, planeMaterial);
+        ground.rotation.x = - Math.PI / 2;
+        scene.add(ground);
+
+        // Create multiple toruses
+        const createTorus = (color, position) => {
+            const geometry = new THREE.TorusGeometry(0.5, 0.2, 16, 100);
+            const material = new THREE.MeshStandardMaterial({ color, metalness: 0.9, roughness: 0.1 });
+            const torus = new THREE.Mesh(geometry, material);
+            torus.position.set(...position);
+            scene.add(torus);
+            return torus;
+        };
+
+        const toruses = [
+            createTorus(0x0077ff, [-1, 0.5, 0]),
+            createTorus(0xff0077, [1, 0.5, 0]),
+            createTorus(0x77ff00, [0, 0.5, -1]),
+        ];
+
+        camera.position.z = 5;
+
+        // Particle system
+        const particlesCount = 1000;
+        const positions = new Float32Array(particlesCount * 3);
+        for (let i = 0; i < particlesCount; i++) {
+            positions[i * 3] = (Math.random() - 0.5) * 10;
+            positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+            positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+        }
+
+        const particlesGeometry = new THREE.BufferGeometry();
+        particlesGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+        const particlesMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.05 });
+        const particles = new THREE.Points(particlesGeometry, particlesMaterial);
+        scene.add(particles);
+
+        // Animation
+        const animate = function () {
+            requestAnimationFrame(animate);
+
+            toruses.forEach((torus, index) => {
+                torus.rotation.x += 0.01 + index * 0.005;
+                torus.rotation.y += 0.02 + index * 0.01;
+            });
+
+            particles.rotation.y += 0.001;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>

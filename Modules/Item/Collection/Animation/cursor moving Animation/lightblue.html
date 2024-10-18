@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxury Particle Animation</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            background: linear-gradient(135deg, #121212, #3a3a3a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+        h1 {
+            color: #00aaff; /* Luxurious blue color */
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin: 0;
+            font-size: 60px;
+            text-shadow: 
+                0 0 20px rgba(0, 170, 255, 0.5), 
+                0 0 40px rgba(0, 170, 255, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div id="particles-js"></div>
+    <!-- <h1>Hammad</h1> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 300,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: ["#00aaff", "#4d94ff", "#ffdd57", "#ff99cc", "#ffffff"] // Added blue color
+                },
+                shape: {
+                    type: ["circle", "triangle", "edge"],
+                    stroke: {
+                        width: 0,
+                        color: "#ffffff"
+                    },
+                    polygon: {
+                        nb_sides: 5
+                    }
+                },
+                opacity: {
+                    value: 0.7,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 1,
+                        opacity_min: 0.1,
+                        sync: false
+                    }
+                },
+                size: {
+                    value: 6,
+                    random: true,
+                    anim: {
+                        enable: true,
+                        speed: 30,
+                        size_min: 0.1,
+                        sync: false
+                    }
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 180,
+                    color: "#00aaff", // Luxurious blue for line links
+                    opacity: 0.5,
+                    width: 1.5
+                },
+                move: {
+                    enable: true,
+                    speed: 5,
+                    direction: "none",
+                    random: false,
+                    straight: false,
+                    out_mode: "out",
+                    bounce: false,
+                    attract: {
+                        enable: false,
+                        rotateX: 600,
+                        rotateY: 1200
+                    }
+                }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: "repulse"
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: "push"
+                    },
+                    resize: true
+                },
+                modes: {
+                    grab: {
+                        distance: 300,
+                        line_linked: {
+                            opacity: 1
+                        }
+                    },
+                    bubble: {
+                        distance: 400,
+                        size: 50,
+                        duration: 2,
+                        opacity: 0.8,
+                        speed: 3
+                    },
+                    repulse: {
+                        distance: 200,
+                        duration: 0.4
+                    },
+                    push: {
+                        particles_nb: 4
+                    },
+                    remove: {
+                        particles_nb: 2
+                    }
+                }
+            },
+            retina_detect: true
+        });
+
+        // Animate the name "Hammad" with particles
+        const nameElement = document.createElement('canvas');
+        nameElement.width = window.innerWidth;
+        nameElement.height = window.innerHeight;
+        document.body.appendChild(nameElement);
+        const context = nameElement.getContext('2d');
+
+        context.font = 'bold 60px Arial';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillStyle = 'rgba(0, 170, 255, 1)'; // Luxurious blue for the name
+        context.fillText('Hammad', nameElement.width / 2, nameElement.height / 2);
+        const nameData = context.getImageData(0, 0, nameElement.width, nameElement.height).data;
+
+        function drawParticles() {
+            const particles = [];
+            for (let y = 0; y < nameData.length; y += 4) {
+                if (nameData[y + 3] > 128) {
+                    particles.push({
+                        x: (y / 4) % nameElement.width,
+                        y: Math.floor((y / 4) / nameElement.width),
+                        vx: Math.random() * 2 - 1,
+                        vy: Math.random() * 2 - 1
+                    });
+                }
+            }
+
+            function update() {
+                context.clearRect(0, 0, nameElement.width, nameElement.height);
+                particles.forEach((particle) => {
+                    particle.x += particle.vx;
+                    particle.y += particle.vy;
+                    context.fillStyle = 'rgba(0, 170, 255, 0.7)'; // Luxurious blue for particles
+                    context.beginPath();
+                    context.arc(particle.x, particle.y, 3, 0, Math.PI * 2);
+                    context.fill();
+                });
+                requestAnimationFrame(update);
+            }
+            update();
+        }
+
+        drawParticles();
+    </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Three.js 3D Animation</title>
+    <style>
+        body { margin: 0; }
+        canvas { display: block; }
+    </style>
+</head>
+<body>
+    <canvas id="threeCanvas"></canvas>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script>
+        // Scene setup
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('threeCanvas'), alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        // Create a gradient background
+        const loader = new THREE.TextureLoader();
+        loader.load('https://www.transparenttextures.com/patterns/asfalt-light.png', function (texture) {
+            scene.background = texture;
+        });
+
+        // Add lighting
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.4);
+        scene.add(ambientLight);
+
+        const pointLight = new THREE.PointLight(0xffffff, 1, 100);
+        pointLight.position.set(5, 5, 5);
+        scene.add(pointLight);
+
+        // Create a shiny torus
+        const geometry = new THREE.TorusGeometry(1, 0.4, 16, 100);
+        const material = new THREE.MeshStandardMaterial({
+            color: 0x0077ff,
+            metalness: 0.9,
+            roughness: 0.1
+        });
+        const torus = new THREE.Mesh(geometry, material);
+        scene.add(torus);
+
+        camera.position.z = 5;
+
+        // Animation
+        const animate = function () {
+            requestAnimationFrame(animate);
+
+            torus.rotation.x += 0.02;
+            torus.rotation.y += 0.01;
+
+            // Add some pulsating effect
+            torus.scale.x = Math.abs(Math.sin(Date.now() * 0.001)) + 1;
+            torus.scale.y = Math.abs(Math.cos(Date.now() * 0.001)) + 1;
+
+            renderer.render(scene, camera);
+        };
+
+        animate();
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+    </script>
+</body>
+</html>
