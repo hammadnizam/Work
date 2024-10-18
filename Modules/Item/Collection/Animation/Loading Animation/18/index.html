@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watch Loading Animation with Time</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+
+        .loader {
+            width: 100px; /* Size of the watch */
+            height: 100px; /* Size of the watch */
+            border: 10px solid #3498db; /* Watch border color */
+            border-radius: 50%; /* Circle shape */
+            position: relative;
+            animation: rotate 2s linear infinite; /* Rotate animation */
+        }
+
+        .hand {
+            position: absolute;
+            width: 4px; /* Hand width */
+            height: 40px; /* Hand length */
+            background-color: #333; /* Hand color */
+            top: 10px; /* Center the hand */
+            left: 50%; /* Center horizontally */
+            transform-origin: bottom; /* Pivot at the bottom */
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg); /* Full rotation */
+            }
+        }
+
+        #time {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="hand"></div>
+    </div>
+    <div id="time">Loading...</div>
+
+    <script>
+        function updateTime() {
+            const options = { timeZone: Intl.DateTimeFormat().resolvedOptions().timeZone, hour: '2-digit', minute: '2-digit', second: '2-digit' };
+            const time = new Date().toLocaleTimeString([], options);
+            document.getElementById('time').innerText = time;
+        }
+
+        // Show the time immediately
+        updateTime();
+
+        // Set a timer to update time every second for 3 seconds
+        const timeInterval = setInterval(updateTime, 1000);
+
+        // Hide loader and time after 3 seconds
+        setTimeout(() => {
+            clearInterval(timeInterval); // Stop the time updates
+            document.getElementById('loader').classList.add('hidden');
+            document.getElementById('time').classList.add('hidden'); // Hide time
+        }, 3000);
+    </script>
+</body>
+</html>

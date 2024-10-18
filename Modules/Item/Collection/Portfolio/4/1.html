@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muhammad Hammad's Portfolio</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #121212; /* Dark background for a luxurious feel */
+            color: #ffffff; /* White text for contrast */
+            line-height: 1.6;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(31, 31, 31, 0.9);
+            padding: 15px 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            transition: background 0.3s ease;
+        }
+
+        nav a {
+            color: #1e90ff; /* Light blue */
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            position: relative;
+            transition: color 0.3s;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -5px;
+            width: 0;
+            height: 2px;
+            background: #00bfff;
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: #00bfff; /* Change color on hover */
+        }
+
+        nav a:hover::after {
+            width: 100%; /* Underline effect on hover */
+        }
+
+        header, footer {
+            text-align: center;
+            padding: 50px;
+            background: #1f1f1f; /* Darker shade */
+        }
+
+        .typing-container {
+            display: inline-block;
+            border-right: 2px solid #1e90ff;
+            white-space: nowrap;
+            overflow: hidden;
+            animation: typing 4s steps(40, end), blink-caret 0.75s step-end infinite;
+            font-size: 2.5rem;
+            color: #1e90ff;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #1e90ff; }
+        }
+
+        .gradient-text {
+            font-size: 4rem;
+            background: linear-gradient(90deg, #1e90ff, #00bfff, #87ceeb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            display: inline-block;
+            overflow: hidden;
+            animation: gradient-slide 4s linear infinite;
+        }
+
+        @keyframes gradient-slide {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+        }
+
+        .portfolio {
+            padding: 50px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .portfolio-item {
+            background: #333;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .portfolio-item h3 {
+            margin: 0;
+            font-size: 1.8rem;
+            color: #1e90ff;
+        }
+
+        .portfolio-item p {
+            font-size: 1rem;
+            color: #f5f5f5;
+        }
+
+        .about, .contact {
+            padding: 50px;
+            text-align: center;
+        }
+
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .contact input, .contact textarea {
+            width: 300px;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            background: #333;
+            color: #f5f5f5;
+            transition: background 0.3s;
+        }
+
+        .contact input:focus, .contact textarea:focus {
+            background: #444;
+            outline: none;
+        }
+
+        .contact button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #1e90ff;
+            color: #f5f5f5;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .contact button:hover {
+            background: #00bfff;
+            transform: scale(1.05);
+        }
+
+        footer {
+            background: #1f1f1f;
+        }
+
+        footer p {
+            color: #1e90ff;
+            margin: 0;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+</head>
+
+<body>
+    <nav>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About Us</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+
+    <header>
+        <div class="container">
+            <div class="typing-container">Hello, I'm [Muhammad Hammad]</div>
+            <h1 class="gradient-text">Welcome to My Luxurious Portfolio</h1>
+            <p>I specialize in creating elegant and interactive designs.</p>
+            <a href="#portfolio" class="hover-underline">View My Work</a>
+        </div>
+    </header>
+
+    <section id="portfolio" class="portfolio">
+        <h2>My Projects</h2>
+        <div class="portfolio-item">
+            <h3>Project 1</h3>
+            <p>Short description of project 1.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>Project 2</h3>
+            <p>Short description of project 2.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>Project 3</h3>
+            <p>Short description of project 3.</p>
+        </div>
+        <div class="portfolio-item">
+            <h3>Project 4</h3>
+            <p>Short description of project 4.</p>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I am a passionate web developer with experience in creating beautiful and functional websites.</p>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" rows="5" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Muhammad Hammad. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            AOS.init({ duration: 1000, once: true });
+        });
+    </script>
+</body>
+
+</html>

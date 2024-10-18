@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boyfriend Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .face {
+            width: 60px;
+            height: 60px;
+            background-color: #ffcc00; /* Face color */
+            border-radius: 50%;
+            position: relative;
+            animation: wink 1.5s ease-in-out infinite; /* Winking animation */
+        }
+
+        .eye {
+            width: 10px;
+            height: 10px;
+            background-color: #000;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .eye.left {
+            top: 20px;
+            left: 15px;
+        }
+
+        .eye.right {
+            top: 20px;
+            left: 35px;
+            animation: wink-eye 1.5s ease-in-out infinite; /* Eye winking */
+        }
+
+        .smile {
+            width: 30px;
+            height: 10px;
+            border: 3px solid #000;
+            border-top-left-radius: 15px;
+            border-top-right-radius: 15px;
+            position: absolute;
+            bottom: 15px;
+            left: 15px;
+        }
+
+        .heart {
+            width: 20px;
+            height: 20px;
+            background-color: #ff4d4d; /* Heart color */
+            position: absolute;
+            bottom: -30px;
+            left: 20px;
+            transform: rotate(-45deg);
+            animation: beat 1.5s ease-in-out infinite; /* Heart beat animation */
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff4d4d; /* Heart color */
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes wink {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes wink-eye {
+            0%, 100% { height: 10px; }
+            50% { height: 0; } /* Eye disappears for wink */
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: scale(1) rotate(-45deg); }
+            50% { transform: scale(1.2) rotate(-45deg); } /* Scale for the beat */
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="face">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="smile"></div>
+            <div class="heart"></div>
+        </div>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.getElementById('loader').classList.add('hidden');
+        }, 3000); // Hide after 3 seconds
+    </script>
+</body>
+</html>

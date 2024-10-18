@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Couple Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .loader {
+            position: relative;
+            width: 120px;
+            height: 120px;
+            animation: bounce 1s infinite; /* Bounce animation */
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px); /* Bouncing height */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <svg viewBox="0 0 200 100">
+            <!-- Boyfriend -->
+            <circle cx="50" cy="30" r="15" fill="#4A90E2" /> <!-- Head -->
+            <rect x="40" y="45" width="20" height="40" fill="#4A90E2" /> <!-- Body -->
+            <line x1="40" y1="45" x2="20" y2="65" stroke="#4A90E2" stroke-width="5" /> <!-- Left arm -->
+            <line x1="60" y1="45" x2="80" y2="65" stroke="#4A90E2" stroke-width="5" /> <!-- Right arm -->
+
+            <!-- Girlfriend -->
+            <circle cx="150" cy="30" r="15" fill="#E94E77" /> <!-- Head -->
+            <rect x="140" y="45" width="20" height="40" fill="#E94E77" /> <!-- Body -->
+            <line x1="140" y1="45" x2="120" y2="65" stroke="#E94E77" stroke-width="5" /> <!-- Left arm -->
+            <line x1="160" y1="45" x2="180" y2="65" stroke="#E94E77" stroke-width="5" /> <!-- Right arm -->
+        </svg>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'; // Hide after 3 seconds
+        }, 3000);
+    </script>
+</body>
+</html>

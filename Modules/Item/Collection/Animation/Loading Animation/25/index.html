@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Development Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #101010; /* Dark background for tech effect */
+            color: #61dafb; /* Light blue text */
+            font-family: 'Courier New', Courier, monospace;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .progress-container {
+            width: 300px;
+            height: 20px;
+            background-color: #444;
+            border-radius: 10px;
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #61dafb;
+            width: 0;
+            animation: loading 4s forwards; /* Fill animation */
+            box-shadow: 0 0 20px #61dafb; /* Glowing effect */
+        }
+
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        .code-line {
+            display: block;
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cursor {
+            border-right: 2px solid #61dafb; /* Cursor effect */
+            animation: blink 0.7s step-end infinite; /* Cursor blinking */
+        }
+
+        @keyframes blink {
+            50% { border-color: transparent; }
+        }
+
+        .container {
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle, rgba(97, 218, 251, 0.1) 0%, rgba(97, 218, 251, 0) 70%);
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.1; }
+            50% { opacity: 0.3; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="overlay"></div>
+        <div class="progress-container">
+            <div class="progress"></div>
+        </div>
+        <div class="loader">
+            <div class="code-line">const loading = true;<span class="cursor"></span></div>
+            <div class="code-line">while (loading) {<span class="cursor"></span></div>
+            <div class="code-line">    console.log("Loading...");<span class="cursor"></span></div>
+            <div class="code-line">}</div>
+        </div>
+    </div>
+
+    <script>
+        const lines = document.querySelectorAll('.code-line');
+        let delay = 0;
+
+        lines.forEach((line, index) => {
+            line.style.animationDelay = `${delay}s`;
+            delay += 1; // Increase delay for each line
+        });
+
+        setTimeout(() => {
+            document.querySelector('.container').style.display = 'none'; // Hide after 4 seconds
+        }, 4000);
+    </script>
+</body>
+</html>

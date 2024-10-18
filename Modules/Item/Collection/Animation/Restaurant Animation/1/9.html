@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation - Lying</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f8ff; /* Light background */
+            font-family: 'Arial', sans-serif;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            animation: wobble 1s infinite; /* Wobbling animation */
+        }
+
+        @keyframes wobble {
+            0% {
+                transform: rotate(0deg);
+            }
+            25% {
+                transform: rotate(-5deg);
+            }
+            50% {
+                transform: rotate(5deg);
+            }
+            75% {
+                transform: rotate(-5deg);
+            }
+            100% {
+                transform: rotate(0deg);
+            }
+        }
+
+        .lie-icon {
+            width: 100%;
+            height: 100%;
+            background-color: #ffcccb; /* Light red color */
+            border-radius: 50%; /* Circular shape */
+            position: relative;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+        }
+
+        .lie-icon::before {
+            content: '😏'; /* Smirking face emoji */
+            font-size: 50px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+        }
+
+        .loading-message {
+            margin-top: 20px;
+            font-size: 18px;
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* Fade-in effect */
+            animation-delay: 2s; /* Delay for the message */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="lie-icon"></div>
+    </div>
+    <div class="loading-message">Lying in progress...</div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'; // Hide after 5 seconds
+        }, 3000);
+    </script>
+</body>
+</html>

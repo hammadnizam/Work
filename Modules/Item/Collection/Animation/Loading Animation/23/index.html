@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            animation: bounce 1s infinite; /* Bounce animation */
+        }
+
+        svg {
+            width: 100%;
+            height: 100%;
+            animation: spin 1s linear infinite; /* Spin animation */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px); /* Bouncing height */
+            }
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <svg viewBox="0 0 100 100">
+            <path d="M20 30 L40 30 L50 10 L60 30 L80 30 L70 50 L30 50 Z" fill="#76c7c0" /> <!-- Cart body -->
+            <circle cx="25" cy="60" r="5" fill="#555" /> <!-- Left wheel -->
+            <circle cx="65" cy="60" r="5" fill="#555" /> <!-- Right wheel -->
+        </svg>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'; // Hide after 3 seconds
+        }, 3000);
+    </script>
+</body>
+</html>

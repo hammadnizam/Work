@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Business Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+
+        .loader {
+            position: relative;
+            width: 100px;
+            height: 100px;
+        }
+
+        .briefcase {
+            width: 60px;
+            height: 40px;
+            background-color: #3B5998; /* Briefcase color */
+            position: absolute;
+            top: 30px;
+            left: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            animation: spin 1.5s linear infinite; /* Spin animation */
+        }
+
+        .handle {
+            width: 20px;
+            height: 10px;
+            background-color: #fff; /* Handle color */
+            position: absolute;
+            top: 0;
+            left: 20px;
+            border-radius: 5px;
+        }
+
+        .bar {
+            width: 10px;
+            height: 0;
+            background-color: #4CAF50; /* Growth bar color */
+            position: absolute;
+            bottom: 0;
+            left: 10px;
+            animation: grow 1s ease-in-out infinite; /* Grow animation */
+        }
+
+        .bar:nth-child(2) { left: 30px; animation-delay: 0.2s; }
+        .bar:nth-child(3) { left: 50px; animation-delay: 0.4s; }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes grow {
+            0%, 100% { height: 0; }
+            50% { height: 40px; } /* Max height for growth */
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader" id="loader">
+        <div class="briefcase">
+            <div class="handle"></div>
+        </div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <script>
+        setTimeout(() => {
+            document.getElementById('loader').classList.add('hidden');
+        }, 3000); // Hide after 3 seconds
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VS Code Inspired Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #1e1e1e; /* VS Code dark theme */
+            color: #61dafb; /* VS Code accent color */
+            font-family: 'Courier New', Courier, monospace; /* Monospace font for coding feel */
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .loader {
+            width: 300px;
+            position: relative;
+        }
+
+        .spinner {
+            border: 8px solid #444; /* Spinner background */
+            border-top: 8px solid #61dafb; /* Spinner color */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite; /* Spinning animation */
+            margin: 0 auto; /* Center the spinner */
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-message {
+            margin-top: 20px;
+            font-size: 18px;
+            animation: fadeIn 1s forwards; /* Fade-in effect */
+            opacity: 0;
+            animation-delay: 1.5s; /* Delay for the message */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .code-line {
+            display: block;
+            overflow: hidden; /* Hide overflow */
+            white-space: nowrap; /* Prevent wrapping */
+            border-right: 2px solid #61dafb; /* Cursor effect */
+            width: 0; /* Start with no width */
+            animation: typing 3s steps(30) forwards; /* Typewriter effect */
+            font-size: 16px;
+            margin: 10px 0; /* Spacing between lines */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        .container {
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="spinner"></div>
+        <div class="loading-message">Loading VS Code...</div>
+        <div class="code-line">const user = "Loading...";</div>
+        <div class="code-line">function initialize() {</div>
+        <div class="code-line">    console.log(user);</div>
+        <div class="code-line">}</div>
+        <div class="code-line">initialize();</div>
+    </div>
+
+    <script>
+        const lines = document.querySelectorAll('.code-line');
+        let delay = 0;
+
+        lines.forEach((line, index) => {
+            line.style.animationDelay = `${delay}s`;
+            delay += 0.5; // Increase delay for each line
+        });
+
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'; // Hide after 5 seconds
+        }, 5000);
+    </script>
+</body>
+</html>

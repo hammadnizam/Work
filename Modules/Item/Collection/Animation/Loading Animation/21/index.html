@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Luxurious Loading Animation</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #1e1e1e, #2c3e50); /* Gradient background */
+            font-family: 'Arial', sans-serif; /* Modern font */
+            color: #ecf0f1; /* Light text color */
+            overflow: hidden; /* Prevent scrolling */
+        }
+
+        .loader {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            animation: fadeIn 1s; /* Fade in animation */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 80px);
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .tool-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f39c12; /* Icon background */
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            font-size: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, background-color 0.3s; /* Smooth transition */
+        }
+
+        .tool-icon:hover {
+            transform: scale(1.1) rotate(10deg); /* Rotate and scale effect on hover */
+            background-color: #e67e22; /* Change color on hover */
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: #34495e; /* Progress bar background */
+            border-radius: 5px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #e67e22, #f39c12); /* Gradient progress */
+            animation: loading 3s linear forwards; /* Progress animation */
+        }
+
+        @keyframes loading {
+            0% { width: 0; }
+            100% { width: 100%; }
+        }
+
+        #loading {
+            font-size: 24px;
+            opacity: 0; /* Start hidden */
+            transition: opacity 1s ease; /* Fade in effect */
+            margin-top: 20px;
+        }
+
+        .visible {
+            opacity: 1; /* Make visible */
+        }
+
+        /* New content styling */
+        .content {
+            display: none; /* Initially hidden */
+            text-align: center;
+            font-size: 28px;
+            margin-top: 20px;
+            opacity: 0; /* Start hidden */
+            transition: opacity 1s ease; /* Fade in effect */
+        }
+
+        .show {
+            display: block; /* Show content */
+            opacity: 1; /* Make visible */
+        }
+
+        /* Additional animation */
+        @keyframes popIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="tool-grid">
+            <div class="tool-icon">💻</div>
+            <div class="tool-icon">🔧</div>
+            <div class="tool-icon">📊</div>
+            <div class="tool-icon">🖥️</div>
+            <div class="tool-icon">🌐</div>
+            <div class="tool-icon">🔍</div>
+        </div>
+        <div class="progress-container">
+            <div class="progress-bar"></div>
+        </div>
+        <div id="loading">Loading Developer Tools...</div>
+    </div>
+
+    <div class="content" id="mainContent">
+        <div style="animation: popIn 1s;">Developer Tools are Ready!</div>
+        <div>Welcome to the luxurious experience!</div>
+    </div>
+
+    <script>
+        // Show loading message and make it visible after 3 seconds
+        setTimeout(() => {
+            document.getElementById('loading').innerText = "Developer Tools Loaded!";
+            document.getElementById('loading').classList.add('visible');
+        }, 3000); // Change text after 3 seconds
+
+        // Hide loader and show main content after 3 seconds
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'; // Hide loader
+            const mainContent = document.getElementById('mainContent');
+            mainContent.classList.add('show'); // Show main content
+        }, 3000); // 3 seconds
+    </script>
+</body>
+</html>

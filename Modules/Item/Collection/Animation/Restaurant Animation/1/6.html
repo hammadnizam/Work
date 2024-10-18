@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation - Restaurant</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fce4ec; /* Light background */
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .loader {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            animation: bounce 1s infinite; /* Bounce animation */
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px); /* Bounce height */
+            }
+        }
+
+        .restaurant {
+            width: 100%;
+            height: 100%;
+            background-color: #ffab91; /* Restaurant color */
+            border-radius: 10px; /* Rounded edges */
+            position: relative;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+        }
+
+        .roof {
+            width: 100%;
+            height: 40px;
+            background-color: #d32f2f; /* Roof color */
+            position: absolute;
+            top: -20px;
+            left: 0;
+            border-radius: 10px 10px 0 0;
+            clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+        }
+
+        .chef {
+            content: '👨‍🍳'; /* Chef emoji */
+            font-size: 50px;
+            position: absolute;
+            bottom: 60px;
+            left: 15px;
+            animation: shake 0.5s infinite; /* Chef shaking */
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+        }
+
+        .food {
+            content: '🍔 🍕 🍣'; /* Food items emoji */
+            font-size: 30px;
+            position: absolute;
+            bottom: 10px;
+            left: 50px;
+        }
+
+        .loading-message {
+            margin-top: 20px;
+            font-size: 20px;
+            color: #4a4a4a;
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* Fade-in effect */
+            animation-delay: 2s; /* Delay for the message */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="restaurant">
+            <div class="roof"></div>
+            <div class="chef">👨‍🍳</div>
+            <div class="food">🍔 🍕 🍣</div>
+        </div>
+    </div>
+    <div class="loading-message">Welcome to the Restaurant!</div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'; // Hide after 5 seconds
+        }, 5000);
+    </script>
+</body>
+</html>

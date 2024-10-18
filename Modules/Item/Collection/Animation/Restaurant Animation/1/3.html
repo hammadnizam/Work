@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading Animation - Luxury Restaurant</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f4f8; /* Soft light background */
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .loader {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            animation: rotate 2s infinite; /* Rotating animation */
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg); /* Full rotation */
+            }
+        }
+
+        .restaurant {
+            width: 100%;
+            height: 100%;
+            background-color: #fff; /* Elegant white color */
+            border-radius: 20px; /* Rounded edges */
+            position: relative;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4); /* Shadow for depth */
+            overflow: hidden;
+        }
+
+        .roof {
+            width: 100%;
+            height: 60px;
+            background-color: #8b5a2b; /* Rich brown roof */
+            position: absolute;
+            top: -30px;
+            left: 0;
+            border-radius: 20px 20px 0 0;
+            clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+        }
+
+        .chef {
+            font-size: 70px;
+            position: absolute;
+            bottom: 90px;
+            left: 30px;
+            animation: bounce 0.6s infinite; /* Chef bouncing */
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .food {
+            font-size: 50px;
+            position: absolute;
+            bottom: 20px;
+            left: 80px;
+        }
+
+        .stars {
+            font-size: 30px;
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: gold;
+            animation: twinkle 1.5s infinite; /* Twinkling stars */
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading-message {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #4a4a4a;
+            opacity: 0;
+            animation: fadeIn 1s forwards; /* Fade-in effect */
+            animation-delay: 2s; /* Delay for the message */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="loader">
+        <div class="restaurant">
+            <div class="roof"></div>
+            <div class="chef">👨‍🍳</div>
+            <div class="food">🍷🍽️🍰</div> <!-- Wine glass, plate, and cake -->
+            <div class="stars">⭐️⭐️⭐️⭐️⭐️</div> <!-- Stars for elegance -->
+        </div>
+    </div>
+    <div class="loading-message">Indulge in a Luxurious Dining Experience!</div>
+
+    <script>
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'; // Hide after 5 seconds
+        }, 5000);
+    </script>
+</body>
+</html>
