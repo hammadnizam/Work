@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ultra-Luxurious Scroll Animation</title>
+    <style>
+        body {
+            font-family: 'Garamond', serif; /* Elegant serif font */
+            background-color: #f4f4f4; /* Light background for contrast */
+            color: #333;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        h1, h2, p {
+            margin: 20px 0;
+            transition: transform 0.3s ease;
+        }
+
+        /* Base styles for animations */
+        .fade-up, .fade-down, .fade-left, .fade-right {
+            opacity: 0;
+            transition: opacity 0.8s ease, transform 0.8s ease; /* Slower transition for elegance */
+        }
+
+        .fade-up.visible, .fade-down.visible, .fade-left.visible, .fade-right.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .fade-up {
+            transform: translateY(50px);
+        }
+        
+        .fade-down {
+            transform: translateY(-50px);
+        }
+
+        .fade-left {
+            transform: translateX(50px);
+        }
+
+        .fade-right {
+            transform: translateX(-50px);
+        }
+
+        .zoom-in {
+            opacity: 0;
+            transform: scale(0.5);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .zoom-in.visible {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            margin: 40px 0;
+            gap: 20px;
+        }
+
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25); /* Deeper shadow for luxury */
+            transition: transform 0.4s ease, box-shadow 0.4s ease; /* Smooth transition */
+        }
+
+        img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4); /* More pronounced shadow on hover */
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom right, #6b5b95, #feb236); /* Rich gradient */
+            color: white;
+            margin-bottom: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15); /* Softer shadow */
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Footer Styling */
+        footer {
+            margin-top: 50px;
+            padding: 20px;
+            background: #333;
+            color: white;
+            text-align: center;
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            img {
+                width: 100%;
+                max-width: 250px;
+            }
+
+            .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <section>
+            <h1 class="fade-up">Welcome to My Ultra-Luxurious Website</h1>
+            <p class="fade-down">Scroll down to indulge in exquisite elegance.</p>
+        </section>
+        
+        <section>
+            <div class="image-container">
+                <img src="https://via.placeholder.com/300/6b5b95/ffffff?text=Luxury+1" class="zoom-in" alt="Luxury Image 1">
+                <img src="https://via.placeholder.com/300/feb236/ffffff?text=Luxury+2" class="zoom-in" alt="Luxury Image 2">
+            </div>
+            <h2 class="fade-right">Discover the Essence of Luxury!</h2>
+            <p class="fade-left">Every detail is curated to provide a premium experience.</p>
+        </section>
+        
+        <footer>
+            <p>© 2024 My Ultra-Luxurious Website</p>
+        </footer>
+    </div>
+
+    <script>
+        const elementsToAnimate = document.querySelectorAll('.fade-up, .fade-down, .fade-left, .fade-right, .zoom-in');
+
+        const checkVisibility = () => {
+            const triggerBottom = window.innerHeight / 5 * 4;
+
+            elementsToAnimate.forEach((element) => {
+                const box = element.getBoundingClientRect();
+                if (box.top < triggerBottom) {
+                    element.classList.add('visible');
+                } else {
+                    element.classList.remove('visible'); // Optional: Remove class when scrolling back up
+                }
+            });
+        };
+
+        window.addEventListener('scroll', checkVisibility);
+        checkVisibility(); // Check visibility on page load
+    </script>
+</body>
+</html>
